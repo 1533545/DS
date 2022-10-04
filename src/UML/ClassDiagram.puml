@@ -36,7 +36,7 @@ package "Kernel" #DDDDDD {
       --
   }
 
-  note top of ProjectComponent: StartCounting() -> Instantiate attributs
+  note top of ProjectComponent: StartCounting() -> Instantiate attributes
 
 
 
