@@ -5,16 +5,11 @@ skinparam linetype ortho
 /' Tests '/
 /' package "Testing" #DDDDDD {
       class MainTests {
-
       }
-
       Abstract IProject {
       }
-
       class ProjectTests {
-
       }
-
       class TaskTests {
       }
 } '/
@@ -23,31 +18,32 @@ skinparam linetype ortho
 /' Back End '/
 package "Kernel" #DDDDDD {
   class Main {
-
+    +{static}main()
   }
 
   Abstract ProjectComponent {
       -_id : String
       -_fatherTree : ProjectComponent
       -_durationTime : DateTime
-      -_startTime : DateTime
-      -_finishTime : DateTime
+      /'-_startTime : DateTime
+      -_finishTime : DateTime'/
       -_name : String
       --
   }
 
-  note top of ProjectComponent: StartCounting() -> Instantiate attributes
+  /'note top of ProjectComponent: StartCounting() -> Instantiate attributes'/
 
 
 
   class ProjectComposite {
-     -_Children : ProjectComponent[]
-
      -void removeTask(projectOrTask : IProject)
      -void addTask(projectOrTask : IProject)
+     -bool isFinished()
   }
 
   class Task {
+    -startTime: DateTime
+    -finishTime: DateTime
   }
 
   class Time {
@@ -55,29 +51,37 @@ package "Kernel" #DDDDDD {
     -_dateTime : DateTime
 
     -tick()
-    -startTimer()
+    +startTimer()
+    +stopTimer()
   }
 
+  package "java.util" {
   abstract ObservableTime {
-
+    +void addTimeObserver(ob:TimeObserver)
+    +void deleteTimeObserver(ob:TimeObserver)
+    +void setChanged()
+    +TimeObserver notifyTimeObsever(arg0:ObservableTime,arg1:Object)
   }
-
   interface TimeObserver {
-     -void updateTime()
-     -void startCounting()
+       +void updateTime()
+       +void startCounting()
+    }
   }
+
+
 
   note top of ProjectComponent: tree type
 
 }
 
 /' Relationship '/
-  Task -up-|> ProjectComponent
-  ProjectComponent <|-down- ProjectComposite
-  ProjectComponent -down-o ProjectComposite : Children
+  Task "many" --|> "1..     " ProjectComponent
+  ProjectComponent "1..    " <|-- "many  " ProjectComposite
+  ProjectComponent --o ProjectComposite : Children
 
-  Time -up-|> ObservableTime
-  ObservableTime o-right-> TimeObserver
+  Time --|> ObservableTime
+  ObservableTime o--> TimeObserver: "observers*"
   ProjectComponent -up-|> TimeObserver
+  Main -- ProjectComponent: "instantiates"
 
 @enduml
