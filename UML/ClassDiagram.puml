@@ -76,7 +76,7 @@ package "Kernel" #DDDDDD {
 
   Time --|> Observable
   Observer <|-- TimeObserver
-  ProjectComponent -up-> "1..1   " TimeObserver
+  Task -left-> "1..1   " TimeObserver
   Main -- ProjectComponent: "instantiates"
 
 @enduml
