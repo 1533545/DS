@@ -1,0 +1,82 @@
+@startuml
+
+skinparam linetype ortho
+
+/' Tests '/
+/' package "Testing" #DDDDDD {
+      class MainTests {
+      }
+      Abstract IProject {
+      }
+      class ProjectTests {
+      }
+      class TaskTests {
+      }
+} '/
+
+
+/' Back End '/
+package "Kernel" #DDDDDD {
+  class Main {
+    +{static}main()
+  }
+
+  Abstract ProjectComponent {
+      -_id : String
+      -_fatherTree : ProjectComponent
+      -_durationTime : int
+      -_name : String
+      --
+  }
+
+  class ProjectComposite {
+     +void removeTask(projectOrTask : IProject)
+     +void addTask(projectOrTask : IProject)
+     +bool isFinished()
+  }
+
+  class Task {
+    -startTime: DateTime
+    -finishTime: DateTime
+  }
+
+  class Time {
+    -_timer : Timer
+    -_dateTime : DateTime
+    +startTimer()
+    +stopTimer()
+  }
+  class TimeObserver
+  {
+    +void startCounting()
+  }
+
+  package "java.util"
+  {
+      abstract Observable {
+        +void addObserver(o:Observer)
+        +void deleteObserver(o:Observer)
+        +void setChanged()
+        +notifyObservers(arg:object)
+      }
+      interface Observer
+      {
+           +void update()
+      }
+
+  }
+  note top of ProjectComponent: - Tree type \n- _durationTime -> Total Seconds
+
+}
+
+/' Relationship '/
+  Task --|> "1..*     " ProjectComponent
+  ProjectComponent "1..*    " <|-- ProjectComposite
+  ProjectComponent --o ProjectComposite : Children
+
+  Time --|> Observable
+  Observer <|-- TimeObserver
+  ProjectComponent -up-> "1..1   " TimeObserver
+  Main -- ProjectComponent: "instantiates"
+
+@enduml
