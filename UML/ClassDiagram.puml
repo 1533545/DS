@@ -22,61 +22,71 @@ package "Kernel" #DDDDDD {
   }
 
   Abstract ProjectComponent {
-      -_id : String
-      -_fatherTree : ProjectComponent
-      -_durationTime : int
-      -_name : String
-      --
+      +id : String
+      +fatherTree : ProjectComponent
+      +name : String
+      +description: String
+      +estimatedTime : Duration
+      +CompletedWork : Duration
+      #UpdateState()
+      #UpdateTime()
   }
 
   class ProjectComposite {
-     +void removeTask(projectOrTask : IProject)
-     +void addTask(projectOrTask : IProject)
-     +bool isFinished()
-  }
+     +RemoveComponent(Component : ProjectComponent) : void
+     +AddComponent(Component : ProjectComponent) : void
+   }
 
   class Task {
-    -startTime: DateTime
-    -finishTime: DateTime
+    +StartTask() : void
+    +PauseTask() : void
+    +FinishTask() : void
+/'    +startTime: DateTime
+    +finishTime: DateTime'/
   }
 
-  class Time {
-    -_timer : Timer
-    -_dateTime : DateTime
-    +startTimer()
-    +stopTimer()
+  enum ComponentState {
+    TODO,
+    DOING,
+    DONE
   }
-  class TimeObserver
-  {
-    +void startCounting()
+
+  class Timer {
+    -_start : LocalDateTime
+    -_end : LocalDateTime
+    +duration : Duration
+    +StartCounting() : void
+    +PauseCounting() : void
+    +StopCounting() : void
   }
 
   package "java.util"
   {
       abstract Observable {
-        +void addObserver(o:Observer)
-        +void deleteObserver(o:Observer)
-        +void setChanged()
-        +notifyObservers(arg:object)
+        +AddObserver(o:Observer) : void
+        +DeleteObserver(o:Observer) : void
+        +DeleteObservers() : void
+        #SetChanged() : void
+        +HasChanged() : bool
+        #ClearChanged() : void
+        +NotifyObservers(arg:object) : void
       }
       interface Observer
       {
-           +void update()
+           +void Update()
       }
-
+      Observable "0..N" *--> "1" Observer
   }
-  note top of ProjectComponent: - Tree type \n- _durationTime -> Total Seconds
 
 }
 
 /' Relationship '/
-  Task --|> "1..*     " ProjectComponent
-  ProjectComponent "1..*    " <|-- ProjectComposite
-  ProjectComponent --o ProjectComposite : Children
-
-  Time --|> Observable
-  Observer <|-- TimeObserver
-  Task -left-> "1..1   " TimeObserver
+  Task -right-|> ProjectComponent
+  ProjectComponent "1" o-right- "1" ComponentState : State
+  ProjectComponent <|-- ProjectComposite
+  ProjectComponent --o "N...1" ProjectComposite : Children
+  Task --|> Observable
+  Timer ..|> Observer
   Main -- ProjectComponent: "instantiates"
 
 @enduml

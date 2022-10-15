@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="671b40f3-9280-4f53-9c1b-7e6087e24731" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/ClassDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/UML/ClassDiagram.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="UML Sequence" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,11 +31,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/carlo/OneDrive/Escritorio/Universidad/diseño_de_software/problemas/DS/UML",
+    "last_opened_file_path": "C:/Users/carlo/OneDrive/Escritorio/Universidad/diseño_de_software/problemas/DS/UML/ClassDiagram.png",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -70,7 +78,12 @@
       <workItem from="1664614117505" duration="61000" />
       <workItem from="1665135032194" duration="2932000" />
       <workItem from="1665509150485" duration="501000" />
-      <workItem from="1665564700092" duration="2250000" />
+      <workItem from="1665564700092" duration="2734000" />
+      <workItem from="1665578271686" duration="557000" />
+      <workItem from="1665578842514" duration="5000" />
+      <workItem from="1665578855236" duration="7000" />
+      <workItem from="1665819065837" duration="4061000" />
+      <workItem from="1665827980356" duration="5516000" />
     </task>
     <servers />
   </component>
