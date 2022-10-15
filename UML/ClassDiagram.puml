@@ -84,7 +84,7 @@ package "Kernel" #DDDDDD {
   Task -right-|> ProjectComponent
   ProjectComponent "1" o-right- "1" ComponentState : State
   ProjectComponent <|-- ProjectComposite
-  ProjectComponent --o "N...1" ProjectComposite : Children
+  ProjectComponent "N" --o "1" ProjectComposite : Children
   Task --|> Observable
   Timer ..|> Observer
   Main -- ProjectComponent: "instantiates"
