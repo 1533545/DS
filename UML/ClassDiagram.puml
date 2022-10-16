@@ -85,8 +85,8 @@ package "Kernel" #DDDDDD {
   ProjectComponent "1" o-right- "1" ComponentState : State
   ProjectComponent <|-- ProjectComposite
   ProjectComponent "N" --o "1" ProjectComposite : Children
-  Task --|> Observable
-  Timer ..|> Observer
+  Task ..|> Observer
+  Timer --|> Observable
   Main -- ProjectComponent: "instantiates"
 
 @enduml
