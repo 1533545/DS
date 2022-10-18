@@ -22,8 +22,8 @@ package "Kernel" #DDDDDD {
   }
 
   Abstract ProjectComponent {
+      -fatherNode : ProjectComponent
       +id : String
-      +fatherTree : ProjectComponent
       +name : String
       +description: String
       +estimatedTime : Duration
@@ -38,11 +38,13 @@ package "Kernel" #DDDDDD {
    }
 
   class Task {
+    +startTime: LocalDateTime
+    +endTime: LocalDateTime
+    +timeIntervals: list<Interval>
     +StartTask() : void
     +PauseTask() : void
     +FinishTask() : void
-/'    +startTime: DateTime
-    +finishTime: DateTime'/
+    +AddTimeInterval(interval:Interval) : void
   }
 
   enum ComponentState {
@@ -51,13 +53,13 @@ package "Kernel" #DDDDDD {
     DONE
   }
 
-  class Timer {
+  class Interval {
     -_start : LocalDateTime
     -_end : LocalDateTime
-    +duration : Duration
     +StartCounting() : void
     +PauseCounting() : void
     +StopCounting() : void
+    +getDuration() : Duration
   }
 
   package "java.util"
@@ -73,9 +75,9 @@ package "Kernel" #DDDDDD {
       }
       interface Observer
       {
-           +void Update()
+           +void Update(observable : Observable, arg: object )
       }
-      Observable "0..N" *--> "1" Observer
+      Observable "0..N" *--> "1" Observer:ObserverList
   }
 
 }
@@ -86,7 +88,7 @@ package "Kernel" #DDDDDD {
   ProjectComponent <|-- ProjectComposite
   ProjectComponent "N" --o "1" ProjectComposite : Children
   Task ..|> Observer
-  Timer --|> Observable
+  Interval --|> Observable
   Main -- ProjectComponent: "instantiates"
 
 @enduml
