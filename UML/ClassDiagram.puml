@@ -40,7 +40,6 @@ package "Kernel" #DDDDDD {
   class Task {
     +startTime: LocalDateTime
     +endTime: LocalDateTime
-    +timeIntervals: list<Interval>
     +StartTask() : void
     +PauseTask() : void
     +FinishTask() : void
