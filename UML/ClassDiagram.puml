@@ -43,7 +43,7 @@ package "Kernel" #DDDDDD {
     +StartTask() : void
     +PauseTask() : void
     +FinishTask() : void
-    +AddTimeInterval(interval:Interval) : void
+    /'+AddTimeInterval(interval:Interval) : void'/
   }
 
   enum ComponentState {
@@ -61,6 +61,7 @@ package "Kernel" #DDDDDD {
     +getStart(): LocalDateTime
     +getEnd(): LocalDateTime
     +getDuration() : Duration
+    +update()
   }
 
   class Clock{
