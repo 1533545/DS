@@ -56,10 +56,19 @@ package "Kernel" #DDDDDD {
   class Interval {
     -_start : LocalDateTime
     -_end : LocalDateTime
-    +StartCounting() : void
+    /'+StartCounting() : void
     +PauseCounting() : void
-    +StopCounting() : void
+    +StopCounting() : void'/
+    +getStart(): LocalDateTime
+    +getEnd(): LocalDateTime
     +getDuration() : Duration
+  }
+
+  class Clock{
+  -_timer: Timer
+  +startTimer()
+  -tick()
+
   }
 
   package "java.util"
@@ -87,8 +96,9 @@ package "Kernel" #DDDDDD {
   ProjectComponent "1" o-right- "1" ComponentState : State
   ProjectComponent <|-- ProjectComposite
   ProjectComponent "N" --o "1" ProjectComposite : Children
-  Task ..|> Observer
-  Interval --|> Observable
+  Task "1" o-- "0..N" Interval
+  Interval ..|> Observer
   Main -- ProjectComponent: "instantiates"
+  Clock --|> Observable
 
 @enduml
