@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="671b40f3-9280-4f53-9c1b-7e6087e24731" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Kernel/ComponentState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Kernel/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Kernel/ProjectComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Kernel/ProjectComposite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Kernel/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/testComposite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/testProject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML/ClassDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/UML/ClassDiagram.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DS.TimeTracker/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DS.TimeTracker/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Sequence" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,15 +56,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\carlo\OneDrive\Escritorio\Universidad\diseño_de_software\problemas\DS\.idea" />
       <recent name="C:\Users\carlo\OneDrive\Escritorio\Universidad\diseño_de_software\problemas\DS" />
+      <recent name="C:\Users\carlo\OneDrive\Escritorio\Universidad\diseño_de_software\problemas\DS\.idea" />
       <recent name="C:\Users\carlo\OneDrive\Escritorio\Universidad\diseño_de_software\problemas\DS\UML" />
       <recent name="C:\Users\carlo\OneDrive\Escritorio\Universidad\diseño_de_software\problemas\DS\src" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="Kernel.Main" />
       <module name="DS.TimeTracker" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -84,7 +94,10 @@
       <workItem from="1665578855236" duration="7000" />
       <workItem from="1665819065837" duration="4061000" />
       <workItem from="1665827980356" duration="5941000" />
-      <workItem from="1666079726826" duration="737000" />
+      <workItem from="1666079726826" duration="797000" />
+      <workItem from="1666157899594" duration="66000" />
+      <workItem from="1666344797565" duration="750000" />
+      <workItem from="1666508641565" duration="5070000" />
     </task>
     <servers />
   </component>
