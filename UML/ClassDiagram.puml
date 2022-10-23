@@ -33,17 +33,17 @@ package "Kernel" #DDDDDD {
   }
 
   class ProjectComposite {
-     +RemoveComponent(Component : ProjectComponent) : void
+     +RemoveComponent(id: String) : void
      +AddComponent(Component : ProjectComponent) : void
    }
 
   class Task {
-    +startTime: LocalDateTime
-    +endTime: LocalDateTime
+    -startTime: LocalDateTime
+    -endTime: LocalDateTime
     +StartTask() : void
     +PauseTask() : void
     +FinishTask() : void
-    /'+AddTimeInterval(interval:Interval) : void'/
+    /'+AddTimeInterval(interval:Kernel.Interval) : void'/
   }
 
   enum ComponentState {

@@ -2,24 +2,22 @@ package Kernel;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.UUID;
 
 public abstract class ProjectComponent {
-    private ProjectComponent _fatherNode;
-    public String Id;
-    public String Name;
-    public String Description;
-    public Duration EstimatedTime;
-    public Duration CompletedWork;
-    public ComponentState State;
+    protected ProjectComponent _fatherNode;
+    protected String Id;
+    protected String Name;
+    protected String Description;
+    protected Duration EstimatedTime;
+    protected Duration CompletedWork;
+    protected ComponentState State;
 
-    protected ProjectComponent(ProjectComponent fatherNode, String id, String name,
-                               String description,Duration estimatedTime)
+    protected ProjectComponent(ProjectComponent fatherNode, String name)
     {
         this._fatherNode = fatherNode;
-        this.Id = id;
+        this.Id = generateUUID();
         this.Name = name;
-        this.Description = description;
-        this.EstimatedTime = estimatedTime;
         this.State = ComponentState.TODO;
         this.CompletedWork = Duration.between(LocalTime.NOON,LocalTime.NOON);
     }
@@ -48,6 +46,11 @@ public abstract class ProjectComponent {
         }
     }
 
+    protected String generateUUID() {
+        return UUID.randomUUID().toString();
+    }
+
+    //
 
     public void setCompletedWork()
     {
@@ -68,5 +71,15 @@ public abstract class ProjectComponent {
     public void getEstimatedTime()
     {
         //TODO: Map Duration to simple date format "yyyy-MM-dd:HH:mm:ss"
+    }
+
+    public void setDescription(String description)
+    {
+        this.Description = description;
+    }
+
+    public String getDescription()
+    {
+        return this.Description;
     }
 }
