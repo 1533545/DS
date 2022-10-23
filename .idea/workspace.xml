@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="671b40f3-9280-4f53-9c1b-7e6087e24731" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UML/ClassDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/UML/ClassDiagram.puml" afterDir="false" />
     </list>
@@ -14,6 +15,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Sequence" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -36,7 +38,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/carlo/OneDrive/Escritorio/Universidad/diseño_de_software/problemas/DS/UML/ClassDiagram.png&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Escritorio/Universidad/3r año/DS/Practica&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -83,8 +85,13 @@
       <workItem from="1665578842514" duration="5000" />
       <workItem from="1665578855236" duration="7000" />
       <workItem from="1665819065837" duration="4061000" />
-      <workItem from="1665827980356" duration="5941000" />
-      <workItem from="1666079726826" duration="737000" />
+      <workItem from="1665827980356" duration="5516000" />
+      <workItem from="1666199635385" duration="2156000" />
+      <workItem from="1666284003663" duration="62000" />
+      <workItem from="1666284107365" duration="604000" />
+      <workItem from="1666378269140" duration="617000" />
+      <workItem from="1666433288202" duration="2338000" />
+      <workItem from="1666508662564" duration="1166000" />
     </task>
     <servers />
   </component>

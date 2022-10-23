@@ -33,7 +33,7 @@ package "Kernel" #DDDDDD {
   }
 
   class ProjectComposite {
-     +RemoveComponent(Component : ProjectComponent) : void
+     +RemoveComponent(id: String) : void
      +AddComponent(Component : ProjectComponent) : void
    }
 
