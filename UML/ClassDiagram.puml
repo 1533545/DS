@@ -38,8 +38,8 @@ package "Kernel" #DDDDDD {
    }
 
   class Task {
-    +startTime: LocalDateTime
-    +endTime: LocalDateTime
+    -startTime: LocalDateTime
+    -endTime: LocalDateTime
     +StartTask() : void
     +PauseTask() : void
     +FinishTask() : void
