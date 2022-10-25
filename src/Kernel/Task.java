@@ -35,7 +35,7 @@ public class Task extends ProjectComponent{
         this._finishTime = this.IntervalList.get(-1).getEnd();
     }
 
-    public boolean finishtask(){
+    public boolean finishTask(){
         if(this.State == ComponentState.DONE)
         {
             return false;
