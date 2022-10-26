@@ -22,12 +22,12 @@ package "Kernel" #DDDDDD {
   }
 
   Abstract ProjectComponent {
-      -fatherNode : ProjectComponent
-      +id : String
-      +name : String
-      +description: String
-      +estimatedTime : Duration
-      +CompletedWork : Duration
+      #fatherNode : ProjectComponent
+      #id : String
+      #name : String
+      #description: String
+      #estimatedTime : Duration
+      #CompletedWork : Duration
       #UpdateState()
       #UpdateTime()
   }
