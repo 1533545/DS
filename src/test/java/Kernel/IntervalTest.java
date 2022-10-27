@@ -1,6 +1,9 @@
 package Kernel;
 
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 class IntervalTest {
@@ -14,22 +17,19 @@ class IntervalTest {
     System.out.println("The end time is: "+(i.getEnd()).format(formatter));
     c.addObserver(i);
     Task t=new Task();
+    LocalDateTime endTime=(i.getStart()).plusSeconds(10);
     t.startTask();
-
-    int counter=0;
     while(t.State!=ComponentState.DONE)
     {
-
       c.updateTask();
       Thread.sleep(3000);
       i.update(c,i.getEnd());
       System.out.println("The end time after the update is: "+(i.getEnd()).format(formatter));
-      if(counter==3)
+      if((i.getEnd()).isAfter(endTime))
       {
         t.State=ComponentState.DONE;
       }
-      counter=counter+1;
     }
-
+    System.out.println("The period of the task have expired!");
   }
 }
