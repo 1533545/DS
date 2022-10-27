@@ -1,9 +1,11 @@
-package Kernel;
+package Kernel;//package Kernel;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Observer;
+import java.util.Observable;
 
-public class Interval { //Implements Observer
+public class Interval implements Observer{ //Implements Observer
   private LocalDateTime _start;
   private LocalDateTime _end;
 
@@ -24,9 +26,8 @@ public class Interval { //Implements Observer
     return Duration.between(_start,_end);
   }
 
-  public void update() {
-      //TODO: Change this._end with value sent by observable
-      //TODO: Clock as an extension of observable
-      //TODO: Implement Observer
+  @Override
+  public void update(Observable obs,Object arg) {
+    this._end=(LocalDateTime) arg;
   }
 }
