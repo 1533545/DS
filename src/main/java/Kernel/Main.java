@@ -18,5 +18,6 @@ public class Main {
 
         System.out.println(root.toJson().toString(2));
         ProjectComponent.saveJson(root.toJson());
+        ProjectComponent.saveJsonPrettier(root.toJson());
     }
 }
