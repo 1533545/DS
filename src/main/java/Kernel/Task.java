@@ -1,6 +1,7 @@
 package Kernel;
 
-import java.time.Duration;
+import org.json.JSONObject;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,18 +9,25 @@ import java.util.List;
 public class Task extends ProjectComponent{
     private LocalDateTime _startTime;
     private LocalDateTime _finishTime;
-    public LocalDateTime CreactionTime;
+    public LocalDateTime CreationTime;
     public List<Interval> IntervalList;
 
-    public Task() {
-        IntervalList = new ArrayList<Interval>();
-        CreactionTime = LocalDateTime.now();
-        _startTime = null;
-        _finishTime = null;
+    public Task(ProjectComposite fatherNode, String name, String description) {
+        super(fatherNode, name, description);
+        fatherNode.addComponent(this);
+        this.IntervalList = new ArrayList<Interval>();
+        this.CreationTime = LocalDateTime.now();
+        this._startTime = LocalDateTime.now();
+        this._finishTime = LocalDateTime.now();
     }
 
-    public Task(String name, ProjectComposite projectComposite) {
-        super(projectComposite, name);
+    @Override
+    public JSONObject toJson() {
+        JSONObject jsonObject = toJsonComponent(new JSONObject());
+        jsonObject.put("CreationTime",this.CreationTime);
+        jsonObject.put("StartTime",this._startTime);
+        jsonObject.put("FinishTime",this._finishTime);
+        return jsonObject;
     }
 
     public void startTask() {

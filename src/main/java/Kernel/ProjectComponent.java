@@ -1,10 +1,18 @@
 package Kernel;
 
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.UUID;
 
 public abstract class ProjectComponent {
+    //TODO: RENAME
     protected ProjectComponent _fatherNode;
     protected String Id;
     protected String Name;
@@ -13,18 +21,21 @@ public abstract class ProjectComponent {
     protected Duration CompletedWork;
     protected ComponentState State;
 
-    protected ProjectComponent(ProjectComponent fatherNode, String name)
+    protected ProjectComponent(ProjectComponent fatherNode, String name, String Description)
     {
         this._fatherNode = fatherNode;
         this.Id = generateUUID();
         this.Name = name;
+        this.Description = Description;
         this.State = ComponentState.TODO;
-        this.CompletedWork = Duration.between(LocalTime.NOON,LocalTime.NOON);
     }
 
     protected ProjectComponent() {
         this._fatherNode = null;
+        this.Id = generateUUID();
         this.State = ComponentState.TODO;
+        this.Description = "";
+        this.Name = "";
         this.EstimatedTime = Duration.between(LocalTime.NOON,LocalTime.NOON);
         this.CompletedWork = Duration.between(LocalTime.NOON,LocalTime.NOON);
     }
@@ -50,7 +61,18 @@ public abstract class ProjectComponent {
         return UUID.randomUUID().toString();
     }
 
-    //
+    public abstract JSONObject toJson();
+
+    protected JSONObject toJsonComponent(JSONObject jsonObject) {
+        jsonObject.put("FatherNode", this._fatherNode);
+        jsonObject.put("Id",this.Id);
+        jsonObject.put("Name",this.Name);
+        jsonObject.put("Description", this.Description);
+        jsonObject.put("State",this.State);
+        jsonObject.put("CompletedWork",this.CompletedWork);
+        jsonObject.put("EstimatedTime", this.EstimatedTime);
+        return jsonObject;
+    }
 
     public void setCompletedWork()
     {
@@ -81,5 +103,12 @@ public abstract class ProjectComponent {
     public String getDescription()
     {
         return this.Description;
+    }
+
+    public static void saveJson(JSONObject json) throws IOException {
+        String text = json.toString(2);
+        FileWriter writer = new FileWriter("src/json/json.txt");
+        writer.write(text);
+        writer.close();
     }
 }

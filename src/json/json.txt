@@ -1,0 +1,57 @@
+{
+  "EstimatedTime": "PT0S",
+  "Description": "",
+  "CompletedWork": "PT0S",
+  "State": "TODO",
+  "Id": "237d6318-1c60-43d6-a0de-653c977e087e",
+  "Children": [
+    {
+      "Description": "Do a job Scheduler",
+      "FatherNode": "Kernel.ProjectComposite@f2a0b8e",
+      "State": "TODO",
+      "Id": "9cd5b545-40c7-4032-abf7-a72b4b29732e",
+      "Children": [
+        {
+          "Description": "Add a job queue",
+          "FinishTime": "2022-10-31T21:48:23.962113500",
+          "FatherNode": "Kernel.ProjectComposite@593634ad",
+          "State": "TODO",
+          "CreationTime": "2022-10-31T21:48:23.960603",
+          "StartTime": "2022-10-31T21:48:23.962113500",
+          "Id": "273eb5df-6e91-4e57-a044-5be1be88c56c",
+          "Name": "Job Queue"
+        },
+        {
+          "Description": "Implement a scheduling algorithm",
+          "FinishTime": "2022-10-31T21:48:23.962113500",
+          "FatherNode": "Kernel.ProjectComposite@593634ad",
+          "State": "TODO",
+          "CreationTime": "2022-10-31T21:48:23.962113500",
+          "StartTime": "2022-10-31T21:48:23.962113500",
+          "Id": "af6cdb06-7869-445a-b07f-ef61e2dd24ce",
+          "Name": "Scheduling Algorithm"
+        },
+        {
+          "Description": "Implement an error handler",
+          "FinishTime": "2022-10-31T21:48:23.963122900",
+          "FatherNode": "Kernel.ProjectComposite@593634ad",
+          "State": "TODO",
+          "CreationTime": "2022-10-31T21:48:23.963122900",
+          "StartTime": "2022-10-31T21:48:23.963122900",
+          "Id": "d244c228-be75-4b88-9c0e-500fb36062c9",
+          "Name": "Error Handler"
+        }
+      ],
+      "Name": "Scheduler"
+    },
+    {
+      "Description": "Do a model Mapper",
+      "FatherNode": "Kernel.ProjectComposite@f2a0b8e",
+      "State": "TODO",
+      "Id": "57e68367-3cc1-4e8e-9d02-a0164a5e36dd",
+      "Children": [],
+      "Name": "Mapper"
+    }
+  ],
+  "Name": ""
+}
