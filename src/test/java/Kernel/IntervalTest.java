@@ -16,7 +16,7 @@ class IntervalTest {
     System.out.println("The start time is: "+(i.getStart()).format(formatter));
     System.out.println("The end time is: "+(i.getEnd()).format(formatter));
     c.addObserver(i);
-    Task t=new Task();
+    Task t= new Task();
     LocalDateTime endTime=(i.getStart()).plusSeconds(10);
     t.startTask();
     while(t.State!=ComponentState.DONE)

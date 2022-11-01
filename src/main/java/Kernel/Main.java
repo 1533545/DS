@@ -1,9 +1,12 @@
 package Kernel;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        //TODO: Add json interval
         ProjectComposite root = new ProjectComposite();
 
         ProjectComposite scheduler = new ProjectComposite(root, "Scheduler", "Do a job Scheduler");
@@ -19,5 +22,7 @@ public class Main {
         System.out.println(root.toJson().toString(2));
         ProjectComponent.saveJson(root.toJson());
         ProjectComponent.saveJsonPrettier(root.toJson());
+        JSONObject jsonReadFromFile = ProjectComponent.readJson("json.txt");
+
     }
 }

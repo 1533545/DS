@@ -1,9 +1,7 @@
 package Kernel;
 
-import netscape.javascript.JSObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -13,12 +11,18 @@ public class ProjectComposite extends ProjectComponent{
 
     public ProjectComposite() {
         super();
-        Children = new ArrayList<>();
+        this.Children = new ArrayList<>();
     }
 
     public ProjectComposite(ProjectComponent fatherNode, String name, String description) {
         super(fatherNode, name, description);
-        Children = new ArrayList<>();
+        this.Children = new ArrayList<>();
+    }
+
+    public ProjectComposite(JSONObject jsonObject) {
+        super(jsonObject);
+        this.Children = new ArrayList<>();
+        JSONArray jsonArray = jsonObject.getJSONArray("Children");
     }
 
     @Override

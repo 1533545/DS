@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f72741b1-3d60-441f-a25a-2731bdff895b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/json/JsonPrettier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/JsonPrettier.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/json/json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/json.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComposite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComposite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Kernel/IntervalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Kernel/IntervalTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +111,8 @@
       <workItem from="1666770258077" duration="820000" />
       <workItem from="1667233641359" duration="709000" />
       <workItem from="1667242837597" duration="684000" />
-      <workItem from="1667243526149" duration="6402000" />
+      <workItem from="1667243526149" duration="7066000" />
+      <workItem from="1667281041040" duration="3564000" />
     </task>
     <servers />
   </component>
@@ -124,5 +129,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Kernel/Main.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

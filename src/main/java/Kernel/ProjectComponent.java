@@ -3,12 +3,12 @@ package Kernel;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.Scanner;
 import java.util.UUID;
 
 public abstract class ProjectComponent {
@@ -28,6 +28,25 @@ public abstract class ProjectComponent {
         this.Name = name;
         this.Description = Description;
         this.State = ComponentState.TODO;
+    }
+
+    protected ProjectComponent(JSONObject jsonObject){
+        this._fatherNode = (ProjectComponent) jsonObject.get("FatherNode");
+        this.Id = (String) jsonObject.get("Id");
+        this.Name = (String) jsonObject.get("Name");
+        this.Description = (String) jsonObject.get("Description");
+        this.State = (ComponentState) jsonObject.get("State");
+    }
+
+    protected JSONObject toJsonComponent(JSONObject jsonObject) {
+        jsonObject.put("FatherNode", this._fatherNode);
+        jsonObject.put("Id",this.Id);
+        jsonObject.put("Name",this.Name);
+        jsonObject.put("Description", this.Description);
+        jsonObject.put("State",this.State);
+        jsonObject.put("CompletedWork",this.CompletedWork);
+        jsonObject.put("EstimatedTime", this.EstimatedTime);
+        return jsonObject;
     }
 
     protected ProjectComponent() {
@@ -61,19 +80,6 @@ public abstract class ProjectComponent {
         return UUID.randomUUID().toString();
     }
 
-    public abstract JSONObject toJson();
-
-    protected JSONObject toJsonComponent(JSONObject jsonObject) {
-        jsonObject.put("FatherNode", this._fatherNode);
-        jsonObject.put("Id",this.Id);
-        jsonObject.put("Name",this.Name);
-        jsonObject.put("Description", this.Description);
-        jsonObject.put("State",this.State);
-        jsonObject.put("CompletedWork",this.CompletedWork);
-        jsonObject.put("EstimatedTime", this.EstimatedTime);
-        return jsonObject;
-    }
-
     public void setCompletedWork()
     {
         //TODO: Map simple date format ("yyyy-MM-dd:HH:mm:ss") to Duration type
@@ -105,6 +111,8 @@ public abstract class ProjectComponent {
         return this.Description;
     }
 
+    protected abstract JSONObject toJson();
+
     public static void saveJson(JSONObject json) {
         try {
             writeJson(json.toString(),"Json");
@@ -125,5 +133,33 @@ public abstract class ProjectComponent {
         FileWriter writer = new FileWriter("src/json/" + fileName + ".txt");
         writer.write(text);
         writer.close();
+    }
+
+    public static JSONObject readJson(String fileName) {
+        JSONObject jsonObject = null;
+        try {
+            String json = readFile(fileName);
+            jsonObject = new JSONObject(json);
+        } catch (FileNotFoundException e) {
+           System.out.println(e);
+        }
+        return jsonObject;
+    }
+
+    private static String readFile(String fileName) throws FileNotFoundException {
+        File file = new File("src/json/" + fileName);
+        String text = "";
+        try{
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNext()) {
+                text = text + scanner.nextLine();
+            }
+            scanner.close();
+        }
+        catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        return text;
     }
 }

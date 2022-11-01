@@ -21,6 +21,10 @@ public class Task extends ProjectComponent{
         this._finishTime = LocalDateTime.now();
     }
 
+    public Task() {
+
+    }
+
     @Override
     public JSONObject toJson() {
         JSONObject jsonObject = toJsonComponent(new JSONObject());
