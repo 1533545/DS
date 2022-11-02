@@ -31,15 +31,13 @@ public abstract class ProjectComponent {
     }
 
     protected ProjectComponent(JSONObject jsonObject){
-        this._fatherNode = (ProjectComponent) jsonObject.get("FatherNode");
         this.Id = (String) jsonObject.get("Id");
         this.Name = (String) jsonObject.get("Name");
         this.Description = (String) jsonObject.get("Description");
-        this.State = (ComponentState) jsonObject.get("State");
+        this.State = ComponentState.valueOf(jsonObject.get("State").toString());
     }
 
     protected JSONObject toJsonComponent(JSONObject jsonObject) {
-        jsonObject.put("FatherNode", this._fatherNode);
         jsonObject.put("Id",this.Id);
         jsonObject.put("Name",this.Name);
         jsonObject.put("Description", this.Description);
@@ -138,7 +136,7 @@ public abstract class ProjectComponent {
     public static JSONObject readJson(String fileName) {
         JSONObject jsonObject = null;
         try {
-            String json = readFile(fileName);
+            String json = readJsonFile(fileName);
             jsonObject = new JSONObject(json);
         } catch (FileNotFoundException e) {
            System.out.println(e);
@@ -146,13 +144,13 @@ public abstract class ProjectComponent {
         return jsonObject;
     }
 
-    private static String readFile(String fileName) throws FileNotFoundException {
+    private static String readJsonFile(String fileName) throws FileNotFoundException {
         File file = new File("src/json/" + fileName);
         String text = "";
         try{
             Scanner scanner = new Scanner(file);
             while (scanner.hasNext()) {
-                text = text + scanner.nextLine();
+                text = text.concat(scanner.nextLine());
             }
             scanner.close();
         }

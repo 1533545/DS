@@ -1,11 +1,14 @@
 package Kernel;
 
 import org.json.JSONObject;
+import org.json.JSONTokener;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         //TODO: Add json interval
         ProjectComposite root = new ProjectComposite();
 
@@ -23,6 +26,7 @@ public class Main {
         ProjectComponent.saveJson(root.toJson());
         ProjectComponent.saveJsonPrettier(root.toJson());
         JSONObject jsonReadFromFile = ProjectComponent.readJson("json.txt");
+        ProjectComposite projectReadFromJson = new ProjectComposite(jsonReadFromFile);
 
     }
 }

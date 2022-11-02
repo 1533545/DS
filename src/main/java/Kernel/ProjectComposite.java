@@ -19,23 +19,40 @@ public class ProjectComposite extends ProjectComponent{
         this.Children = new ArrayList<>();
     }
 
-    public ProjectComposite(JSONObject jsonObject) {
+    public ProjectComposite(JSONObject jsonObject) throws Exception {
         super(jsonObject);
+        JSONArray jsonArray  = jsonObject.getJSONArray("Children");
         this.Children = new ArrayList<>();
-        JSONArray jsonArray = jsonObject.getJSONArray("Children");
+        for(int i = 0; i < jsonArray.length(); i++) {
+            JSONObject childJson = jsonArray.getJSONObject(i);
+            String objectType = childJson.get("Class").toString();
+
+            if(objectType.equals("Task")) {
+                this.Children.add(new Task(childJson));
+            }
+            else if(objectType.equals("Project")){
+                this.Children.add(new ProjectComposite(childJson));
+            }
+            else {
+                throw new Exception("No class match");
+            }
+        }
     }
 
     @Override
     public JSONObject toJson() {
         JSONObject jsonObject = toJsonComponent(new JSONObject());
-        JSONArray jsonArray = new JSONArray();
+        jsonObject.put("Class", "Project");
+        jsonObject.put("Children", childrenToJson());
+        return jsonObject;
+    }
 
+    private JSONArray childrenToJson() {
+        JSONArray jsonArray = new JSONArray();
         for (ProjectComponent child : Children){
             jsonArray.put(child.toJson());
         }
-        jsonObject.put("Children",jsonArray);
-
-        return jsonObject;
+        return jsonArray;
     }
 
     public boolean RemoveComponent(String id) {
@@ -61,5 +78,6 @@ public class ProjectComposite extends ProjectComponent{
 
     public void addComponent(ProjectComponent projectComponent) {
         this.Children.add(projectComponent);
+        projectComponent._fatherNode = this;
     }
 }

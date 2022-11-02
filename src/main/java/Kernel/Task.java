@@ -1,8 +1,10 @@
 package Kernel;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,23 +17,47 @@ public class Task extends ProjectComponent{
     public Task(ProjectComposite fatherNode, String name, String description) {
         super(fatherNode, name, description);
         fatherNode.addComponent(this);
-        this.IntervalList = new ArrayList<Interval>();
+        this.IntervalList = new ArrayList<>();
         this.CreationTime = LocalDateTime.now();
         this._startTime = LocalDateTime.now();
         this._finishTime = LocalDateTime.now();
     }
 
-    public Task() {
-
+    public Task(JSONObject jsonObject) {
+        super(jsonObject);
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+        this._startTime = LocalDateTime.parse(jsonObject.get("StartTime").toString(),formatter);
+        this._finishTime = LocalDateTime.parse(jsonObject.get("FinishTime").toString(),formatter);
+        this.CreationTime = LocalDateTime.parse(jsonObject.get("CreationTime").toString(),formatter);
+        loadIntervalsFromJson(jsonObject.getJSONArray("Intervals"));
     }
+
+    public Task() {}
 
     @Override
     public JSONObject toJson() {
         JSONObject jsonObject = toJsonComponent(new JSONObject());
+        jsonObject.put("Class", "Task");
         jsonObject.put("CreationTime",this.CreationTime);
         jsonObject.put("StartTime",this._startTime);
         jsonObject.put("FinishTime",this._finishTime);
+        jsonObject.put("Intervals", intervalsToJson());
         return jsonObject;
+    }
+
+    private JSONArray intervalsToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Interval interval : IntervalList){
+            jsonArray.put(interval.toJson());
+        }
+        return jsonArray;
+    }
+
+    private void loadIntervalsFromJson(JSONArray jsonArray) {
+        for(int i = 0; i < jsonArray.length(); i++) {
+            JSONObject intervalJson = jsonArray.getJSONObject(i);
+            this.IntervalList.add(new Interval(intervalJson));
+        }
     }
 
     public void startTask() {
