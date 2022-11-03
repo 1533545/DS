@@ -3,8 +3,8 @@ package Kernel;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.time.LocalDateTime;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +19,6 @@ public class Task extends ProjectComponent{
     public Task(ProjectComposite fatherNode, String name, String description) {
         super(fatherNode, name, description);
         fatherNode.addComponent(this);
-        this.IntervalList = new ArrayList<>();
-        this.CreationTime = LocalDateTime.now();
-        this._startTime = LocalDateTime.now();
-        this._finishTime = LocalDateTime.now();
-    }
-    public Task(ProjectComposite fatherNode, String name) {
-        super(fatherNode, name);
         this.IntervalList = new ArrayList<>();
         this.CreationTime = LocalDateTime.now();
         this._startTime = LocalDateTime.now();
@@ -70,28 +63,39 @@ public class Task extends ProjectComponent{
     }
 
     public void startTask() {
-        Clock c = Clock.getInstance();
-        c.startTimer();
+        System.out.println(this.Name+" started");
+        Clock clock = Clock.getInstance();
+        clock.startTimer();
         updateState(ComponentState.DOING);
-        this.IntervalList.add(new Interval());
+        this.IntervalList.add(new Interval(this));
         this._startTime = this.IntervalList.get(this.IntervalList.size()-1).getStart();
-        c.addObserver(this.IntervalList.get(this.IntervalList.size()-1));
-        c.updateTask();
+        clock.addObserver(this.IntervalList.get(this.IntervalList.size()-1));
+        clock.updateTask();
+
 
     }
 
     public void pauseTask() {
+        System.out.println(this.Name+" has been paused");
         Clock c=Clock.getInstance();
-        c.setCancel();
+        if(c.countObservers()==1)
+        {
+            c.setCancel();
+        }
         c.deleteObserver(this.IntervalList.get(this.IntervalList.size()-1));
         updateState(ComponentState.TODO);
 
         this._finishTime = this.IntervalList.get(this.IntervalList.size()-1).getEnd();
+
     }
 
     public boolean finishTask(){
-
+        System.out.println(this.Name+" has been stopped");
         Clock c=Clock.getInstance();
+        if(c.countObservers()==1)
+        {
+            c.setCancel();
+        }
         c.deleteObserver(this.IntervalList.get(this.IntervalList.size()-1));
         if(this.State == ComponentState.DONE)
         {
@@ -102,17 +106,19 @@ public class Task extends ProjectComponent{
 
         this._finishTime = this.IntervalList.get(this.IntervalList.size()-1).getEnd();
 
-        /*for (Interval interval : this.IntervalList ) {
+        for (Interval interval : this.IntervalList ) {
             this.CompletedWork = this.CompletedWork.plus(interval.getDuration());
-        }*/
+        }
 
         return true;
     }
 
+
+
     @Override
     public String toString() {
-        Interval interval = new Interval();
-        return "Task Name:" + Name + ", Father:" + _fatherNode.getName() + ", Creation time:"+ this.CreationTime + ", Duration: " + interval.getDuration();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return String.format(String.format("\n" + "Task Name: " + Name + ", Father: " + _fatherNode.getName() + ", Initial date: " + this._startTime.format(formatter)
+            + ", Finish date: " + this._finishTime.format(formatter) + ", Duration: " + Duration.between(this._startTime, this._finishTime)));
     }
-
 }
