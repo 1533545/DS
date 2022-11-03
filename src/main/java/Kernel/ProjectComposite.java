@@ -93,8 +93,8 @@ public class ProjectComposite extends ProjectComponent{
     @Override
     public String toString() {
         if (_fatherNode != null)
-            return "Project Name:" + Name + ",Father:" + _fatherNode.getName() +  ",Children:" + Children ;
+            return "Project Name:" + Name + ", Father:" + _fatherNode.getName() +  ", Children:" + Children + "\n";
         else
-            return "Project Name:" + Name + ",Children:" + Children ;
+            return "Project Name:" + Name + ",Children:" + Children + "\n";
     }
 }

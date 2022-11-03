@@ -10,8 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        //TODO: Add json interval
-        //appendixA();
+        Ap
     }
 
     private static void appendixA(){ //appendix A
@@ -20,7 +19,7 @@ public class Main {
         ProjectComposite Software_Design = new ProjectComposite(root, "software design");
         ProjectComposite Software_Testing = new ProjectComposite(root, "software testing");
         ProjectComposite databases = new ProjectComposite(root, "databases");
-        Task transportation = new Task(root, "transportation");
+        Task transportation = new Task(root, "transportation", "");
         root.addComponent(Software_Design);
         root.addComponent(Software_Testing);
         root.addComponent(databases);
@@ -29,12 +28,12 @@ public class Main {
         ProjectComposite time_tracker = new ProjectComposite(Software_Design, "time tracker");
         Software_Design.addComponent(problems);
         Software_Design.addComponent(time_tracker);
-        Task first_list = new Task(problems, "first list");
-        Task second_list = new Task(problems, "second list");
+        Task first_list = new Task(problems, "first list", "");
+        Task second_list = new Task(problems, "second list", "");
         problems.addComponent(first_list);
         problems.addComponent(second_list);
-        Task read_handout = new Task(time_tracker, " read handout");
-        Task first_milestone = new Task(time_tracker, "first milestone");
+        Task read_handout = new Task(time_tracker, " read handout", "");
+        Task first_milestone = new Task(time_tracker, "first milestone", "");
         time_tracker.addComponent(read_handout);
         time_tracker.addComponent(first_milestone);
         System.out.println(root.toString());
