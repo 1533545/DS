@@ -28,10 +28,14 @@ public class ProjectComposite extends ProjectComponent{
             String objectType = childJson.get("Class").toString();
 
             if(objectType.equals("Task")) {
-                this.Children.add(new Task(childJson));
+                Task task = new Task(childJson);
+                task._fatherNode = this;
+                this.Children.add(task);
             }
             else if(objectType.equals("Project")){
-                this.Children.add(new ProjectComposite(childJson));
+                ProjectComposite project = new ProjectComposite(childJson);
+                project._fatherNode = this;
+                this.Children.add(project);
             }
             else {
                 throw new Exception("No class match");

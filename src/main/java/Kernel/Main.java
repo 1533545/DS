@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        //TODO: Add json interval
         ProjectComposite root = new ProjectComposite();
 
         ProjectComposite scheduler = new ProjectComposite(root, "Scheduler", "Do a job Scheduler");
@@ -23,9 +22,9 @@ public class Main {
         Task errorHandler = new Task(scheduler,"Error Handler", "Implement an error handler");
 
         System.out.println(root.toJson().toString(2));
-        ProjectComponent.saveJson(root.toJson());
-        ProjectComponent.saveJsonPrettier(root.toJson());
-        JSONObject jsonReadFromFile = ProjectComponent.readJson("json.txt");
+        JsonWriter.saveJson(root.toJson());
+        JsonWriter.saveJsonPrettier(root.toJson());
+        JSONObject jsonReadFromFile = JsonReader.readJson("json.txt");
         ProjectComposite projectReadFromJson = new ProjectComposite(jsonReadFromFile);
 
     }
