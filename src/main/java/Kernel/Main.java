@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) throws Exception {
         //TODO: Add json interval
         //appendixA();
-
     }
 
     private static void appendixA(){ //appendix A
@@ -38,7 +37,6 @@ public class Main {
         Task first_milestone = new Task(time_tracker, "first milestone");
         time_tracker.addComponent(read_handout);
         time_tracker.addComponent(first_milestone);
-
         System.out.println(root.toString());
     }
 

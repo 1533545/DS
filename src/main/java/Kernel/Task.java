@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.time.LocalDateTime;
+import java.time.Duration;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class Task extends ProjectComponent{
     private LocalDateTime _finishTime;
     public LocalDateTime CreationTime;
     public List<Interval> IntervalList;
+
 
     public Task(ProjectComposite fatherNode, String name, String description) {
         super(fatherNode, name, description);
@@ -109,6 +111,8 @@ public class Task extends ProjectComponent{
 
     @Override
     public String toString() {
-        return "Task Name:" + Name + ", Father:" + _fatherNode.getName();
+        Interval interval = new Interval();
+        return "Task Name:" + Name + ", Father:" + _fatherNode.getName() + ", Creation time:"+ this.CreationTime + ", Duration: " + interval.getDuration();
     }
+
 }
