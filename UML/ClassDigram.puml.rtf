@@ -1,0 +1,116 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 @startuml\
+\
+skinparam linetype ortho\
+\
+/' Tests '/\
+/' package "Testing" #DDDDDD \{\
+      class MainTests \{\
+      \}\
+      Abstract IProject \{\
+      \}\
+      class ProjectTests \{\
+      \}\
+      class TaskTests \{\
+      \}\
+\} '/\
+\
+\
+/' Back End '/\
+package "Kernel" #DDDDDD \{\
+  class Main \{\
+    +\{static\}main()\
+  \}\
+\
+  Abstract ProjectComponent \{\
+      #fatherNode : ProjectComponent\
+      #id : String\
+      #name : String\
+      #description: String\
+      #estimatedTime : Duration\
+      #CompletedWork : Duration\
+      #UpdateState()\
+      #UpdateTime()\
+  \}\
+\
+  class ProjectComposite \{\
+     +removeComponent(id: String) : void\
+     +addComponent(Component : ProjectComponent) : void\
+   \}\
+\
+  class Task \{\
+    -startTime: LocalDateTime\
+    -endTime: LocalDateTime\
+    -creationTime: LocalDateTime\
+    +startTask() : void\
+    +pauseTask() : void\
+    +finishTask() : void\
+    /'+AddTimeInterval(interval:Kernel.Interval) : void'/\
+  \}\
+\
+  enum ComponentState \{\
+    TODO,\
+    DOING,\
+    DONE\
+  \}\
+\
+  class Interval \{\
+    -_start : LocalDateTime\
+    -_end : LocalDateTime\
+    /'+startCounting() : void\
+    +pauseCounting() : void\
+    +stopCounting() : void'/\
+    +getStart(): LocalDateTime\
+    +getEnd(): LocalDateTime\
+    +getDuration() : Duration\
+    +update()\
+  \}\
+\
+  class Clock\{\
+  -_timer: Timer\
+  - _clock: Clock\
+  -_cancelTimer: boolean\
+  +startTimer()\
+  +setCancel()\
+  +updateTask()\
+  -tick()\
+\
+  \}\
+\
+  package "java.util"\
+  \{\
+      abstract Observable \{\
+        +addObserver(o:Observer) : void\
+        +deleteObserver(o:Observer) : void\
+        +deleteObservers() : void\
+        #setChanged() : void\
+        +hasChanged() : bool\
+        #clearChanged() : void\
+        +notifyObservers(arg:object) : void\
+      \}\
+      interface Observer\
+      \{\
+           +void Update(observable : Observable, arg: object )\
+      \}\
+      Observable "0..N" *--> "1" Observer:ObserverList\
+  \}\
+\
+\}\
+\
+/' Relationship '/\
+  Task -right-|> ProjectComponent\
+  ProjectComponent "1" o-right- "1" ComponentState : State\
+  ProjectComponent <|-- ProjectComposite\
+  ProjectComponent "N" --o "1" ProjectComposite : Children\
+  Task "1" o-- "0..N" Interval\
+  Interval ..|> Observer\
+  Main -- ProjectComponent: "instantiates"\
+  Clock --|> Observable\
+\
+@enduml}
