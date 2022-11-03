@@ -8,16 +8,29 @@ import java.util.TimerTask;
 public class Clock extends Observable {
     private Timer _timer=null;
     private static Clock c=null;
-    private Clock()
+
+    private boolean cancelTimer=false;
+    Clock()
     {
         this._timer=new Timer();
     }
-    public synchronized static Clock startTimer() {
+    public synchronized static Clock getInstance() {
         if(c == null)
         {
             c=new Clock();
         }
         return c;
+    }
+    public void startTimer()
+    {
+        if(this._timer==null)
+        {
+            this._timer=new Timer();
+        }
+    }
+    public void setCancel()
+    {
+        this.cancelTimer=true;
     }
     public void updateTask()
     {
@@ -26,12 +39,20 @@ public class Clock extends Observable {
             public void run() {
                 tick();
             }
-        },2,2000);
-
+        },0,2000);
     }
     private void tick() {
-        LocalDateTime dateTime = LocalDateTime.now();
-        setChanged();
-        notifyObservers(dateTime);
+        if(!cancelTimer)
+        {
+            LocalDateTime dateTime = LocalDateTime.now();
+            setChanged();
+            notifyObservers(dateTime);
+        }
+        else
+        {
+            this._timer.cancel();
+            this._timer.purge();
+        }
+
     }
 }

@@ -19,6 +19,10 @@ public class ProjectComposite extends ProjectComponent{
         super(fatherNode, name, description);
         this.Children = new ArrayList<>();
     }
+    public ProjectComposite(ProjectComponent fatherNode, String name) {
+        super(fatherNode, name);
+        this.Children = new ArrayList<>();
+    }
 
     public ProjectComposite(JSONObject jsonObject) throws Exception {
         super(jsonObject);
@@ -88,7 +92,9 @@ public class ProjectComposite extends ProjectComponent{
 
     @Override
     public String toString() {
-        //:TODO Check if this is correct, which i doubt it is...
-            return Arrays.toString(this.Children.toArray());
+        if (_fatherNode != null)
+            return "Project Name:" + Name + ",Father:" + _fatherNode.getName() +  ",Children:" + Children ;
+        else
+            return "Project Name:" + Name + ",Children:" + Children ;
     }
 }

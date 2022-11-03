@@ -22,6 +22,13 @@ public class Task extends ProjectComponent{
         this._startTime = LocalDateTime.now();
         this._finishTime = LocalDateTime.now();
     }
+    public Task(ProjectComposite fatherNode, String name) {
+        super(fatherNode, name);
+        this.IntervalList = new ArrayList<>();
+        this.CreationTime = LocalDateTime.now();
+        this._startTime = LocalDateTime.now();
+        this._finishTime = LocalDateTime.now();
+    }
 
     public Task(JSONObject jsonObject) {
         super(jsonObject);
@@ -61,7 +68,8 @@ public class Task extends ProjectComponent{
     }
 
     public void startTask() {
-        Clock c = Clock.startTimer();
+        Clock c = Clock.getInstance();
+        c.startTimer();
         updateState(ComponentState.DOING);
         this.IntervalList.add(new Interval());
         this._startTime = this.IntervalList.get(this.IntervalList.size()-1).getStart();
@@ -71,7 +79,8 @@ public class Task extends ProjectComponent{
     }
 
     public void pauseTask() {
-        Clock c=Clock.startTimer();
+        Clock c=Clock.getInstance();
+        c.setCancel();
         c.deleteObserver(this.IntervalList.get(this.IntervalList.size()-1));
         updateState(ComponentState.TODO);
 
@@ -80,7 +89,7 @@ public class Task extends ProjectComponent{
 
     public boolean finishTask(){
 
-        Clock c=Clock.startTimer();
+        Clock c=Clock.getInstance();
         c.deleteObserver(this.IntervalList.get(this.IntervalList.size()-1));
         if(this.State == ComponentState.DONE)
         {
@@ -91,15 +100,15 @@ public class Task extends ProjectComponent{
 
         this._finishTime = this.IntervalList.get(this.IntervalList.size()-1).getEnd();
 
-        for (Interval interval : this.IntervalList ) {
+        /*for (Interval interval : this.IntervalList ) {
             this.CompletedWork = this.CompletedWork.plus(interval.getDuration());
-        }
+        }*/
 
         return true;
     }
 
     @Override
     public String toString() {
-        
+        return "Task Name:" + Name + ", Father:" + _fatherNode.getName();
     }
 }
