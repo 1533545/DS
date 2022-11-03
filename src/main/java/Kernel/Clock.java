@@ -7,12 +7,17 @@ import java.util.TimerTask;
 
 public class Clock extends Observable {
     private Timer _timer=null;
-
-    public void startTimer() {
-        if(this._timer==null)
+    private static Clock c=null;
+    private Clock()
+    {
+        this._timer=new Timer();
+    }
+    public synchronized static Clock startTimer() {
+        if(c == null)
         {
-            this._timer = new Timer();
+            c=new Clock();
         }
+        return c;
     }
     public void updateTask()
     {
@@ -21,7 +26,7 @@ public class Clock extends Observable {
             public void run() {
                 tick();
             }
-        },0,3000);
+        },2,2000);
 
     }
     private void tick() {
