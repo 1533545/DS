@@ -11,7 +11,8 @@ public class Main {
             Clock c=Clock.getInstance();
             Thread.sleep(1500);
             ProjectComposite root = new ProjectComposite(null,"root","father");
-            Task transportation= new Task(root,"transportation","transport");
+            ProjectComposite sideProject = new ProjectComposite(root,"Side project","project");
+            Task transportation= new Task(sideProject,"transportation","transport");
             transportation.startTask();
             Thread.sleep(6005);
             transportation.pauseTask();
