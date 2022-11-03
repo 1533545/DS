@@ -46,4 +46,9 @@ public class Interval implements Observer{ //Implements Observer
   public void update(Observable obs,Object arg) {
     this._end=(LocalDateTime) arg;
   }
+
+  @Override
+  public String toString() {
+    return super.toString();
+  }
 }

@@ -160,4 +160,7 @@ public abstract class ProjectComponent {
         }
         return text;
     }
+
+    @Override
+    public abstract String toString();
 }

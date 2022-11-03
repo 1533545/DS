@@ -61,26 +61,34 @@ public class Task extends ProjectComponent{
     }
 
     public void startTask() {
+        Clock c = Clock.startTimer();
         updateState(ComponentState.DOING);
         this.IntervalList.add(new Interval());
         this._startTime = this.IntervalList.get(this.IntervalList.size()-1).getStart();
-        //TODO: Start intervals
+        c.addObserver(this.IntervalList.get(this.IntervalList.size()-1));
+        c.updateTask();
+
     }
 
     public void pauseTask() {
+        Clock c=Clock.startTimer();
+        c.deleteObserver(this.IntervalList.get(this.IntervalList.size()-1));
         updateState(ComponentState.TODO);
-        //TODO: End interval
+
         this._finishTime = this.IntervalList.get(this.IntervalList.size()-1).getEnd();
     }
 
     public boolean finishTask(){
+
+        Clock c=Clock.startTimer();
+        c.deleteObserver(this.IntervalList.get(this.IntervalList.size()-1));
         if(this.State == ComponentState.DONE)
         {
             return false;
         }
         updateState(ComponentState.DONE);
 
-        //TODO: End interval
+
         this._finishTime = this.IntervalList.get(this.IntervalList.size()-1).getEnd();
 
         for (Interval interval : this.IntervalList ) {
@@ -90,5 +98,8 @@ public class Task extends ProjectComponent{
         return true;
     }
 
-
+    @Override
+    public String toString() {
+        
+    }
 }

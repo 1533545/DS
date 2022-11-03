@@ -3,6 +3,7 @@ package Kernel;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -79,5 +80,11 @@ public class ProjectComposite extends ProjectComponent{
     public void addComponent(ProjectComponent projectComponent) {
         this.Children.add(projectComponent);
         projectComponent._fatherNode = this;
+    }
+
+    @Override
+    public String toString() {
+        //:TODO Check if this is correct, which i doubt it is...
+            return Arrays.toString(this.Children.toArray());
     }
 }
