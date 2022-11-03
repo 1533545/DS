@@ -28,6 +28,7 @@ public abstract class ProjectComponent {
         this.Name = name;
         this.Description = Description;
         this.State = ComponentState.TODO;
+        this.CompletedWork = Duration.between(LocalTime.NOON,LocalTime.NOON);
     }
 
     public ProjectComponent(ProjectComponent fatherNode, String name) {
@@ -36,6 +37,7 @@ public abstract class ProjectComponent {
         this.Name = name;
         this.Description = Description;
         this.State = ComponentState.TODO;
+        this.CompletedWork = Duration.between(LocalTime.NOON,LocalTime.NOON);
     }
 
     protected ProjectComponent(JSONObject jsonObject){

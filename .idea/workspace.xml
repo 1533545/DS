@@ -6,11 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="f72741b1-3d60-441f-a25a-2731bdff895b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Clock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Interval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComposite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComposite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Clock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Clock$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Clock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Clock.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Interval.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Interval.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/ProjectComposite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/ProjectComposite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/ProjectComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/ProjectComponent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Task.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +123,7 @@
       <workItem from="1667464446392" duration="1895000" />
       <workItem from="1667473567335" duration="229000" />
       <workItem from="1667495792761" duration="1644000" />
-      <workItem from="1667501311048" duration="947000" />
+      <workItem from="1667501311048" duration="2729000" />
     </task>
     <servers />
   </component>
@@ -140,10 +144,14 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Kernel/Interval.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="1" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Kernel/ProjectComponent.java</url>
+          <line>79</line>
+          <properties class="Kernel.ProjectComponent" method="updateTime">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

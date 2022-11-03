@@ -67,11 +67,11 @@ public class Task extends ProjectComponent{
         Clock clock = Clock.getInstance();
         clock.startTimer();
         updateState(ComponentState.DOING);
-        this.IntervalList.add(new Interval(this));
-        this._startTime = this.IntervalList.get(this.IntervalList.size()-1).getStart();
-        clock.addObserver(this.IntervalList.get(this.IntervalList.size()-1));
+        Interval interval = new Interval(this);
+        this.IntervalList.add(interval);
+        this._startTime = interval.getStart();
+        clock.addObserver(interval);
         clock.updateTask();
-
 
     }
 
@@ -92,23 +92,24 @@ public class Task extends ProjectComponent{
     public boolean finishTask(){
         System.out.println(this.Name+" has been stopped");
         Clock c=Clock.getInstance();
+        Interval lastInterval = this.IntervalList.get(this.IntervalList.size()-1);
         if(c.countObservers()==1)
         {
             c.setCancel();
         }
-        c.deleteObserver(this.IntervalList.get(this.IntervalList.size()-1));
+        c.deleteObserver(lastInterval);
         if(this.State == ComponentState.DONE)
         {
             return false;
         }
         updateState(ComponentState.DONE);
-
-
         this._finishTime = this.IntervalList.get(this.IntervalList.size()-1).getEnd();
 
         for (Interval interval : this.IntervalList ) {
             this.CompletedWork = this.CompletedWork.plus(interval.getDuration());
         }
+
+
 
         return true;
     }

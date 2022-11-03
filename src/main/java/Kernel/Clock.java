@@ -10,9 +10,10 @@ public class Clock extends Observable {
     private static Clock c=null;
 
     private boolean cancelTimer=false;
-    Clock()
+    private Clock()
     {
         this._timer=new Timer();
+        cancelTimer=false;
     }
     public synchronized static Clock getInstance() {
         if(c == null)
@@ -26,6 +27,7 @@ public class Clock extends Observable {
         if(this._timer==null)
         {
             this._timer=new Timer();
+            cancelTimer=false;
         }
     }
     public void setCancel()
@@ -39,7 +41,7 @@ public class Clock extends Observable {
             public void run() {
                 tick();
             }
-        },0,2000);
+        },2000,2000);
     }
     private void tick() {
         if(!cancelTimer)
@@ -52,7 +54,7 @@ public class Clock extends Observable {
         {
             this._timer.cancel();
             this._timer.purge();
+            this._timer=null;
         }
-
     }
 }
