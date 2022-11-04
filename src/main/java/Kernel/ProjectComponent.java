@@ -19,11 +19,13 @@ public abstract class ProjectComponent {
     protected String Id;
     protected String Name;
     protected String Description;
-    protected Duration EstimatedTime;
     protected Duration CompletedWork;
-    protected ComponentState State;
     protected LocalDateTime _startTime;
     protected LocalDateTime _finishTime;
+
+    protected abstract JSONObject toJson();
+    public abstract Duration getDuration();
+    public abstract void print(int indentation);
 
     protected ProjectComponent(ProjectComponent fatherNode, String name, String Description)
     {
@@ -31,10 +33,6 @@ public abstract class ProjectComponent {
         this.Id = generateUUID();
         this.Name = name;
         this.Description = Description;
-        this.State = ComponentState.TODO;
-        this.CompletedWork = Duration.between(LocalTime.NOON,LocalTime.NOON);
-        this._startTime = LocalDateTime.now();
-        this._finishTime = LocalDateTime.now();
     }
 
     protected ProjectComponent(JSONObject jsonObject){
@@ -42,37 +40,19 @@ public abstract class ProjectComponent {
         this.Id = (String) jsonObject.get("Id");
         this.Name = (String) jsonObject.get("Name");
         this.Description = (String) jsonObject.get("Description");
-        this.State = ComponentState.valueOf(jsonObject.get("State").toString());
         this._startTime = LocalDateTime.parse(jsonObject.get("StartTime").toString(),formatter);
         this._finishTime = LocalDateTime.parse(jsonObject.get("FinishTime").toString(),formatter);
     }
-
 
     protected JSONObject toJsonComponent(JSONObject jsonObject) {
         jsonObject.put("Id",this.Id);
         jsonObject.put("Name",this.Name);
         jsonObject.put("Description", this.Description);
-        jsonObject.put("State",this.State);
-        jsonObject.put("CompletedWork",this.CompletedWork);
-        jsonObject.put("EstimatedTime", this.EstimatedTime);
+        jsonObject.put("Start:", this._startTime);
+        jsonObject.put("Finish:", this._finishTime);
+        jsonObject.put("Duration", getDuration());
+
         return jsonObject;
-    }
-
-    protected void updateState(ComponentState state)
-    {
-        this.State = state;
-        if(this._fatherNode != null)
-        {
-            this._fatherNode.updateState(state);
-        }
-    }
-
-    protected void updateTime(Duration completedWork)
-    {
-        this.CompletedWork = getDuration();
-        if(this._fatherNode != null) {
-            this._fatherNode.updateTime(completedWork);
-        }
     }
 
     protected String generateUUID() {
@@ -97,6 +77,11 @@ public abstract class ProjectComponent {
         this._startTime = time;
     }
 
-    protected abstract JSONObject toJson();
-    public abstract Duration getDuration();
+    public String generateCustomIndentation(int indentation) {
+        String customIndentation = "";
+        for (int i = 0; i < indentation; i++) {
+            customIndentation = customIndentation.concat("-");
+        }
+        return customIndentation;
+    }
 }

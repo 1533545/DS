@@ -92,5 +92,13 @@ public class ProjectComposite extends ProjectComponent{
         return duration;
     }
 
+    public void print(int indentation) {
+        String customIndentation = generateCustomIndentation(indentation);
+        System.out.println(customIndentation + ">" + "PROJECT: " + this.Name + " - Start: " +
+                this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
+        for (ProjectComponent child : this._children) {
+            child.print(indentation + 2);
+        }
+    }
 
 }

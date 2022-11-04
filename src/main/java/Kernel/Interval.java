@@ -53,10 +53,10 @@ public class Interval implements Observer {
     this._start = time;
     ProjectComponent node = this._fatherTask;
     while (node != null) {
-      if(node.getStartTime() != null) {
+      if(node.getStartTime() == null) {
         node.setStartTime(time);
-        node = node._fatherNode;
       }
+      node = node._fatherNode;
     }
   }
 

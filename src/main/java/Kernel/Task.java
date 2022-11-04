@@ -29,8 +29,6 @@ public class Task extends ProjectComponent{
     public JSONObject toJson() {
         JSONObject jsonObject = toJsonComponent(new JSONObject());
         jsonObject.put("Class", "Task");
-        jsonObject.put("StartTime",this._startTime);
-        jsonObject.put("FinishTime",this._finishTime);
         jsonObject.put("Intervals", intervalsToJson());
         return jsonObject;
     }
@@ -56,9 +54,7 @@ public class Task extends ProjectComponent{
 
     public void startTask() {
         this._runningInterval = new Interval(this);
-
         addInterval(this._runningInterval);
-        this._startTime = LocalDateTime.now();
 
         Clock clock = Clock.getInstance();
         clock.addObserver(this._runningInterval);
@@ -66,14 +62,7 @@ public class Task extends ProjectComponent{
         System.out.println("Starting " + this.Name + "\n");
     }
 
-    public void pauseTask() {
-
-
-    }
-
     public void finishTask(){
-        this._finishTime = LocalDateTime.now();
-
         Clock clock = Clock.getInstance();
         clock.deleteObserver(this._runningInterval);
         this._runningInterval = null;
@@ -82,13 +71,18 @@ public class Task extends ProjectComponent{
     }
 
     @Override
-
     public Duration getDuration() {
         Duration duration = Duration.between(LocalTime.NOON,LocalTime.NOON);
         for (Interval interval : _intervals) {
             duration = duration.plus(interval.getDuration());
         }
         return duration;
+    }
+
+    public void print(int indentation) {
+        String customIndentation = generateCustomIndentation(indentation);
+        System.out.println(customIndentation + ">" + "TASK: " + this.Name + " - Start: " +
+                this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
     }
 
 }

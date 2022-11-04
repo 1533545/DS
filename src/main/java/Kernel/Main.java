@@ -1,8 +1,11 @@
 package Kernel;
 
+import org.json.JSONObject;
+import org.json.JSONWriter;
+
 public class Main {
     public static void main(String[] args) throws Exception {
-//        appendixA();
+        appendixA();
         appendixB();
     }
     private static void appendixB() throws Exception {
@@ -58,6 +61,10 @@ public class Main {
         transportation.finishTask();
 
         clock.stopClock();
+        root.print(0);
+        JSONObject rootJson = root.toJson();
+        JsonWriter.saveJson(rootJson);
+        JsonWriter.saveJsonPrettier(rootJson);
     }
     private static void appendixA() throws Exception {
         ProjectComposite root = new ProjectComposite(null,"root","father");
@@ -77,11 +84,11 @@ public class Main {
         Task second_list = new Task(problems, "second list","Dart");
         problems.addComponent(first_list);
         problems.addComponent(second_list);
-        Task read_handout = new Task(time_tracker, " read handout","task4");
+        Task read_handout = new Task(time_tracker, "read handout","task4");
         Task first_milestone = new Task(time_tracker, "first milestone","Java,IntelliJ");
         time_tracker.addComponent(read_handout);
         time_tracker.addComponent(first_milestone);
 
-        System.out.println(root.toString());
+        root.print(0);
     }
 }
