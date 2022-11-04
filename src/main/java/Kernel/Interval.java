@@ -40,23 +40,23 @@ public class Interval implements Observer {
     printTimes();
   }
 
-  public void updateFinishTime(LocalDateTime time) {
+  private void updateFinishTime(LocalDateTime time) {
     this._end = time;
-    ProjectComponent node = this._fatherTask;
+    Component node = this._fatherTask;
     while (node != null) {
       node.setFinishTime(time);
-      node = node._fatherNode;
+      node = node.fatherNode;
     }
   }
 
-  public void updateStartTime(LocalDateTime time) {
+  private void updateStartTime(LocalDateTime time) {
     this._start = time;
-    ProjectComponent node = this._fatherTask;
+    Component node = this._fatherTask;
     while (node != null) {
       if(node.getStartTime() == null) {
         node.setStartTime(time);
       }
-      node = node._fatherNode;
+      node = node.fatherNode;
     }
   }
 
@@ -74,21 +74,21 @@ public class Interval implements Observer {
   }
 
   private void printTaskTimes() {
-    System.out.println(this._fatherTask.Name.toUpperCase() + ":");
+    System.out.println(this._fatherTask.name.toUpperCase() + ":");
     System.out.println("Task     -> Start: " + this._fatherTask.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
     System.out.println("            End: " + this._fatherTask.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
     System.out.println("            Duration: " + this._fatherTask.getDuration());
   }
 
   private void printProjectTimes() {
-    ProjectComponent project = this._fatherTask._fatherNode;
+    Component project = this._fatherTask.fatherNode;
 
     while (project != null) {
-      System.out.println(project.Name.toUpperCase() + ":");
+      System.out.println(project.name.toUpperCase() + ":");
       System.out.println("Project  -> Start: " + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
       System.out.println("            End: " + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
       System.out.println("            Duration: " + project.getDuration());
-      project = project._fatherNode;
+      project = project.fatherNode;
     }
     System.out.println("-------------------------------------------------");
   }

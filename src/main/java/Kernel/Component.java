@@ -7,64 +7,63 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
-public abstract class ProjectComponent {
+public abstract class Component {
     //TODO: RENAME
-    protected ProjectComponent _fatherNode;
-    protected String Id;
-    protected String Name;
-    protected String Description;
-    protected Duration CompletedWork;
-    protected LocalDateTime _startTime;
-    protected LocalDateTime _finishTime;
+    protected Component fatherNode;
+    protected String id;
+    protected String name;
+    protected String description;
+    protected LocalDateTime startTime;
+    protected LocalDateTime finishTime;
 
     protected abstract JSONObject toJson();
     public abstract Duration getDuration();
     public abstract void print(int indentation);
 
-    protected ProjectComponent(ProjectComponent fatherNode, String name, String Description)
+    protected Component(Component fatherNode, String name, String Description)
     {
-        this._fatherNode = fatherNode;
-        this.Id = generateUUID();
-        this.Name = name;
-        this.Description = Description;
+        this.fatherNode = fatherNode;
+        this.id = generateUUID();
+        this.name = name;
+        this.description = Description;
     }
 
-    protected ProjectComponent(JSONObject jsonObject) {
+    protected Component(JSONObject jsonObject) {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
-        this.Id = (String) jsonObject.get("Id");
-        this.Name = (String) jsonObject.get("Name");
-        this.Description = (String) jsonObject.get("Description");
+        this.id = (String) jsonObject.get("Id");
+        this.name = (String) jsonObject.get("Name");
+        this.description = (String) jsonObject.get("Description");
         var start = LocalDateTime.parse(jsonObject.get("Start").toString(),formatter);
         var finish = LocalDateTime.parse(jsonObject.get("Finish").toString(),formatter);
 
         if(start != LocalDateTime.MIN) {
-            this._startTime = start;
+            this.startTime = start;
         }
 
         if(finish != LocalDateTime.MIN) {
-            this._finishTime = finish;
+            this.finishTime = finish;
         }
 
     }
 
     protected JSONObject toJsonComponent(JSONObject jsonObject) {
-        jsonObject.put("Id",this.Id);
-        jsonObject.put("Name",this.Name);
-        jsonObject.put("Description", this.Description);
+        jsonObject.put("Id",this.id);
+        jsonObject.put("Name",this.name);
+        jsonObject.put("Description", this.description);
         jsonObject.put("Duration", getDuration());
 
-        if(this._startTime == null) {
+        if(this.startTime == null) {
             jsonObject.put("Start", LocalDateTime.MIN);
         }
         else {
-            jsonObject.put("Start", this._startTime);
+            jsonObject.put("Start", this.startTime);
         }
 
-        if(this._finishTime == null) {
+        if(this.finishTime == null) {
             jsonObject.put("Finish", LocalDateTime.MIN);
         }
         else {
-            jsonObject.put("Finish", this._finishTime);
+            jsonObject.put("Finish", this.finishTime);
         }
 
         return jsonObject;
@@ -74,22 +73,22 @@ public abstract class ProjectComponent {
         return UUID.randomUUID().toString();
     }
 
-    public String getName() { return this.Name; }
+    public String getName() { return this.name; }
 
     public LocalDateTime getStartTime() {
-        return this._startTime;
+        return this.startTime;
     }
 
     public LocalDateTime getFinishTime() {
-        return this._finishTime;
+        return this.finishTime;
     }
 
     public void setFinishTime(LocalDateTime time) {
-        this._finishTime = time;
+        this.finishTime = time;
     }
 
     public void setStartTime(LocalDateTime time) {
-        this._startTime = time;
+        this.startTime = time;
     }
 
     public String generateCustomIndentation(int indentation) {

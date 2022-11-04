@@ -2,73 +2,75 @@
 
 skinparam linetype ortho
 
-/' Tests '/
-/' package "Testing" #DDDDDD {
-      class MainTests {
-      }
-      Abstract IProject {
-      }
-      class ProjectTests {
-      }
-      class TaskTests {
-      }
-} '/
-
-
 /' Back End '/
 package "Kernel" #DDDDDD {
-  class Main {
-    +{static}main()
-  }
 
-  Abstract ProjectComponent {
-      #fatherNode : ProjectComponent
+  Abstract Component {
+      #fatherNode : Component
       #id : String
       #name : String
       #description: String
-      #estimatedTime : Duration
-      #CompletedWork : Duration
-      #UpdateState()
+      #startTime: LocalDateTime
+      #finishTime: LocalDateTime
+      #Component(fatherNode: Project, name : String, description : String)
+      #Component(jsonObject: JSONObject)
       #UpdateTime()
+
+
+
   }
 
-  class ProjectComposite {
+  class Project {
+     +Project(fatherNode: Project, name : String, description : String)
+     +Project(jsonObject: JSONObject)
      +RemoveComponent(id: String) : void
      +AddComponent(Component : ProjectComponent) : void
-   }
-
-  class Task {
-    -startTime: LocalDateTime
-    -endTime: LocalDateTime
-    +StartTask() : void
-    +PauseTask() : void
-    +FinishTask() : void
-    /'+AddTimeInterval(interval:Kernel.Interval) : void'/
+     +toJson(): JSONObject
+     +getDuration() : Duration
+     +print(indentation : int)
   }
 
-  enum ComponentState {
-    TODO,
-    DOING,
-    DONE
+  class Task {
+    -_intervals: list<Interval>
+    -_runningInterval : Interval
+    +Task(fatherNode: Project, name : String, description : String)
+    +Task(jsonObject: JSONObject)
+    +toJson(): JSONObject
+    +addInterval(): void
+    +startTask() : void
+    +finishTask() : void
+    +getDuration() : Duration
+    +print(indentation : int)
   }
 
   class Interval {
     -_start : LocalDateTime
     -_end : LocalDateTime
-    /'+StartCounting() : void
-    +PauseCounting() : void
-    +StopCounting() : void'/
-    +getStart(): LocalDateTime
-    +getEnd(): LocalDateTime
+    -_fatherTask : Task
+    +Interval(task : Task)
+    +Interval(jsonObject: JSONObject)
+    +toJson():JSONObject
     +getDuration() : Duration
-    +update()
+    +printTimes() : void
   }
 
   class Clock{
   -_timer: Timer
-  +startTimer()
-  -tick()
+  -_clock: Clock
+  -_cancelTimer: boolean
+  +getInstance() : Clock
+  +startClock() : void
+  +stopClock() : void
+  -tick() : void
+  }
 
+  class JsonReader {
+    + {static} readJson(fileName:String) : JSONObject
+  }
+
+  class JsonWriter {
+    + {static} saveJson(json:JSONObject) : void
+    + {static} saveJsonPrettier(json:JSONObject) : void
   }
 
   package "java.util"
@@ -92,13 +94,11 @@ package "Kernel" #DDDDDD {
 }
 
 /' Relationship '/
-  Task -right-|> ProjectComponent
-  ProjectComponent "1" o-right- "1" ComponentState : State
-  ProjectComponent <|-- ProjectComposite
-  ProjectComponent "N" --o "1" ProjectComposite : Children
+  Task -right-|> Component
+  Component <|-- Project
+  Component "N" --o "1" Project : Children
   Task "1" o-- "0..N" Interval
   Interval ..|> Observer
-  Main -- ProjectComponent: "instantiates"
   Clock --|> Observable
 
 @enduml

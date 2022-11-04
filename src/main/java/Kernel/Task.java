@@ -4,17 +4,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Task extends ProjectComponent{
+public class Task extends Component {
     private List<Interval> _intervals;
     private Interval _runningInterval;
 
-    public Task(ProjectComposite fatherNode, String name, String description) {
+    public Task(Project fatherNode, String name, String description) {
         super(fatherNode, name, description);
         this._intervals = new ArrayList<>();
         _runningInterval = null;
@@ -60,7 +58,7 @@ public class Task extends ProjectComponent{
         Clock clock = Clock.getInstance();
         clock.addObserver(this._runningInterval);
 
-        System.out.println("Starting " + this.Name + "\n");
+        System.out.println("Starting " + this.name + "\n");
     }
 
     public void finishTask(){
@@ -68,7 +66,7 @@ public class Task extends ProjectComponent{
         clock.deleteObserver(this._runningInterval);
         this._runningInterval = null;
 
-        System.out.println("Finishing " + this.Name + "\n");
+        System.out.println("Finishing " + this.name + "\n");
     }
 
     @Override
@@ -82,7 +80,7 @@ public class Task extends ProjectComponent{
 
     public void print(int indentation) {
         String customIndentation = generateCustomIndentation(indentation);
-        System.out.println(customIndentation + ">" + "TASK: " + this.Name + " - Start: " +
+        System.out.println(customIndentation + ">" + "TASK: " + this.name + " - Start: " +
                 this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
     }
 

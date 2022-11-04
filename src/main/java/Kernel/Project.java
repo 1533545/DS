@@ -9,15 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ProjectComposite extends ProjectComponent{
-    private List<ProjectComponent> _children;
+public class Project extends Component {
+    private List<Component> _children;
 
-    public ProjectComposite(ProjectComponent fatherNode, String name, String description) {
+    public Project(Component fatherNode, String name, String description) {
         super(fatherNode, name, description);
         this._children = new ArrayList<>();
     }
 
-    public ProjectComposite(JSONObject jsonObject) throws Exception {
+    public Project(JSONObject jsonObject) throws Exception {
         super(jsonObject);
         JSONArray jsonArray  = jsonObject.getJSONArray("Children");
         this._children = new ArrayList<>();
@@ -27,12 +27,12 @@ public class ProjectComposite extends ProjectComponent{
 
             if(objectType.equals("Task")) {
                 Task task = new Task(childJson);
-                task._fatherNode = this;
+                task.fatherNode = this;
                 this._children.add(task);
             }
             else if(objectType.equals("Project")){
-                ProjectComposite project = new ProjectComposite(childJson);
-                project._fatherNode = this;
+                Project project = new Project(childJson);
+                project.fatherNode = this;
                 this._children.add(project);
             }
             else {
@@ -51,14 +51,14 @@ public class ProjectComposite extends ProjectComponent{
 
     private JSONArray childrenToJson() {
         JSONArray jsonArray = new JSONArray();
-        for (ProjectComponent child : _children){
+        for (Component child : _children){
             jsonArray.put(child.toJson());
         }
         return jsonArray;
     }
 
     public boolean RemoveComponent(String id) {
-        ProjectComponent componentById = getComponentById(id);
+        Component componentById = getComponentById(id);
         if(componentById == null)
         {
             return false;
@@ -67,10 +67,10 @@ public class ProjectComposite extends ProjectComponent{
         return true;
     }
 
-    private ProjectComponent getComponentById(String id) {
-        for (ProjectComponent projectComponent : this._children)
+    private Component getComponentById(String id) {
+        for (Component projectComponent : this._children)
         {
-            if (Objects.equals(projectComponent.Id, id))
+            if (Objects.equals(projectComponent.id, id))
             {
                 return projectComponent;
             }
@@ -78,15 +78,15 @@ public class ProjectComposite extends ProjectComponent{
         return null;
     }
 
-    public void addComponent(ProjectComponent projectComponent) {
+    public void addComponent(Component projectComponent) {
         this._children.add(projectComponent);
-        projectComponent._fatherNode = this;
+        projectComponent.fatherNode = this;
     }
 
     @Override
     public Duration getDuration() {
         Duration duration = Duration.between(LocalTime.NOON,LocalTime.NOON);
-        for (ProjectComponent child : this._children) {
+        for (Component child : this._children) {
             duration = duration.plus(child.getDuration());
         }
         return duration;
@@ -94,9 +94,9 @@ public class ProjectComposite extends ProjectComponent{
 
     public void print(int indentation) {
         String customIndentation = generateCustomIndentation(indentation);
-        System.out.println(customIndentation + ">" + "PROJECT: " + this.Name + " - Start: " +
+        System.out.println(customIndentation + ">" + "PROJECT: " + this.name + " - Start: " +
                 this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
-        for (ProjectComponent child : this._children) {
+        for (Component child : this._children) {
             child.print(indentation + 2);
         }
     }

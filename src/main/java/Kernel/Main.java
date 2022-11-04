@@ -1,29 +1,29 @@
 package Kernel;
 
 import org.json.JSONObject;
-import org.json.JSONWriter;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         appendixA();
         appendixB();
         JSONObject rootJson = JsonReader.readJson("json.txt");
-        ProjectComposite rootRead = new ProjectComposite(rootJson);
+        Project rootRead = new Project(rootJson);
         System.out.println("\n");
+        System.out.println("Print tree read from json:");
         rootRead.print(0);
     }
     private static void appendixB() throws Exception {
-        ProjectComposite root = new ProjectComposite(null,"root","father");
-        ProjectComposite Software_Design = new ProjectComposite(root, "software design","java,flutter");
-        ProjectComposite Software_Testing = new ProjectComposite(root, "software testing","c++,Java,python");
-        ProjectComposite databases = new ProjectComposite(root, "databases","SQL,python,C++");
+        Project root = new Project(null,"root","father");
+        Project Software_Design = new Project(root, "software design","java,flutter");
+        Project Software_Testing = new Project(root, "software testing","c++,Java,python");
+        Project databases = new Project(root, "databases","SQL,python,C++");
         Task transportation = new Task(root, "transportation","");
         root.addComponent(Software_Design);
         root.addComponent(Software_Testing);
         root.addComponent(databases);
         root.addComponent(transportation);
-        ProjectComposite problems = new ProjectComposite(Software_Design, "problems","");
-        ProjectComposite time_tracker = new ProjectComposite(Software_Design, "time tracker","");
+        Project problems = new Project(Software_Design, "problems","");
+        Project time_tracker = new Project(Software_Design, "time tracker","");
         Software_Design.addComponent(problems);
         Software_Design.addComponent(time_tracker);
         Task first_list = new Task(problems, "first list","java");
@@ -65,23 +65,24 @@ public class Main {
         transportation.finishTask();
 
         clock.stopClock();
+        System.out.println("Print tree ready to convert to json:");
         root.print(0);
         JSONObject rootJson = root.toJson();
         JsonWriter.saveJson(rootJson);
         JsonWriter.saveJsonPrettier(rootJson);
     }
     private static void appendixA() throws Exception {
-        ProjectComposite root = new ProjectComposite(null,"root","father");
-        ProjectComposite Software_Design = new ProjectComposite(root, "software design","java,flutter");
-        ProjectComposite Software_Testing = new ProjectComposite(root, "software testing","c++,Java,python");
-        ProjectComposite databases = new ProjectComposite(root, "databases","SQL,python,C++");
+        Project root = new Project(null,"root","father");
+        Project Software_Design = new Project(root, "software design","java,flutter");
+        Project Software_Testing = new Project(root, "software testing","c++,Java,python");
+        Project databases = new Project(root, "databases","SQL,python,C++");
         Task transportation = new Task(root, "transportation","");
         root.addComponent(Software_Design);
         root.addComponent(Software_Testing);
         root.addComponent(databases);
         root.addComponent(transportation);
-        ProjectComposite problems = new ProjectComposite(Software_Design, "problems","");
-        ProjectComposite time_tracker = new ProjectComposite(Software_Design, "time tracker","");
+        Project problems = new Project(Software_Design, "problems","");
+        Project time_tracker = new Project(Software_Design, "time tracker","");
         Software_Design.addComponent(problems);
         Software_Design.addComponent(time_tracker);
         Task first_list = new Task(problems, "first list","java");
