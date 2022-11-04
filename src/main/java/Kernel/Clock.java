@@ -1,11 +1,12 @@
+//Class Clock, observable object that will be constantly updating the time in intervals of 2 seconds.
+//Implements the singleton pattern so, there's only one Clock instance
 package Kernel;
 
 import java.util.Timer;
 import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.TimerTask;
-//Class Clock, observable object that will be constantly updating the time in intervals of 2 seconds.
-//Implements the singleton pattern so, there's only one Clock instance
+
 public class Clock extends Observable {
     private Timer _timer;
     private static Clock _clock;
