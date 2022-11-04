@@ -1,3 +1,6 @@
+//Class ProjectComponent, abstract class that describes the operations that their composites 
+//and tasks can implement, and the common attributes they have.
+
 package Kernel;
 
 import org.json.JSONObject;
@@ -91,8 +94,8 @@ public abstract class ProjectComponent {
     public void setStartTime(LocalDateTime time) {
         this._startTime = time;
     }
-    
-    //Funió creada per visualitzar de manera més clara l'arbre
+
+    //Method that helps visualize the structure of the tree
     public String generateCustomIndentation(int indentation) {
         String customIndentation = "";
         for (int i = 0; i < indentation; i++) {
