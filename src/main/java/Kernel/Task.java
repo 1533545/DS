@@ -1,14 +1,15 @@
+//Class Task, it's a class to create tasks and it represents the leaf of the projectComponent 
+
 package Kernel;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Task extends ProjectComponent{
     private List<Interval> _intervals;
@@ -83,7 +84,7 @@ public class Task extends ProjectComponent{
     public void print(int indentation) {
         String customIndentation = generateCustomIndentation(indentation);
         System.out.println(customIndentation + ">" + "TASK: " + this.Name + " - Start: " +
-                this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
+            this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
     }
 
 }
