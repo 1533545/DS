@@ -16,7 +16,7 @@ public class Clock extends Observable {
         this._cancelTimer = false;
     }
 
-    public synchronized static Clock getInstance() {
+    public synchronized static Clock getInstance() { //synchronized per gestionar de forma correcta més d'un thread
         if(_clock == null)
         {
             _clock = new Clock();
@@ -38,7 +38,7 @@ public class Clock extends Observable {
         else
         {
             this._timer.cancel();
-            this._timer.purge();
+            this._timer.purge(); //Eliminem totes les tasques cancelades del timer
             this._timer=null;
         }
     }
