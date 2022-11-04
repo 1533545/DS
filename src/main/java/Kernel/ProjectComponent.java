@@ -7,7 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -20,6 +22,8 @@ public abstract class ProjectComponent {
     protected Duration EstimatedTime;
     protected Duration CompletedWork;
     protected ComponentState State;
+    protected LocalDateTime _startTime;
+    protected LocalDateTime _finishTime;
 
     protected ProjectComponent(ProjectComponent fatherNode, String name, String Description)
     {
@@ -29,22 +33,18 @@ public abstract class ProjectComponent {
         this.Description = Description;
         this.State = ComponentState.TODO;
         this.CompletedWork = Duration.between(LocalTime.NOON,LocalTime.NOON);
-    }
-
-    public ProjectComponent(ProjectComponent fatherNode, String name) {
-        this._fatherNode = fatherNode;
-        this.Id = generateUUID();
-        this.Name = name;
-        this.Description = Description;
-        this.State = ComponentState.TODO;
-        this.CompletedWork = Duration.between(LocalTime.NOON,LocalTime.NOON);
+        this._startTime = LocalDateTime.now();
+        this._finishTime = LocalDateTime.now();
     }
 
     protected ProjectComponent(JSONObject jsonObject){
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
         this.Id = (String) jsonObject.get("Id");
         this.Name = (String) jsonObject.get("Name");
         this.Description = (String) jsonObject.get("Description");
         this.State = ComponentState.valueOf(jsonObject.get("State").toString());
+        this._startTime = LocalDateTime.parse(jsonObject.get("StartTime").toString(),formatter);
+        this._finishTime = LocalDateTime.parse(jsonObject.get("FinishTime").toString(),formatter);
     }
 
 
@@ -58,16 +58,6 @@ public abstract class ProjectComponent {
         return jsonObject;
     }
 
-    protected ProjectComponent() {
-        this._fatherNode = null;
-        this.Id = generateUUID();
-        this.State = ComponentState.TODO;
-        this.Description = "";
-        this.Name = "";
-        this.EstimatedTime = Duration.between(LocalTime.NOON,LocalTime.NOON);
-        this.CompletedWork = Duration.between(LocalTime.NOON,LocalTime.NOON);
-    }
-
     protected void updateState(ComponentState state)
     {
         this.State = state;
@@ -79,7 +69,7 @@ public abstract class ProjectComponent {
 
     protected void updateTime(Duration completedWork)
     {
-        this.CompletedWork = this.CompletedWork.plus(completedWork);
+        this.CompletedWork = getDuration();
         if(this._fatherNode != null) {
             this._fatherNode.updateTime(completedWork);
         }
@@ -89,90 +79,24 @@ public abstract class ProjectComponent {
         return UUID.randomUUID().toString();
     }
 
-    public void setCompletedWork()
-    {
-        //TODO: Map simple date format ("yyyy-MM-dd:HH:mm:ss") to Duration type
+    public String getName() { return this.Name; }
+
+    public LocalDateTime getStartTime() {
+        return this._startTime;
     }
 
-    public void getCompletedWork()
-    {
-        //TODO: Map Duration to simple date format "yyyy-MM-dd:HH:mm:ss"
+    public LocalDateTime getFinishTime() {
+        return this._finishTime;
     }
 
-
-    public void setEstimatedTime()
-    {
-        //TODO: Map simple date format ("yyyy-MM-dd:HH:mm:ss") to Duration type
+    public void setFinishTime(LocalDateTime time) {
+        this._finishTime = time;
     }
 
-    public void getEstimatedTime()
-    {
-        //TODO: Map Duration to simple date format "yyyy-MM-dd:HH:mm:ss"
-    }
-
-    public void setDescription(String description)
-    {
-        this.Description = description;
-    }
-
-    public String getName(){ return this.Name; }
-    public String getDescription()
-    {
-        return this.Description;
+    public void setStartTime(LocalDateTime time) {
+        this._startTime = time;
     }
 
     protected abstract JSONObject toJson();
-
-    public static void saveJson(JSONObject json) {
-        try {
-            writeJson(json.toString(),"Json");
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void saveJsonPrettier(JSONObject json) {
-        try {
-            writeJson(json.toString(2),"JsonPrettier");
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-    }
-
-    private static void writeJson(String text, String fileName) throws IOException {
-        FileWriter writer = new FileWriter("src/json/" + fileName + ".txt");
-        writer.write(text);
-        writer.close();
-    }
-
-    public static JSONObject readJson(String fileName) {
-        JSONObject jsonObject = null;
-        try {
-            String json = readJsonFile(fileName);
-            jsonObject = new JSONObject(json);
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-        }
-        return jsonObject;
-    }
-
-    private static String readJsonFile(String fileName) throws FileNotFoundException {
-        File file = new File("src/json/" + fileName);
-        String text = "";
-        try{
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNext()) {
-                text = text.concat(scanner.nextLine());
-            }
-            scanner.close();
-        }
-        catch (IOException e)
-        {
-            System.out.println(e);
-        }
-        return text;
-    }
-
-    @Override
-    public abstract String toString();
+    public abstract Duration getDuration();
 }

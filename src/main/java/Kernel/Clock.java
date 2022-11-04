@@ -6,49 +6,34 @@ import java.util.Observable;
 import java.util.TimerTask;
 
 public class Clock extends Observable {
-    private Timer _timer=null;
-    private static Clock c=null;
+    private Timer _timer;
+    private static Clock _clock;
+    private boolean _cancelTimer;
 
-    private boolean cancelTimer=false;
     private Clock()
     {
-        this._timer=new Timer();
-        cancelTimer=false;
+        this._timer = new Timer();
+        this._cancelTimer = false;
     }
+
     public synchronized static Clock getInstance() {
-        if(c == null)
+        if(_clock == null)
         {
-            c=new Clock();
+            _clock = new Clock();
         }
-        return c;
+        return _clock;
     }
-    public void startTimer()
+
+    public void startClock()
     {
-        if(this._timer==null)
-        {
-            this._timer=new Timer();
-            cancelTimer=false;
-        }
+        this._timer.schedule(new TimerTask() { @Override public void run() { tick(); } },2000,2000);
     }
-    public void setCancel()
-    {
-        this.cancelTimer=true;
-    }
-    public void updateTask()
-    {
-        this._timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                tick();
-            }
-        },2000,2000);
-    }
+
     private void tick() {
-        if(!cancelTimer)
+        if(!_cancelTimer)
         {
-            LocalDateTime dateTime = LocalDateTime.now();
             setChanged();
-            notifyObservers(dateTime);
+            notifyObservers(LocalDateTime.now());
         }
         else
         {
@@ -56,5 +41,9 @@ public class Clock extends Observable {
             this._timer.purge();
             this._timer=null;
         }
+    }
+
+    public void stopClock() {
+        this._cancelTimer = true;
     }
 }

@@ -2,32 +2,25 @@ package Kernel;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 public class ProjectComposite extends ProjectComponent{
-    private List<ProjectComponent> Children;
-
-    public ProjectComposite() {
-        super();
-        this.Children = new ArrayList<>();
-    }
+    private List<ProjectComponent> _children;
 
     public ProjectComposite(ProjectComponent fatherNode, String name, String description) {
         super(fatherNode, name, description);
-        this.Children = new ArrayList<>();
-    }
-    public ProjectComposite(ProjectComponent fatherNode, String name) {
-        super(fatherNode, name);
-        this.Children = new ArrayList<>();
+        this._children = new ArrayList<>();
     }
 
     public ProjectComposite(JSONObject jsonObject) throws Exception {
         super(jsonObject);
         JSONArray jsonArray  = jsonObject.getJSONArray("Children");
-        this.Children = new ArrayList<>();
+        this._children = new ArrayList<>();
         for(int i = 0; i < jsonArray.length(); i++) {
             JSONObject childJson = jsonArray.getJSONObject(i);
             String objectType = childJson.get("Class").toString();
@@ -35,12 +28,12 @@ public class ProjectComposite extends ProjectComponent{
             if(objectType.equals("Task")) {
                 Task task = new Task(childJson);
                 task._fatherNode = this;
-                this.Children.add(task);
+                this._children.add(task);
             }
             else if(objectType.equals("Project")){
                 ProjectComposite project = new ProjectComposite(childJson);
                 project._fatherNode = this;
-                this.Children.add(project);
+                this._children.add(project);
             }
             else {
                 throw new Exception("No class match");
@@ -58,7 +51,7 @@ public class ProjectComposite extends ProjectComponent{
 
     private JSONArray childrenToJson() {
         JSONArray jsonArray = new JSONArray();
-        for (ProjectComponent child : Children){
+        for (ProjectComponent child : _children){
             jsonArray.put(child.toJson());
         }
         return jsonArray;
@@ -70,12 +63,12 @@ public class ProjectComposite extends ProjectComponent{
         {
             return false;
         }
-        this.Children.remove(componentById);
+        this._children.remove(componentById);
         return true;
     }
 
     private ProjectComponent getComponentById(String id) {
-        for (ProjectComponent projectComponent : this.Children)
+        for (ProjectComponent projectComponent : this._children)
         {
             if (Objects.equals(projectComponent.Id, id))
             {
@@ -86,15 +79,18 @@ public class ProjectComposite extends ProjectComponent{
     }
 
     public void addComponent(ProjectComponent projectComponent) {
-        this.Children.add(projectComponent);
+        this._children.add(projectComponent);
         projectComponent._fatherNode = this;
     }
 
     @Override
-    public String toString() {
-        if (_fatherNode != null)
-            return "Project Name:" + Name + ", Father:" + _fatherNode.getName() +  ", Children:" + Children + "\n";
-        else
-            return "Project Name:" + Name + ",Children:" + Children + "\n";
+    public Duration getDuration() {
+        Duration duration = Duration.between(LocalTime.NOON,LocalTime.NOON);
+        for (ProjectComponent child : this._children) {
+            duration = duration.plus(child.getDuration());
+        }
+        return duration;
     }
+
+
 }
