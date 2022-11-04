@@ -26,7 +26,7 @@ public class Clock extends Observable {
 
     public void startClock()
     {
-        this._timer.schedule(new TimerTask() { @Override public void run() { tick(); } },2005,2005);
+        this._timer.schedule(new TimerTask() { @Override public void run() { tick(); } },2000,2000);
     }
 
     private void tick() {

@@ -22,6 +22,7 @@ public class Task extends ProjectComponent{
 
     public Task(JSONObject jsonObject) {
         super(jsonObject);
+        this._intervals = new ArrayList<>();
         loadIntervalsFromJson(jsonObject.getJSONArray("Intervals"));
     }
 

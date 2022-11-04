@@ -9,17 +9,12 @@
       <change beforePath="$PROJECT_DIR$/src/json/JsonPrettier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/JsonPrettier.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/json/json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/json.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Clock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/ComponentState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Interval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComposite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/ProjectComposite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/ComponentState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Interval.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Interval.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Clock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Clock.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/ProjectComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/ProjectComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/ProjectComposite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/ProjectComposite.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Task.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +125,7 @@
       <workItem from="1667495792761" duration="1644000" />
       <workItem from="1667501311048" duration="3512000" />
       <workItem from="1667510646691" duration="5033000" />
-      <workItem from="1667517180935" duration="17386000" />
+      <workItem from="1667517180935" duration="20994000" />
     </task>
     <servers />
   </component>
