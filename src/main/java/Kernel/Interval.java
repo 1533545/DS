@@ -80,6 +80,9 @@ public class Interval implements Observer {
     System.out.println("            Duration: " + this._fatherTask.getDuration());
   }
 
+
+  //Important: Aquí estem recorrent cada pare desde el node en el que ens trobem fisn arribat al root
+  // del arbre i printem la seva info.
   private void printProjectTimes() {
     ProjectComponent project = this._fatherTask._fatherNode;
 
