@@ -17,6 +17,7 @@ public class ProjectComposite extends ProjectComponent{
         this._children = new ArrayList<>();
     }
 
+    //Constructor d'on agafa el JSON i inicialitza el arbre
     public ProjectComposite(JSONObject jsonObject) throws Exception {
         super(jsonObject);
         JSONArray jsonArray  = jsonObject.getJSONArray("Children");
@@ -95,7 +96,7 @@ public class ProjectComposite extends ProjectComponent{
     public void print(int indentation) {
         String customIndentation = generateCustomIndentation(indentation);
         System.out.println(customIndentation + ">" + "PROJECT: " + this.Name + " - Start: " +
-                this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
+            this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
         for (ProjectComponent child : this._children) {
             child.print(indentation + 2);
         }
