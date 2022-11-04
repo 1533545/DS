@@ -1,3 +1,6 @@
+//Class interval is the observer, through the method update gets the info updated of
+//the clock and updates it.
+
 package Kernel;
 
 import org.json.JSONObject;
@@ -6,6 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Observer;
 import java.util.Observable;
+
 
 public class Interval implements Observer {
   private Task _fatherTask;
@@ -81,8 +85,8 @@ public class Interval implements Observer {
   }
 
 
-  //Important: Aquí estem recorrent cada pare desde el node en el que ens trobem fisn arribat al root
-  // del arbre i printem la seva info.
+  //Important: Here we traverse each parent of the actual node until we arrive to the root
+  // and we print the info of each node we go through.
   private void printProjectTimes() {
     ProjectComponent project = this._fatherTask._fatherNode;
 
