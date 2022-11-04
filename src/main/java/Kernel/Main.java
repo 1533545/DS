@@ -13,6 +13,7 @@ public class Main {
         rootRead.print(0);
     }
     private static void appendixB() throws Exception {
+        //Creem el arbre del appendixA
         ProjectComposite root = new ProjectComposite(null,"root","father");
         ProjectComposite Software_Design = new ProjectComposite(root, "software design","java,flutter");
         ProjectComposite Software_Testing = new ProjectComposite(root, "software testing","c++,Java,python");
@@ -34,7 +35,7 @@ public class Main {
         Task first_milestone = new Task(time_tracker, "first milestone","Java,IntelliJ");
         time_tracker.addComponent(read_handout);
         time_tracker.addComponent(first_milestone);
-
+        //Començament del testing appendixB
         Clock clock = Clock.getInstance();
         Thread.sleep(1500);
         clock.startClock();
