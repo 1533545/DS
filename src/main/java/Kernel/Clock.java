@@ -15,8 +15,9 @@ public class Clock extends Observable {
         this._timer = new Timer();
         this._cancelTimer = false;
     }
-
-    public synchronized static Clock getInstance() { //synchronized per gestionar de forma correcta més d'un thread
+    //Important:synchronized per gestionar de forma correcta més d'un thread
+    //i singleton per crear una única instancia de Clock
+    public synchronized static Clock getInstance() { 
         if(_clock == null)
         {
             _clock = new Clock();
