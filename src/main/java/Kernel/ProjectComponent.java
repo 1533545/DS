@@ -91,7 +91,8 @@ public abstract class ProjectComponent {
     public void setStartTime(LocalDateTime time) {
         this._startTime = time;
     }
-
+    
+    //Funió creada per visualitzar de manera més clara l'arbre
     public String generateCustomIndentation(int indentation) {
         String customIndentation = "";
         for (int i = 0; i < indentation; i++) {
