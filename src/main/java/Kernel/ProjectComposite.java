@@ -1,3 +1,6 @@
+//Class ProjectComposite, a class made to create projects and to manage them it represents
+//the composite of the project component. A project can have multiple projects and tasks.
+
 package Kernel;
 
 import org.json.JSONArray;
@@ -17,7 +20,7 @@ public class ProjectComposite extends ProjectComponent{
         this._children = new ArrayList<>();
     }
 
-    //Constructor d'on agafa el JSON i inicialitza el arbre
+    //Constructor that gets a JSON object and builds the tree from it
     public ProjectComposite(JSONObject jsonObject) throws Exception {
         super(jsonObject);
         JSONArray jsonArray  = jsonObject.getJSONArray("Children");
