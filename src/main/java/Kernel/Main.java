@@ -4,7 +4,9 @@ import org.json.JSONObject;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        System.out.println("Appendix A");
         appendixA();
+        System.out.println("Appendix B");
         appendixB();
         JSONObject rootJson = JsonReader.readJson("json.txt");
         Project rootRead = new Project(rootJson);

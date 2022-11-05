@@ -12,22 +12,41 @@ package "Kernel" #DDDDDD {
       #description: String
       #startTime: LocalDateTime
       #finishTime: LocalDateTime
+      #toJson() : JSONObject
+      #getDuration() : Duration
+      #print(indentation : int) : void
       #Component(fatherNode: Project, name : String, description : String)
       #Component(jsonObject: JSONObject)
-      #UpdateTime()
+      #toJsonComponent(jsonObject: JSONObject) : JSONObject
+      #updateStartTime(time : LocalDateTime) : void
+      #updateFinishTime(time : LocalDateTime) : void
+      #generateUUID() : String
+      +generateCustomIndentation(indentation : int) : String
+      +getName() : String
+      +getStartTime() : LocalDateTime
+      +getFinishTime() : LocalDateTime
+      +setFinishTime(time : LocalDateTime) : void
+      +setStartTime(time : LocalDateTime) : void
+      +printComponentTimes() : void
 
 
 
   }
 
   class Project {
+     -_children: list<Component>
      +Project(fatherNode: Project, name : String, description : String)
-     +Project(jsonObject: JSONObject)
-     +RemoveComponent(id: String) : void
-     +AddComponent(Component : ProjectComponent) : void
+     +Project(jsonObject: JSONObject) : void
+     +addComponent(Component : ProjectComponent) : void
      +toJson(): JSONObject
      +getDuration() : Duration
      +print(indentation : int)
+     +getComponentById(id : String) : Component
+     +RemoveComponent(id : String) : boolean
+     -generateChildrenFromJson(jsonArray :JSONArray) : void
+     -generateTaskFromJson(childJson : JSONObject) : void
+     -generateProjectFromJson(childJson : JSONObject) : void
+     -childrenTomJson() : JSONArray
   }
 
   class Task {
@@ -36,11 +55,16 @@ package "Kernel" #DDDDDD {
     +Task(fatherNode: Project, name : String, description : String)
     +Task(jsonObject: JSONObject)
     +toJson(): JSONObject
-    +addInterval(): void
+    +addInterval(interval : Interval) : void
     +startTask() : void
     +finishTask() : void
     +getDuration() : Duration
-    +print(indentation : int)
+    +print(indentation : int) : void
+    +printTimes() : void
+    -intervalsToJson(): JSONArray
+    -loadIntervalsFromJson(jsonArray :JSONArray) : void
+    -startObservingClock() : void
+    -stopObservingClock() : void
   }
 
   class Interval {
@@ -51,21 +75,26 @@ package "Kernel" #DDDDDD {
     +Interval(jsonObject: JSONObject)
     +toJson():JSONObject
     +getDuration() : Duration
+    +update(obs : Observable, arg : Object)
     +printTimes() : void
+    +printIntervalTimes() : void
   }
 
   class Clock{
   -_timer: Timer
   -_clock: Clock
   -_cancelTimer: boolean
-  +getInstance() : Clock
+  + {static} getInstance() : Clock
   +startClock() : void
   +stopClock() : void
   -tick() : void
+  -stopTimer() : void
   }
 
   class JsonReader {
-    + {static} readJson(fileName:String) : JSONObject
+    + {static} readJson(fileName : String) : JSONObject
+    - {static} readJsonFile(fileName : String) : String
+    - {static} readFile(file : File) : String
   }
 
   class JsonWriter {
