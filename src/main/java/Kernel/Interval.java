@@ -7,14 +7,21 @@ import java.time.format.DateTimeFormatter;
 import java.util.Observer;
 import java.util.Observable;
 
+/*
+* Observer class. Contains start and finish times of a task time interval.
+* Generates intervals of time every time a task starts. Keeps them and can
+* return the duration of the interval.
+*/
+
 public class Interval implements Observer {
   private Task _fatherTask;
   private LocalDateTime _start;
   private LocalDateTime _end;
 
   public Interval(Task task) {
+    this._start = LocalDateTime.now();
     this._fatherTask = task;
-    updateStartTime(LocalDateTime.now());
+    this._fatherTask.updateStartTime(this._start);
   }
 
   public Interval(JSONObject jsonObject) {
@@ -36,34 +43,16 @@ public class Interval implements Observer {
 
   @Override
   public void update(Observable obs,Object arg) {
-    updateFinishTime((LocalDateTime) arg);
-    printTimes();
-  }
-
-  private void updateFinishTime(LocalDateTime time) {
+    LocalDateTime time = (LocalDateTime) arg;
     this._end = time;
-    Component node = this._fatherTask;
-    while (node != null) {
-      node.setFinishTime(time);
-      node = node.fatherNode;
-    }
-  }
-
-  private void updateStartTime(LocalDateTime time) {
-    this._start = time;
-    Component node = this._fatherTask;
-    while (node != null) {
-      if(node.getStartTime() == null) {
-        node.setStartTime(time);
-      }
-      node = node.fatherNode;
-    }
+    this._fatherTask.updateFinishTime(time);
+    printTimes();
   }
 
   private void printTimes() {
     printIntervalTimes();
-    printTaskTimes();
-    printProjectTimes();
+    this._fatherTask.printTimes();
+    this._fatherTask.printComponentTimes();
   }
 
   private void printIntervalTimes() {
@@ -73,24 +62,5 @@ public class Interval implements Observer {
     System.out.println("            Duration: " + getDuration());
   }
 
-  private void printTaskTimes() {
-    System.out.println(this._fatherTask.name.toUpperCase() + ":");
-    System.out.println("Task     -> Start: " + this._fatherTask.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
-    System.out.println("            End: " + this._fatherTask.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
-    System.out.println("            Duration: " + this._fatherTask.getDuration());
-  }
-
-  private void printProjectTimes() {
-    Component project = this._fatherTask.fatherNode;
-
-    while (project != null) {
-      System.out.println(project.name.toUpperCase() + ":");
-      System.out.println("Project  -> Start: " + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
-      System.out.println("            End: " + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
-      System.out.println("            Duration: " + project.getDuration());
-      project = project.fatherNode;
-    }
-    System.out.println("-------------------------------------------------");
-  }
 
 }

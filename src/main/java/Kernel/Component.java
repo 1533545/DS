@@ -7,8 +7,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
+/*
+ * Abstract class. Represents The generalization of the nodes belonging to a
+ * Project - Task tree. Contains all shared attributes and methods.
+ */
 public abstract class Component {
-    //TODO: RENAME
     protected Component fatherNode;
     protected String id;
     protected String name;
@@ -69,33 +72,56 @@ public abstract class Component {
         return jsonObject;
     }
 
+    public void updateStartTime(LocalDateTime time) {
+        Component node = this;
+        while (node != null) {
+            if(node.getStartTime() == null) {
+                node.setStartTime(time);
+            }
+            node = node.fatherNode;
+        }
+    }
+
+    public void updateFinishTime(LocalDateTime time) {
+        Component node = this;
+        while (node != null) {
+            node.setFinishTime(time);
+            node = node.fatherNode;
+        }
+    }
+
     protected String generateUUID() {
         return UUID.randomUUID().toString();
     }
 
-    public String getName() { return this.name; }
-
-    public LocalDateTime getStartTime() {
-        return this.startTime;
-    }
-
-    public LocalDateTime getFinishTime() {
-        return this.finishTime;
-    }
-
-    public void setFinishTime(LocalDateTime time) {
-        this.finishTime = time;
-    }
-
-    public void setStartTime(LocalDateTime time) {
-        this.startTime = time;
-    }
-
+    /* Generates custom indentation and returns it as string */
     public String generateCustomIndentation(int indentation) {
         String customIndentation = "";
         for (int i = 0; i < indentation; i++) {
             customIndentation = customIndentation.concat("-");
         }
         return customIndentation;
+    }
+
+    public String getName() { return this.name; }
+
+    public LocalDateTime getStartTime() { return this.startTime; }
+
+    public LocalDateTime getFinishTime() { return this.finishTime; }
+
+    public void setFinishTime(LocalDateTime time) { this.finishTime = time; }
+
+    public void setStartTime(LocalDateTime time) { this.startTime = time; }
+
+    public void printComponentTimes() {
+        Component project = this;
+        while (project != null) {
+            System.out.println(project.name.toUpperCase() + ":");
+            System.out.println("Component-> Start: " + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
+            System.out.println("            End: " + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
+            System.out.println("            Duration: " + project.getDuration());
+            project = project.fatherNode;
+        }
+        System.out.println("-------------------------------------------------");
     }
 }

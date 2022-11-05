@@ -17,6 +17,7 @@ public class Main {
         Project Software_Design = new Project(root, "software design","java,flutter");
         Project Software_Testing = new Project(root, "software testing","c++,Java,python");
         Project databases = new Project(root, "databases","SQL,python,C++");
+        //We create the tree of appendixA
         Task transportation = new Task(root, "transportation","");
         root.addComponent(Software_Design);
         root.addComponent(Software_Testing);
@@ -34,6 +35,7 @@ public class Main {
         Task first_milestone = new Task(time_tracker, "first milestone","Java,IntelliJ");
         time_tracker.addComponent(read_handout);
         time_tracker.addComponent(first_milestone);
+        //Start of appendixB
 
         Clock clock = Clock.getInstance();
         Thread.sleep(1500);

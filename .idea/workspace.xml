@@ -8,6 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/json/JsonPrettier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/JsonPrettier.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/json/json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/json.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Clock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Interval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/JsonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/JsonWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,6 +129,7 @@
       <workItem from="1667517180935" duration="20994000" />
       <workItem from="1667550694977" duration="2259000" />
       <workItem from="1667572547686" duration="1869000" />
+      <workItem from="1667646626762" duration="3898000" />
     </task>
     <servers />
   </component>
@@ -137,16 +146,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Kernel/Main.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -5,10 +5,15 @@ import org.json.JSONObject;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/*
+ * Extension of Component. Container of Components, in other words,
+ * contains multiple Projects or/and Tasks. Represents a project node of the components tree.
+ */
 public class Project extends Component {
     private List<Component> _children;
 
@@ -21,24 +26,36 @@ public class Project extends Component {
         super(jsonObject);
         JSONArray jsonArray  = jsonObject.getJSONArray("Children");
         this._children = new ArrayList<>();
+        generateChildrenFromJson(jsonArray);
+    }
+
+    private void generateChildrenFromJson(JSONArray jsonArray) throws Exception {
         for(int i = 0; i < jsonArray.length(); i++) {
             JSONObject childJson = jsonArray.getJSONObject(i);
             String objectType = childJson.get("Class").toString();
 
             if(objectType.equals("Task")) {
-                Task task = new Task(childJson);
-                task.fatherNode = this;
-                this._children.add(task);
+                generateTaskFromJson(childJson);
             }
             else if(objectType.equals("Project")){
-                Project project = new Project(childJson);
-                project.fatherNode = this;
-                this._children.add(project);
+                generateProjectFromJson(childJson);
             }
             else {
                 throw new Exception("No class match");
             }
         }
+    }
+
+    private void generateTaskFromJson(JSONObject childJson) {
+        Task task = new Task(childJson);
+        task.fatherNode = this;
+        this._children.add(task);
+    }
+
+    private void generateProjectFromJson(JSONObject childJson) throws Exception {
+        Project task = new Project(childJson);
+        task.fatherNode = this;
+        this._children.add(task);
     }
 
     @Override
@@ -100,5 +117,4 @@ public class Project extends Component {
             child.print(indentation + 2);
         }
     }
-
 }
