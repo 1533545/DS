@@ -69,9 +69,6 @@ public class Main {
         clock.stopClock();
         System.out.println("Print tree ready to convert to json:");
         root.print(0);
-        JSONObject rootJson = root.toJson();
-        JsonWriter.saveJson(rootJson);
-        JsonWriter.saveJsonPrettier(rootJson);
     }
     private static void appendixA() throws Exception {
         Project root = new Project(null,"root","father");
