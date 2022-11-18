@@ -71,9 +71,6 @@ public class Main {
         clock.stopClock();
         System.out.println("Print tree ready to convert to json:");
         root.print(0);
-        JSONObject rootJson = root.toJson();
-        JsonWriter.saveJson(rootJson);
-        JsonWriter.saveJsonPrettier(rootJson);
     }
     private static void appendixA() throws Exception {
         Project root = new Project(null,"root","father");
@@ -97,7 +94,8 @@ public class Main {
         Task first_milestone = new Task(time_tracker, "first milestone","Java,IntelliJ");
         time_tracker.addComponent(read_handout);
         time_tracker.addComponent(first_milestone);
-
+        JsonWriter.saveJsonPrettier(root.toJson());
+        JsonWriter.saveJson(root.toJson());
         root.print(0);
     }
 }
