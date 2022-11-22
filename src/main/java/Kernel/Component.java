@@ -124,4 +124,5 @@ public abstract class Component {
         }
         System.out.println("-------------------------------------------------");
     }
+    public abstract void acceptVisitor(Visitor visitor);
 }

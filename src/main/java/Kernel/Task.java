@@ -31,6 +31,11 @@ public class Task extends Component {
     }
 
     @Override
+    public void acceptVisitor(Visitor visitor) {
+        visitor.visitTask(this);
+    }
+
+    @Override
     public JSONObject toJson() {
         JSONObject jsonObject = toJsonComponent(new JSONObject());
         jsonObject.put("Class", "Task");

@@ -29,6 +29,11 @@ public class Project extends Component {
         generateChildrenFromJson(jsonArray);
     }
 
+    @Override
+    public void acceptVisitor(Visitor visitor) {
+        visitor.visitProject(this);
+    }
+
     private void generateChildrenFromJson(JSONArray jsonArray) throws Exception {
         for(int i = 0; i < jsonArray.length(); i++) {
             JSONObject childJson = jsonArray.getJSONObject(i);
@@ -99,7 +104,9 @@ public class Project extends Component {
         this._children.add(projectComponent);
         projectComponent.fatherNode = this;
     }
-
+    public List<Component> getChildren(){
+        return this._children;
+    }
     @Override
     public Duration getDuration() {
         Duration duration = Duration.between(LocalTime.NOON,LocalTime.NOON);
@@ -117,4 +124,5 @@ public class Project extends Component {
             child.print(indentation + 2);
         }
     }
+
 }
