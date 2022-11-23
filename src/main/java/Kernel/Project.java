@@ -8,7 +8,6 @@ import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
 /*
  * Extension of Component. Container of Components, in other words,
  * contains multiple Projects or/and Tasks. Represents a project node of the components tree.
@@ -18,14 +17,28 @@ public class Project extends Component {
 
     public Project(Component fatherNode, String name, String description) {
         super(fatherNode, name, description);
-        this._children = new ArrayList<>();
+        if((name.replaceAll("\\s","")).matches("^[a-zA-Z0-9]*$") && name!=null)
+        {
+            this._children = new ArrayList<>();
+        }
+        else
+            throw new IllegalArgumentException("Illegal project name:"+name);
+
+        invariant();
     }
 
     public Project(JSONObject jsonObject) throws Exception {
         super(jsonObject);
-        JSONArray jsonArray  = jsonObject.getJSONArray("Children");
-        this._children = new ArrayList<>();
-        generateChildrenFromJson(jsonArray);
+        if(jsonObject != null)
+        {
+            JSONArray jsonArray  = jsonObject.getJSONArray("Children");
+            this._children = new ArrayList<>();
+            generateChildrenFromJson(jsonArray);
+        }
+        else
+            throw new Exception("No file to read");
+
+        invariant();
     }
 
     @Override
@@ -50,7 +63,7 @@ public class Project extends Component {
         }
     }
 
-    private void generateTaskFromJson(JSONObject childJson) {
+    private void generateTaskFromJson(JSONObject childJson) throws Exception {
         Task task = new Task(childJson);
         task.fatherNode = this;
         this._children.add(task);
@@ -67,6 +80,7 @@ public class Project extends Component {
         JSONObject jsonObject = toJsonComponent(new JSONObject());
         jsonObject.put("Class", "Project");
         jsonObject.put("Children", childrenToJson());
+        assert(jsonObject!=null);
         return jsonObject;
     }
 
@@ -79,8 +93,13 @@ public class Project extends Component {
     }
 
     public void addComponent(Component projectComponent) {
-        this._children.add(projectComponent);
-        projectComponent.fatherNode = this;
+        invariant();
+        if(projectComponent != null)
+        {
+            this._children.add(projectComponent);
+            projectComponent.fatherNode = this;
+        }
+        invariant();
     }
 
     public List<Component> getChildren() {
@@ -89,10 +108,13 @@ public class Project extends Component {
 
     @Override
     public Duration getDuration() {
+        invariant();
         Duration duration = Duration.between(LocalTime.NOON,LocalTime.NOON);
         for (Component child : this._children) {
             duration = duration.plus(child.getDuration());
         }
+        assert(duration.isPositive());
+        invariant();
         return duration;
     }
 
@@ -104,5 +126,9 @@ public class Project extends Component {
             child.print(indentation + 2);
         }
     }
-
+    private boolean invariant()
+    {
+        assert(this._children!=null);
+        return true;
+    }
 }
