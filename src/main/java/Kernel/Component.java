@@ -1,5 +1,6 @@
 package Kernel;
 
+import Visitor.Visitor;
 import org.json.JSONObject;
 
 import java.time.Duration;
@@ -103,15 +104,29 @@ public abstract class Component {
         return customIndentation;
     }
 
-    public String getName() { return this.name; }
+    public String getName() {
+        return this.name;
+    }
 
-    public LocalDateTime getStartTime() { return this.startTime; }
+    public String getID() {
+        return this.id;
+    }
 
-    public LocalDateTime getFinishTime() { return this.finishTime; }
+    public LocalDateTime getStartTime() {
+        return this.startTime;
+    }
 
-    public void setFinishTime(LocalDateTime time) { this.finishTime = time; }
+    public LocalDateTime getFinishTime() {
+        return this.finishTime;
+    }
 
-    public void setStartTime(LocalDateTime time) { this.startTime = time; }
+    public void setFinishTime(LocalDateTime time) {
+        this.finishTime = time;
+    }
+
+    public void setStartTime(LocalDateTime time) {
+        this.startTime = time;
+    }
 
     public void printComponentTimes() {
         Component project = this;
@@ -124,5 +139,6 @@ public abstract class Component {
         }
         System.out.println("-------------------------------------------------");
     }
+
     public abstract void acceptVisitor(Visitor visitor);
 }

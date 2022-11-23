@@ -1,6 +1,6 @@
 //Class JsonWriter, class created to save the tree build in projectComponent in a .txt file
 
-package Kernel;
+package Json;
 
 import org.json.JSONObject;
 import java.io.FileWriter;

@@ -1,18 +1,21 @@
 package Kernel;
 
-import org.json.JSONObject;
+import Visitor.IdExplorer;
+import Visitor.NameExplorer;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+/*
         System.out.println("Appendix A");
+*/
         appendixA();
-        System.out.println("Appendix B");
+/*        System.out.println("Appendix B");
         appendixB();
         JSONObject rootJson = JsonReader.readJson("json.txt");
         Project rootRead = new Project(rootJson);
         System.out.println("\n");
         System.out.println("Print tree read from json:");
-        rootRead.print(0);
+        rootRead.print(0);*/
     }
     private static void appendixB() throws Exception {
         Project root = new Project(null,"root","father");
@@ -94,8 +97,26 @@ public class Main {
         Task first_milestone = new Task(time_tracker, "first milestone","Java,IntelliJ");
         time_tracker.addComponent(read_handout);
         time_tracker.addComponent(first_milestone);
-        JsonWriter.saveJsonPrettier(root.toJson());
+
+        /*JsonWriter.saveJsonPrettier(root.toJson());
         JsonWriter.saveJson(root.toJson());
-        root.print(0);
+        root.print(0);*/
+
+        NameExplorer explorerName = new NameExplorer(first_list.getName());
+        explorerName.search(root);
+        Component resultName = explorerName.getResult();
+        if(resultName != null) {
+            resultName.print(0);
+            System.out.println(resultName.name);
+        }
+
+
+        IdExplorer explorerID = new IdExplorer(first_list.getID());
+        explorerID.search(root);
+        Component resultId = explorerID.getResult();
+        if(resultId != null) {
+            resultId.print(0);
+            System.out.println(resultId.id);
+        }
     }
 }

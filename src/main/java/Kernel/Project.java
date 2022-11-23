@@ -1,14 +1,13 @@
 package Kernel;
 
+import Visitor.Visitor;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.time.Duration;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /*
  * Extension of Component. Container of Components, in other words,
@@ -79,34 +78,15 @@ public class Project extends Component {
         return jsonArray;
     }
 
-    public boolean RemoveComponent(String id) {
-        Component componentById = getComponentById(id);
-        if(componentById == null)
-        {
-            return false;
-        }
-        this._children.remove(componentById);
-        return true;
-    }
-
-    private Component getComponentById(String id) {
-        for (Component projectComponent : this._children)
-        {
-            if (Objects.equals(projectComponent.id, id))
-            {
-                return projectComponent;
-            }
-        }
-        return null;
-    }
-
     public void addComponent(Component projectComponent) {
         this._children.add(projectComponent);
         projectComponent.fatherNode = this;
     }
-    public List<Component> getChildren(){
+
+    public List<Component> getChildren() {
         return this._children;
     }
+
     @Override
     public Duration getDuration() {
         Duration duration = Duration.between(LocalTime.NOON,LocalTime.NOON);

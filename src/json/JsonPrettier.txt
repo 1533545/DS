@@ -1,52 +1,46 @@
 {
   "Description": "father",
-  "Start": "2022-11-05T17:28:23.665566700",
-  "Duration": "PT25.9430607S",
+  "Start": "-999999999-01-01T00:00",
+  "Duration": "PT0S",
   "Class": "Project",
-  "Id": "44e741b2-a7bf-4cd2-8c5a-be95c4f8988c",
+  "Id": "e9d102c4-0f2f-4034-af18-3e95ed4a59e5",
   "Children": [
     {
       "Description": "java,flutter",
-      "Start": "2022-11-05T17:28:31.678282100",
-      "Duration": "PT15.9737985S",
+      "Start": "-999999999-01-01T00:00",
+      "Duration": "PT0S",
       "Class": "Project",
-      "Id": "dab60224-9a54-42ce-8f34-e1372f5d27b5",
+      "Id": "23a3debf-4285-4e8e-8718-ba5f39a1bda0",
       "Children": [
         {
           "Description": "",
-          "Start": "2022-11-05T17:28:31.678282100",
-          "Duration": "PT15.9737985S",
+          "Start": "-999999999-01-01T00:00",
+          "Duration": "PT0S",
           "Class": "Project",
-          "Id": "98829d68-86b9-4668-8cff-d945e9bcb977",
+          "Id": "492bd282-2c0b-42d3-87dc-63caca023706",
           "Children": [
             {
-              "Intervals": [{
-                "Start": "2022-11-05T17:28:31.678282100",
-                "End": "2022-11-05T17:28:41.667711900"
-              }],
+              "Intervals": [],
               "Description": "java",
-              "Start": "2022-11-05T17:28:31.678282100",
-              "Duration": "PT9.9894298S",
+              "Start": "-999999999-01-01T00:00",
+              "Duration": "PT0S",
               "Class": "Task",
-              "Id": "0d3f9a20-c880-41c4-98b2-a0d74207a7f5",
-              "Finish": "2022-11-05T17:28:41.667711900",
+              "Id": "00479353-6df1-4b24-b6a2-57dea7ddd652",
+              "Finish": "-999999999-01-01T00:00",
               "Name": "first list"
             },
             {
-              "Intervals": [{
-                "Start": "2022-11-05T17:28:37.683440100",
-                "End": "2022-11-05T17:28:43.667808800"
-              }],
+              "Intervals": [],
               "Description": "Dart",
-              "Start": "2022-11-05T17:28:37.683440100",
-              "Duration": "PT5.9843687S",
+              "Start": "-999999999-01-01T00:00",
+              "Duration": "PT0S",
               "Class": "Task",
-              "Id": "cc5a0c7d-a52d-46ba-8d00-b7f8c102b6b3",
-              "Finish": "2022-11-05T17:28:43.667808800",
+              "Id": "1aa8e61e-2f80-48f3-960d-3e65daa3c154",
+              "Finish": "-999999999-01-01T00:00",
               "Name": "second list"
             }
           ],
-          "Finish": "2022-11-05T17:28:43.667808800",
+          "Finish": "-999999999-01-01T00:00",
           "Name": "problems"
         },
         {
@@ -54,7 +48,7 @@
           "Start": "-999999999-01-01T00:00",
           "Duration": "PT0S",
           "Class": "Project",
-          "Id": "169a811f-6438-43cc-9a66-b60ca6e8beb6",
+          "Id": "5af13184-6d56-4bf5-a6a3-a3be6fa01bb5",
           "Children": [
             {
               "Intervals": [],
@@ -62,9 +56,9 @@
               "Start": "-999999999-01-01T00:00",
               "Duration": "PT0S",
               "Class": "Task",
-              "Id": "12805220-6ec4-4e2d-8200-fe1e6b58d7e2",
+              "Id": "87e9b2f7-7360-48f5-9491-1de513b16977",
               "Finish": "-999999999-01-01T00:00",
-              "Name": " read handout"
+              "Name": "read handout"
             },
             {
               "Intervals": [],
@@ -72,7 +66,7 @@
               "Start": "-999999999-01-01T00:00",
               "Duration": "PT0S",
               "Class": "Task",
-              "Id": "41291b2c-005b-4465-b18b-e9c97b3b2115",
+              "Id": "756a2247-8278-419f-9f0f-90ae7cb23325",
               "Finish": "-999999999-01-01T00:00",
               "Name": "first milestone"
             }
@@ -81,7 +75,7 @@
           "Name": "time tracker"
         }
       ],
-      "Finish": "2022-11-05T17:28:43.667808800",
+      "Finish": "-999999999-01-01T00:00",
       "Name": "software design"
     },
     {
@@ -89,7 +83,7 @@
       "Start": "-999999999-01-01T00:00",
       "Duration": "PT0S",
       "Class": "Project",
-      "Id": "2b200da6-9edd-4d55-8ac8-8ecb83b9ef84",
+      "Id": "ed7f3acc-1dce-415f-b633-3bbb388513a3",
       "Children": [],
       "Finish": "-999999999-01-01T00:00",
       "Name": "software testing"
@@ -99,31 +93,22 @@
       "Start": "-999999999-01-01T00:00",
       "Duration": "PT0S",
       "Class": "Project",
-      "Id": "6bb6aa30-f86c-4a90-8dec-1ec0bb6bcb76",
+      "Id": "8818188d-2764-4572-83c5-74fbbeb96498",
       "Children": [],
       "Finish": "-999999999-01-01T00:00",
       "Name": "databases"
     },
     {
-      "Intervals": [
-        {
-          "Start": "2022-11-05T17:28:23.665566700",
-          "End": "2022-11-05T17:28:29.665245800"
-        },
-        {
-          "Start": "2022-11-05T17:28:45.700203800",
-          "End": "2022-11-05T17:28:49.669786900"
-        }
-      ],
+      "Intervals": [],
       "Description": "",
-      "Start": "2022-11-05T17:28:23.665566700",
-      "Duration": "PT9.9692622S",
+      "Start": "-999999999-01-01T00:00",
+      "Duration": "PT0S",
       "Class": "Task",
-      "Id": "53e81161-3065-4dce-a359-649053197071",
-      "Finish": "2022-11-05T17:28:49.669786900",
+      "Id": "1667cda8-0884-44e0-9dc7-053ab8237576",
+      "Finish": "-999999999-01-01T00:00",
       "Name": "transportation"
     }
   ],
-  "Finish": "2022-11-05T17:28:49.669786900",
+  "Finish": "-999999999-01-01T00:00",
   "Name": "root"
 }

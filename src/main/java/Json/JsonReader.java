@@ -1,4 +1,4 @@
-package Kernel;
+package Json;
 
 import org.json.JSONObject;
 import java.io.File;

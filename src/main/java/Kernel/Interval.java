@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Observer;
 import java.util.Observable;
+import java.util.UUID;
 
 /*
 * Observer class. Contains start and finish times of a task time interval.
@@ -17,23 +18,27 @@ public class Interval implements Observer {
   private Task _fatherTask;
   private LocalDateTime _start;
   private LocalDateTime _end;
+  private String _id;
 
   public Interval(Task task) {
     this._start = LocalDateTime.now();
     this._fatherTask = task;
     this._fatherTask.updateStartTime(this._start);
+    _id = generateUUID();
   }
 
   public Interval(JSONObject jsonObject) {
     DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
     this._start = LocalDateTime.parse(jsonObject.get("Start").toString(),formatter);
     this._end = LocalDateTime.parse(jsonObject.get("End").toString(),formatter);
+    this._id = jsonObject.get("Id").toString();
   }
 
   public JSONObject toJson() {
     JSONObject jsonObject = new JSONObject();
     jsonObject.put("Start", this._start);
     jsonObject.put("End", this._end);
+    jsonObject.put("Id", this._id);
     return jsonObject;
   }
 
@@ -62,5 +67,7 @@ public class Interval implements Observer {
     System.out.println("            Duration: " + getDuration());
   }
 
-
+  protected String generateUUID() {
+    return UUID.randomUUID().toString();
+  }
 }
