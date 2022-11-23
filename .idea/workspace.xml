@@ -5,23 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f72741b1-3d60-441f-a25a-2731bdff895b" name="Changes" comment="Plant UML updated">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Explorer/IDExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Explorer/NameExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Explorer/Printer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Explorer/Visitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/json/JsonPrettier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/JsonPrettier.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS.TimeTracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DS.TimeTracker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Clock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Component.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Interval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/JsonWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Clock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Clock$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Clock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Clock.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Component.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Component.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Interval.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Interval.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/JsonReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/JsonWriter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Project.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Task.class" afterDir="false" />
@@ -67,25 +63,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Projects/TimeTracker/src/main/java/Explorer&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "D:/slf4j-ext-2.0.3.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -193,16 +189,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Kernel/Main.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

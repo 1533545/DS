@@ -8,11 +8,14 @@ import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /*
  * Extension of Component. Container of Components, in other words,
  * contains multiple Projects or/and Tasks. Represents a project node of the components tree.
  */
 public class Project extends Component {
+    private static Logger logger = LoggerFactory.getLogger(Project.class);
     private List<Component> _children;
 
     public Project(Component fatherNode, String name, String description) {

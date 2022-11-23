@@ -7,12 +7,15 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /*
  * Abstract class. Represents The generalization of the nodes belonging to a
  * Project - Task tree. Contains all shared attributes and methods.
  */
+
 public abstract class Component {
+    private static Logger logger = LoggerFactory.getLogger(Component.class);
     protected Component fatherNode;
     protected String id;
     protected String name;

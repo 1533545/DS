@@ -7,6 +7,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Observer;
 import java.util.Observable;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
 * Observer class. Contains start and finish times of a task time interval.
@@ -15,6 +17,7 @@ import java.util.UUID;
 */
 
 public class Interval implements Observer {
+  private static Logger logger = LoggerFactory.getLogger(Interval.class);
   private Task _fatherTask;
   private LocalDateTime _start;
   private LocalDateTime _end;

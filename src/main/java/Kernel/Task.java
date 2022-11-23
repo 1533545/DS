@@ -9,12 +9,15 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
  * Component extension. Leaf of the components tree.
  * Contains the work time intervals for the assignment being working on.
  */
 public class Task extends Component {
+    private static Logger logger = LoggerFactory.getLogger(Task.class);
     private List<Interval> _intervals;
     private Interval _runningInterval;
 

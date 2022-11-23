@@ -4,12 +4,15 @@ import java.util.Timer;
 import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.TimerTask;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
 * Observable class. Is in charge of returning the real time
 * every two seconds to all of his observers.
 */
 public class Clock extends Observable {
+    private static Logger logger = LoggerFactory.getLogger(Clock.class);
     private Timer _timer;
     private static Clock _clock;
     private boolean _cancelTimer;
