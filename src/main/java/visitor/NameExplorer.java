@@ -5,17 +5,17 @@ import kernel.Project;
 import kernel.Task;
 
 /**
-    Given the root node of a tree, search in all children nodes for the target name
-    and sets the found component in resultName attribute.
+ *  Given the root node of a Component tree, search in all children nodes for the targetName
+ *  and sets the found component in ComponentFound attribute.
 **/
 public class NameExplorer implements Visitor {
 
   String targetName;
-  Component resultName;
+  Component ComponentFound;
 
   public NameExplorer(String targetName) {
     this.targetName = targetName;
-    this.resultName = null;
+    this.ComponentFound = null;
   }
 
   public void setTargetName(String name) {
@@ -27,18 +27,19 @@ public class NameExplorer implements Visitor {
   }
 
   public Component getResult() {
-    return this.resultName;
+    return this.ComponentFound;
   }
 
   /**
-   * comment.
+   * Searches for coincides of targetName in each Component of the Tree.
+   * If a coincidence is found, initialize ComponentFound with the found Component.
    */
   public void search(Project project) {
 
     String name = project.getName();
 
     if (name.equals(this.targetName)) {
-      this.resultName = project;
+      this.ComponentFound = project;
     } else {
       for (Component component : project.getChildren()) {
         component.acceptVisitor(this);
@@ -46,16 +47,22 @@ public class NameExplorer implements Visitor {
     }
   }
 
+  /**
+   * Searches for coincides of targetName in each component of a project.
+   **/
   @Override
   public void visitProject(Project project) {
     this.search(project);
   }
 
+  /**
+   * Checks if the name of a Task is equal to the TargetName.
+   **/
   @Override
   public void visitTask(Task task) {
     String name = task.getName();
     if (name.equals(this.targetName)) {
-      this.resultName = task;
+      this.ComponentFound = task;
     }
   }
 }

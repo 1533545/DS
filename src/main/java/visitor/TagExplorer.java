@@ -7,7 +7,7 @@ import kernel.Project;
 import kernel.Task;
 
 /**
- * Given the root node of a tree, search in all children nodes for the targetTag
+ * Given the root node of a Component tree, search in all children nodes for the targetTag
  * attribute and sets the found component in componentsFound attribute.
  **/
 public class TagExplorer implements Visitor {
@@ -42,7 +42,7 @@ public class TagExplorer implements Visitor {
 
   /**
    * Searches for coincides of targetTag in each Component of the Tree.
-   * If a coincidence is found, adds the Task to componentsFound attribute.
+   * If a coincidence is found, adds the Component to componentsFound attribute.
    **/
   public void search(Project project) {
 

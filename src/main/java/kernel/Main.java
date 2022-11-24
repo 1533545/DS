@@ -120,6 +120,7 @@ public class Main {
     JsonWriter.saveJsonPrettier(root.toJson());
     JsonWriter.saveJson(root.toJson());
     printer.print(root);
+
     NameExplorer explorerName = new NameExplorer(firstList.getName());
     System.out.println("---------------------------------------------------");
     System.out.println("Search task Name");
