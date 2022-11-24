@@ -6,8 +6,8 @@ import kernel.Project;
 import kernel.Task;
 
 /**
- * comment.
- */
+ * Prints Component attributes values in the console with a custom style.
+ **/
 public class Printer implements Visitor {
   
   private int indentation;
