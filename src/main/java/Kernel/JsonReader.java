@@ -1,14 +1,18 @@
-package Kernel;
+package json;
 
-import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import org.json.JSONObject;
 
-/*
+/**
  * Given a file name, generates a json object of its content and returns it.
- */
+ **/
 public class JsonReader {
+  /**
+   * comment.
+   */
   public static JSONObject readJson(String fileName) {
     JSONObject jsonObject = null;
     try {
