@@ -7,7 +7,7 @@ package "kernel" #DDDDDD {
 
   Abstract Component {
       #fatherNode : Component
-      #id : String
+      #tags : List<String>
       #name : String
       #description: String
       #startTime: LocalDateTime
@@ -15,46 +15,53 @@ package "kernel" #DDDDDD {
       #toJson() : JSONObject
       #getDuration() : Duration
       #print(indentation : int) : void
-      #Component(fatherNode: Project, name : String, description : String)
+      #Component(fatherNode: Project, name : String, description : String, tagList : List<String>)
       #Component(jsonObject: JSONObject)
+      -generateTagsFromJson((jsonArray :JSONArray) : List<String>
       #toJsonComponent(jsonObject: JSONObject) : JSONObject
+      -tagsTojson() : JSONArray
       #updateStartTime(time : LocalDateTime) : void
       #updateFinishTime(time : LocalDateTime) : void
       #generateUUID() : String
       +generateCustomIndentation(indentation : int) : String
       +getName() : String
+      +getTags() : List<String>
       +getStartTime() : LocalDateTime
       +getFinishTime() : LocalDateTime
       +setFinishTime(time : LocalDateTime) : void
       +setStartTime(time : LocalDateTime) : void
       +printComponentTimes() : void
+      +acceptVisitor(var1 : Visitor) : void
 
 
 
   }
 
   class Project {
-     -_children: list<Component>
-     +Project(fatherNode: Project, name : String, description : String)
+     -logger: Logger
+     -children: list<Component>
+     +Project(fatherNode: Project, name : String, description : String, tagList: List<String>)
      +Project(jsonObject: JSONObject) : void
      +addComponent(Component : ProjectComponent) : void
      +toJson(): JSONObject
      +getDuration() : Duration
      +print(indentation : int)
+     +getChildren() : List<Component>
      +getComponentById(id : String) : Component
      +RemoveComponent(id : String) : boolean
      -generateChildrenFromJson(jsonArray :JSONArray) : void
      -generateTaskFromJson(childJson : JSONObject) : void
      -generateProjectFromJson(childJson : JSONObject) : void
-     -childrenTomJson() : JSONArray
+     -childrenToJson() : JSONArray
+     -invariant() : boolean
   }
 
   class Task {
-    -_intervals: list<Interval>
-    -_runningInterval : Interval
-    +Task(fatherNode: Project, name : String, description : String)
+    -logger: Logger
+    -intervals: list<Interval>
+    -runningInterval : Interval
+    +Task(fatherNode: Project, name : String, description : String, tagList: List<String>)
     +Task(jsonObject: JSONObject)
-    +toJson(): JSONObject
     +addInterval(interval : Interval) : void
     +startTask() : void
     +finishTask() : void
@@ -65,12 +72,14 @@ package "kernel" #DDDDDD {
     -loadIntervalsFromJson(jsonArray :JSONArray) : void
     -startObservingClock() : void
     -stopObservingClock() : void
+    -invariant(): boolean
   }
 
   class Interval {
-    -_start : LocalDateTime
-    -_end : LocalDateTime
-    -_fatherTask : Task
+    -logger : Logger
+    -start : LocalDateTime
+    -end : LocalDateTime
+    -fatherTask : Task
     +Interval(task : Task)
     +Interval(jsonObject: JSONObject)
     +toJson():JSONObject
@@ -81,9 +90,10 @@ package "kernel" #DDDDDD {
   }
 
   class Clock{
-  -_timer: Timer
-  -_clock: Clock
-  -_cancelTimer: boolean
+  -_logger: Logger
+  -timer: Timer
+  -clock: Clock
+  -cancelTimer: boolean
   + {static} getInstance() : Clock
   +startClock() : void
   +stopClock() : void
@@ -100,6 +110,41 @@ package "kernel" #DDDDDD {
   class JsonWriter {
     + {static} saveJson(json:JSONObject) : void
     + {static} saveJsonPrettier(json:JSONObject) : void
+    - writeJson(text : String, fileName : String)
+  }
+
+  interface Visitor{
+    visitProject(project:Project) : void
+    visitTask(task: Task) :void
+  }
+
+  class TagExplorer{
+    -targetTag: String
+    -resultTag: List<Component>
+    +TagExplorer(targetTag: String)
+    +setTargetTag(tag:String) : void
+    +cleanTargetTag(): void
+    +getResult(): List<Component>
+    +getTargetTag(): String
+    +search((project:Project): List<Component>
+  }
+
+  class Printer{
+    -indentation : int
+    +Printer(indentation : int)
+    -generateCustomIndentation(): String
+    -generateCustomTagListString(tagList: List<String>)
+    +print(component: Component): void
+  }
+
+  class NameExplorer{
+    -targetName: String
+    -resultName: Component
+    +NameExplorer(targetName: String)
+    +setTargetName(name: String)
+    +getTargetName() : String
+    +getResult(): Component
+    +search(project: Project): void
   }
 
   package "java.util"
@@ -123,7 +168,11 @@ package "kernel" #DDDDDD {
 }
 
 /' Relationship '/
+  NameExplorer -down-|> Visitor
+  Printer -left-|> Visitor
+  TagExplorer -down-|> Visitor
   Task -right-|> Component
+  Visitor -up> Component
   Component <|-- Project
   Component "N" --o "1" Project : Children
   Task "1" o-- "0..N" Interval
