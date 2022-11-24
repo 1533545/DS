@@ -5,7 +5,6 @@
 
 package kernel;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,10 +15,16 @@ import visitor.NameExplorer;
 import visitor.Printer;
 import visitor.TagExplorer;
 
+/**
+ * comment.
+ */
 public class Main {
   public Main() {
   }
 
+  /**
+   * comment.
+   */
   public static void main(String[] args) throws Exception {
     System.out.println("Appendix A");
     appendixA();
@@ -34,27 +39,31 @@ public class Main {
   }
 
   private static void appendixB() throws Exception {
-    Project root = new Project((Component)null, "root", "father", (List)null);
-    Project Software_Design = new Project(root, "software design", "java,flutter", Arrays.asList("java", "flutter"));
-    Project Software_Testing = new Project(root, "software testing", "c++,Java,python", Arrays.asList("c++", "Java", "python"));
-    Project databases = new Project(root, "databases", "SQL,python,C++", Arrays.asList("SQL", "python", "C++"));
-    Task transportation = new Task(root, "transportation", "Nothing", (List)null);
-    root.addComponent(Software_Design);
-    root.addComponent(Software_Testing);
+    Project root = new Project((Component) null, "root", "father", (List) null);
+    Project softwareDesign = new Project(root, "software design",
+        "java,flutter", Arrays.asList("java", "flutter"));
+    Project softwareTesting = new Project(root, "software testing",
+        "c++,Java,python", Arrays.asList("c++", "Java", "python"));
+    Project databases = new Project(root, "databases",
+        "SQL,python,C++", Arrays.asList("SQL", "python", "C++"));
+    Task transportation = new Task(root, "transportation", "Nothing", (List) null);
+    root.addComponent(softwareDesign);
+    root.addComponent(softwareTesting);
     root.addComponent(databases);
     root.addComponent(transportation);
-    Project problems = new Project(Software_Design, "problems", "Nothing", (List)null);
-    Project time_tracker = new Project(Software_Design, "time tracker", "Nothing", (List)null);
-    Software_Design.addComponent(problems);
-    Software_Design.addComponent(time_tracker);
-    Task first_list = new Task(problems, "first list", "java", Arrays.asList("java"));
-    Task second_list = new Task(problems, "second list", "Dart", Arrays.asList("Dart"));
-    problems.addComponent(first_list);
-    problems.addComponent(second_list);
-    Task read_handout = new Task(time_tracker, "read handout", "Nothing", Arrays.asList("Dart"));
-    Task first_milestone = new Task(time_tracker, "first milestone", "Nothing", Arrays.asList("Java", "IntelliJ"));
-    time_tracker.addComponent(read_handout);
-    time_tracker.addComponent(first_milestone);
+    Project problems = new Project(softwareDesign, "problems", "Nothing", (List) null);
+    Project timeTracker = new Project(softwareDesign, "time tracker", "Nothing", (List) null);
+    softwareDesign.addComponent(problems);
+    softwareDesign.addComponent(timeTracker);
+    Task firstList = new Task(problems, "first list", "java", Arrays.asList("java"));
+    Task secondList = new Task(problems, "second list", "Dart", Arrays.asList("Dart"));
+    problems.addComponent(firstList);
+    problems.addComponent(secondList);
+    Task readHandout = new Task(timeTracker, "read handout", "Nothing", Arrays.asList("Dart"));
+    Task firstMilestone = new Task(timeTracker, "first milestone",
+        "Nothing", Arrays.asList("Java", "IntelliJ"));
+    timeTracker.addComponent(readHandout);
+    timeTracker.addComponent(firstMilestone);
     Clock clock = Clock.getInstance();
     Thread.sleep(1500L);
     clock.startClock();
@@ -62,13 +71,13 @@ public class Main {
     Thread.sleep(6005L);
     transportation.finishTask();
     Thread.sleep(2005L);
-    first_list.startTask();
+    firstList.startTask();
     Thread.sleep(6005L);
-    second_list.startTask();
+    secondList.startTask();
     Thread.sleep(4005L);
-    first_list.finishTask();
+    firstList.finishTask();
     Thread.sleep(2005L);
-    second_list.finishTask();
+    secondList.finishTask();
     Thread.sleep(2005L);
     transportation.startTask();
     Thread.sleep(4005L);
@@ -82,33 +91,36 @@ public class Main {
   }
 
   private static void appendixA() throws Exception {
-    Project root = new Project((Component)null, "root", "father", (List)null);
-    Project Software_Design = new Project(root, "software design", "java,flutter", Arrays.asList("java", "flutter"));
-    Project Software_Testing = new Project(root, "software testing", "c++,Java,python", Arrays.asList("c++", "Java", "python"));
-    Project databases = new Project(root, "databases", "SQL,python,C++", Arrays.asList("SQL", "python", "C++"));
-    Task transportation = new Task(root, "transportation", "Nothing", (List)null);
-    root.addComponent(Software_Design);
-    root.addComponent(Software_Testing);
+    Project root = new Project((Component) null, "root", "father", (List) null);
+    Project softwareDesign = new Project(root, "software design",
+        "java,flutter", Arrays.asList("java", "flutter"));
+    Project softwareTesting = new Project(root, "software testing",
+        "c++,Java,python", Arrays.asList("c++", "Java", "python"));
+    Project databases = new Project(root, "databases",
+        "SQL,python,C++", Arrays.asList("SQL", "python", "C++"));
+    Task transportation = new Task(root, "transportation", "Nothing", (List) null);
+    root.addComponent(softwareDesign);
+    root.addComponent(softwareTesting);
     root.addComponent(databases);
     root.addComponent(transportation);
-    Project problems = new Project(Software_Design, "problems", "Nothing", new ArrayList());
-    Project time_tracker = new Project(Software_Design, "time tracker", "Nothing", (List)null);
-    Software_Design.addComponent(problems);
-    Software_Design.addComponent(time_tracker);
-    Task first_list = new Task(problems, "first list", "java", Arrays.asList("java"));
-    Task second_list = new Task(problems, "second list", "Dart", Arrays.asList("Dart"));
-    problems.addComponent(first_list);
-    problems.addComponent(second_list);
-    Task read_handout = new Task(time_tracker, "read handout", "Nothing", Arrays.asList("Dart"));
-    Task first_milestone = new Task(time_tracker, "first milestone", "Nothing", Arrays.asList("Java", "IntelliJ"));
-    time_tracker.addComponent(read_handout);
-    time_tracker.addComponent(first_milestone);
+    Project problems = new Project(softwareDesign, "problems", "Nothing", new ArrayList());
+    Project timeTracker = new Project(softwareDesign, "time tracker", "Nothing", (List) null);
+    softwareDesign.addComponent(problems);
+    softwareDesign.addComponent(timeTracker);
+    Task firstList = new Task(problems, "first list", "java", Arrays.asList("java"));
+    Task secondList = new Task(problems, "second list", "Dart", Arrays.asList("Dart"));
+    problems.addComponent(firstList);
+    problems.addComponent(secondList);
+    Task readHandout = new Task(timeTracker, "read handout", "Nothing", Arrays.asList("Dart"));
+    Task firstMilestone = new Task(timeTracker, "first milestone",
+        "Nothing", Arrays.asList("Java", "IntelliJ"));
+    timeTracker.addComponent(readHandout);
+    timeTracker.addComponent(firstMilestone);
     Printer printer = new Printer(0);
     JsonWriter.saveJsonPrettier(root.toJson());
     JsonWriter.saveJson(root.toJson());
     printer.print(root);
-    NameExplorer explorerName = new NameExplorer(first_list.getName());
-    TagExplorer tagExplorer = new TagExplorer((String)Software_Testing.getTags().get(0));
+    NameExplorer explorerName = new NameExplorer(firstList.getName());
     System.out.println("---------------------------------------------------");
     System.out.println("Search task Name");
     explorerName.search(root);
@@ -122,6 +134,7 @@ public class Main {
     printer.print(taskName);
     System.out.println("---------------------------------------------------");
     System.out.println("Search C++");
+    TagExplorer tagExplorer = new TagExplorer((String) softwareTesting.getTags().get(0));
     tagExplorer.search(root);
     List<Component> cppTag = tagExplorer.getResult();
     if (cppTag != null && !cppTag.isEmpty()) {
@@ -136,17 +149,17 @@ public class Main {
     System.out.println("Search Project Name");
     explorerName.setTargetName("time tracker");
     explorerName.search(root);
-    Component ProjectName = explorerName.getResult();
-    if (ProjectName != null) {
-      System.out.println(ProjectName.name);
+    Component projectName = explorerName.getResult();
+    if (projectName != null) {
+      System.out.println(projectName.name);
     } else {
       System.out.println("Not Found");
     }
 
-    printer.print(ProjectName);
+    printer.print(projectName);
     System.out.println("---------------------------------------------------");
     System.out.println("Search Python");
-    tagExplorer.setTargetTag((String)Software_Testing.getTags().get(2));
+    tagExplorer.setTargetTag((String) softwareTesting.getTags().get(2));
     tagExplorer.cleanTargetTag();
     tagExplorer.search(root);
     List<Component> pythonTag = tagExplorer.getResult();

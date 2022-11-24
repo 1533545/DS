@@ -1,15 +1,15 @@
 package visitor;
 
+import java.util.List;
 import kernel.Component;
 import kernel.Project;
 import kernel.Task;
 
-import java.util.List;
-
+/**
+ * comment.
+ */
 public class Printer implements Visitor {
-
-  //TODO: MOVE PROJECT PRINTER TO THIS CLASS
-  //TODO: ADD CLASS HEADER
+  
   private int indentation;
 
   public Printer(int indentation) {
@@ -27,12 +27,11 @@ public class Printer implements Visitor {
   private String generateCustomTagListString(List<String> tagList) {
     String customTagList = "";
 
-    if(tagList != null && !tagList.isEmpty()) {
+    if (tagList != null && !tagList.isEmpty()) {
       for (String tag : tagList) {
         customTagList = customTagList.concat(tag + " ");
       }
-    }
-    else {
+    } else {
       customTagList = "No tags";
     }
 
@@ -47,12 +46,12 @@ public class Printer implements Visitor {
   public void visitProject(Project project) {
     String customIndentation = generateCustomIndentation();
     String customTagList = generateCustomTagListString(project.getTags());
-    System.out.println(customIndentation + ">" + "PROJECT: " + project.getName() +
-        " - Start: " + project.getStartTime() + " - Finish: " + project.getFinishTime() +
-        " - Duration: " + project.getDuration() + " - Tags: " + customTagList);
+    System.out.println(customIndentation + ">" + "PROJECT: " + project.getName()
+        + " - Start: " + project.getStartTime() + " - Finish: " + project.getFinishTime()
+        + " - Duration: " + project.getDuration() + " - Tags: " + customTagList);
     int auxiliaryIndentation = this.indentation;
     this.indentation += 2;
-      for (Component child : project.getChildren()) {
+    for (Component child : project.getChildren()) {
       child.acceptVisitor(this);
     }
     this.indentation = auxiliaryIndentation;
@@ -62,8 +61,8 @@ public class Printer implements Visitor {
   public void visitTask(Task task) {
     String customIndentation = generateCustomIndentation();
     String customTagList = generateCustomTagListString(task.getTags());
-    System.out.println(customIndentation + ">" + "TASK: " + task.getName() +
-        " - Start: " + task.getStartTime() + " - Finish: " + task.getFinishTime() +
-        " - Duration: " + task.getDuration() + " - Tags: " + customTagList);
+    System.out.println(customIndentation + ">" + "TASK: " + task.getName()
+        + " - Start: " + task.getStartTime() + " - Finish: " + task.getFinishTime()
+        + " - Duration: " + task.getDuration() + " - Tags: " + customTagList);
   }
 }

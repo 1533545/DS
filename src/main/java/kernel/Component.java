@@ -16,6 +16,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import visitor.Visitor;
 
+/**
+ * comment.
+ */
 public abstract class Component {
   protected Component fatherNode;
   protected List<String> tags;
@@ -28,18 +31,18 @@ public abstract class Component {
 
   public abstract Duration getDuration();
 
-  protected Component(Component fatherNode, String name, String Description, List<String> tagList) {
+  protected Component(Component fatherNode, String name, String description, List<String> tagList) {
     this.fatherNode = fatherNode;
     this.name = name;
-    this.description = Description;
+    this.description = description;
     this.tags = tagList;
   }
 
   protected Component(JSONObject jsonObject) {
-    DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
-    this.name = (String)jsonObject.get("Name");
-    this.description = (String)jsonObject.get("Description");
+    this.name = (String) jsonObject.get("Name");
+    this.description = (String) jsonObject.get("Description");
     this.tags = this.generateTagsFromJson(jsonObject.getJSONArray("Tags"));
+    DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
     LocalDateTime start = LocalDateTime.parse(jsonObject.get("Start").toString(), formatter);
     LocalDateTime finish = LocalDateTime.parse(jsonObject.get("Finish").toString(), formatter);
     if (start != LocalDateTime.MIN) {
@@ -55,7 +58,7 @@ public abstract class Component {
   private List<String> generateTagsFromJson(JSONArray jsonArray) {
     List<String> tags = new ArrayList();
     if (!jsonArray.isEmpty() && jsonArray != null) {
-      for(int i = 0; i < jsonArray.length(); ++i) {
+      for (int i = 0; i < jsonArray.length(); ++i) {
         tags.add(jsonArray.get(i).toString());
       }
     }
@@ -88,8 +91,8 @@ public abstract class Component {
     if (this.tags != null && !this.tags.isEmpty()) {
       Iterator var2 = this.tags.iterator();
 
-      while(var2.hasNext()) {
-        String tag = (String)var2.next();
+      while (var2.hasNext()) {
+        String tag = (String) var2.next();
         jsonArray.put(tag);
       }
     }
@@ -97,8 +100,11 @@ public abstract class Component {
     return jsonArray;
   }
 
+  /**
+   * comment.
+   */
   public void updateStartTime(LocalDateTime time) {
-    for(Component node = this; node != null; node = node.fatherNode) {
+    for (Component node = this; node != null; node = node.fatherNode) {
       if (node.getStartTime() == null) {
         node.setStartTime(time);
       }
@@ -106,8 +112,11 @@ public abstract class Component {
 
   }
 
+  /**
+   * comment.
+   */
   public void updateFinishTime(LocalDateTime time) {
-    for(Component node = this; node != null; node = node.fatherNode) {
+    for (Component node = this; node != null; node = node.fatherNode) {
       node.setFinishTime(time);
     }
 
@@ -137,8 +146,11 @@ public abstract class Component {
     this.startTime = time;
   }
 
+  /**
+   * comment.
+   */
   public void printComponentTimes() {
-    for(Component project = this; project != null; project = project.fatherNode) {
+    for (Component project = this; project != null; project = project.fatherNode) {
       System.out.println(project.name.toUpperCase() + ":");
       PrintStream var10000 = System.out;
       LocalDateTime var10001 = project.getStartTime();

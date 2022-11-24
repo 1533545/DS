@@ -4,10 +4,10 @@ import kernel.Component;
 import kernel.Project;
 import kernel.Task;
 
-/*
+/**
     Given the root node of a tree, search in all children nodes for the target name
     and sets the found component in resultName attribute.
-*/
+**/
 public class NameExplorer implements Visitor {
 
   String targetName;
@@ -30,6 +30,9 @@ public class NameExplorer implements Visitor {
     return this.resultName;
   }
 
+  /**
+   * comment.
+   */
   public void search(Project project) {
 
     String name = project.getName();
