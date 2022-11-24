@@ -1,4 +1,4 @@
-package Kernel;
+package kernel;
 
 import java.util.Timer;
 import java.time.LocalDateTime;

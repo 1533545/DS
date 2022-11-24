@@ -3,7 +3,7 @@
 skinparam linetype ortho
 
 /' Back End '/
-package "Kernel" #DDDDDD {
+package "kernel" #DDDDDD {
 
   Abstract Component {
       #fatherNode : Component

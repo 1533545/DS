@@ -23,7 +23,7 @@ skinparam linetype ortho\
 \
 \
 /' Back End '/\
-package "Kernel" #DDDDDD \{\
+package "kernel" #DDDDDD \{\
   class Main \{\
     +\{static\}main()\
   \}\
@@ -51,7 +51,7 @@ package "Kernel" #DDDDDD \{\
     +startTask() : void\
     +pauseTask() : void\
     +finishTask() : void\
-    /'+AddTimeInterval(interval:Kernel.Interval) : void'/\
+    /'+AddTimeInterval(interval:kernel.Interval) : void'/\
   \}\
 \
   enum ComponentState \{\

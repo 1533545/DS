@@ -1,9 +1,8 @@
-package Kernel;
+package kernel;
 
-import Visitor.Visitor;
+import visitor.Visitor;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -16,8 +15,8 @@ import java.util.List;
 public class Project extends Component {
     private List<Component> _children;
 
-    public Project(Component fatherNode, String name, String description) {
-        super(fatherNode, name, description);
+    public Project(Component fatherNode, String name, String description, List<String> tagList ) {
+        super(fatherNode, name, description,tagList);
         this._children = new ArrayList<>();
     }
 
@@ -94,15 +93,6 @@ public class Project extends Component {
             duration = duration.plus(child.getDuration());
         }
         return duration;
-    }
-
-    public void print(int indentation) {
-        String customIndentation = generateCustomIndentation(indentation);
-        System.out.println(customIndentation + ">" + "PROJECT: " + this.name + " - Start: " +
-                this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
-        for (Component child : this._children) {
-            child.print(indentation + 2);
-        }
     }
 
 }

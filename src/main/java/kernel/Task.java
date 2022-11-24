@@ -1,6 +1,6 @@
-package Kernel;
+package kernel;
 
-import Visitor.Visitor;
+import visitor.Visitor;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -18,8 +18,8 @@ public class Task extends Component {
     private List<Interval> _intervals;
     private Interval _runningInterval;
 
-    public Task(Project fatherNode, String name, String description) {
-        super(fatherNode, name, description);
+    public Task(Project fatherNode, String name, String description, List<String> tagList) {
+        super(fatherNode, name, description, tagList);
         this._intervals = new ArrayList<>();
         _runningInterval = null;
     }
@@ -92,12 +92,6 @@ public class Task extends Component {
             duration = duration.plus(interval.getDuration());
         }
         return duration;
-    }
-
-    public void print(int indentation) {
-        String customIndentation = generateCustomIndentation(indentation);
-        System.out.println(customIndentation + ">" + "TASK: " + this.name + " - Start: " +
-                this.getStartTime() + " - Finish: " + this.getFinishTime() + " - Duration: " + this.getDuration());
     }
 
     public void printTimes() {

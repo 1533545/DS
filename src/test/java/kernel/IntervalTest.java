@@ -1,0 +1,4 @@
+package kernel;
+
+class IntervalTest {
+}

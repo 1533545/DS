@@ -1,0 +1,6 @@
+package kernel;
+
+
+class ClockTest {
+
+}

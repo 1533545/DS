@@ -1,7 +1,7 @@
-package Visitor;
+package visitor;
 
-import Kernel.Project;
-import Kernel.Task;
+import kernel.Project;
+import kernel.Task;
 
 public interface Visitor {
     void visitProject(Project project);
