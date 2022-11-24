@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e91f72b-f731-44a4-a1e2-b75ff748799d" name="Changes" comment="Merge branch 'feature/visitor' of https://github.com/1533545/DS&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Kernel/Component.java&#10;#&#9;src/main/java/Kernel/Main.java&#10;#&#9;src/main/java/kernel/Project.java&#10;#&#9;src/main/java/kernel/Task.java&#10;#&#9;target/classes/Kernel/Clock$1.class&#10;#&#9;target/classes/Kernel/Clock.class&#10;#&#9;target/classes/Kernel/Component.class&#10;#&#9;target/classes/Kernel/Interval.class&#10;#&#9;target/classes/Kernel/Main.class&#10;#&#9;target/classes/Kernel/Project.class&#10;#&#9;target/classes/Kernel/Task.class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/TagExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/TagExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

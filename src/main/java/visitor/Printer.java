@@ -16,6 +16,9 @@ public class Printer implements Visitor {
     this.indentation = indentation;
   }
 
+  /**
+   * Generates a custom indentation.
+   **/
   private String generateCustomIndentation() {
     String customIndentation = "";
     for (int i = 0; i < this.indentation; i++) {
@@ -24,6 +27,9 @@ public class Printer implements Visitor {
     return customIndentation;
   }
 
+  /**
+   * Generates a custom String with all tags concatenated.
+   **/
   private String generateCustomTagListString(List<String> tagList) {
     String customTagList = "";
 
@@ -42,6 +48,9 @@ public class Printer implements Visitor {
     component.acceptVisitor(this);
   }
 
+  /**
+   * Prints in console all nodes of the Component tree.
+   **/
   @Override
   public void visitProject(Project project) {
     String customIndentation = generateCustomIndentation();
@@ -57,6 +66,9 @@ public class Printer implements Visitor {
     this.indentation = auxiliaryIndentation;
   }
 
+  /**
+   * Prints in console the attributes of a Task.
+   **/
   @Override
   public void visitTask(Task task) {
     String customIndentation = generateCustomIndentation();
