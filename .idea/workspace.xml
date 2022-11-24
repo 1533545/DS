@@ -4,82 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f72741b1-3d60-441f-a25a-2731bdff895b" name="Changes" comment="Plant UML updated">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyleidea-libs/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+    <list default="true" id="3e91f72b-f731-44a4-a1e2-b75ff748799d" name="Changes" comment="Merge branch 'feature/visitor' of https://github.com/1533545/DS&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Kernel/Component.java&#10;#&#9;src/main/java/Kernel/Main.java&#10;#&#9;src/main/java/kernel/Project.java&#10;#&#9;src/main/java/kernel/Task.java&#10;#&#9;target/classes/Kernel/Clock$1.class&#10;#&#9;target/classes/Kernel/Clock.class&#10;#&#9;target/classes/Kernel/Component.class&#10;#&#9;target/classes/Kernel/Interval.class&#10;#&#9;target/classes/Kernel/Main.class&#10;#&#9;target/classes/Kernel/Project.class&#10;#&#9;target/classes/Kernel/Task.class">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_reload4j_reload4j_1_2_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_2_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_ext_2_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_reload4j_2_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML/ClassDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/UML/ClassDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML/ClassDigram.puml.rtf" beforeDir="false" afterPath="$PROJECT_DIR$/UML/ClassDigram.puml.rtf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS.TimeTracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DS.TimeTracker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/json/Json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/Json.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/json/JsonPrettier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/JsonPrettier.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Json/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/json/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Json/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/json/JsonWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Clock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Interval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Visitor/IdExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/TagExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Visitor/NameExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Visitor/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Visitor/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/Visitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Kernel/AppFlowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kernel/AppFlowTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Kernel/ClockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kernel/ClockTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Kernel/IntervalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kernel/IntervalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Kernel/ProjectCompositeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kernel/ProjectCompositeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Kernel/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kernel/TaskTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Explorer/IdExplorer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Explorer/NameExplorer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Explorer/Visitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Json/JsonReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Json/JsonReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Json/JsonWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Json/JsonWriter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Clock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Clock$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Clock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Clock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Component.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Component.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Interval.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Interval.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Project.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Kernel/Task.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Kernel/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Clock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Interval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Json/JsonReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Json/JsonWriter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Clock$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Clock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Component.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Interval.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Project.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Kernel/Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visitor/NameExplorer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visitor/Printer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visitor/TagExplorer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visitor/Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/AppFlowTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/ClockTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/IntervalTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/ProjectCompositeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/TaskTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JUnit5 Test Class" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="feature/class-diagram" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
-  <component name="ProjectId" id="2GcD7NGkRpdDsvYUOA5Nbfqv2K9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -90,145 +55,30 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Projects/TimeTracker/src/main/java/Explorer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="Kernel" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kernel.Main" />
-      <module name="DS.TimeTracker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Kernel.FileReader" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TaskTest.addTaskToProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DS.TimeTracker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Kernel.FileReader" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Kernel" />
-      <option name="MAIN_CLASS_NAME" value="kernel.TaskTest" />
-      <option name="METHOD_NAME" value="addTaskToProject" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TaskTest.addTaskToProject" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f72741b1-3d60-441f-a25a-2731bdff895b" name="Changes" comment="" />
-      <created>1666678814955</created>
+      <changelist id="3e91f72b-f731-44a4-a1e2-b75ff748799d" name="Changes" comment="" />
+      <created>1669322658473</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1666678814955</updated>
-      <workItem from="1666678819377" duration="1029000" />
-      <workItem from="1666679892561" duration="48000" />
-      <workItem from="1666679954782" duration="1446000" />
-      <workItem from="1666770258077" duration="820000" />
-      <workItem from="1667233641359" duration="709000" />
-      <workItem from="1667242837597" duration="684000" />
-      <workItem from="1667243526149" duration="7066000" />
-      <workItem from="1667281041040" duration="4337000" />
-      <workItem from="1667398482800" duration="2596000" />
-      <workItem from="1667402593515" duration="2015000" />
-      <workItem from="1667410701547" duration="4572000" />
-      <workItem from="1667464446392" duration="1895000" />
-      <workItem from="1667473567335" duration="229000" />
-      <workItem from="1667495792761" duration="1644000" />
-      <workItem from="1667501311048" duration="3512000" />
-      <workItem from="1667510646691" duration="5033000" />
-      <workItem from="1667517180935" duration="20994000" />
-      <workItem from="1667550694977" duration="2259000" />
-      <workItem from="1667572547686" duration="1869000" />
-      <workItem from="1667646626762" duration="3898000" />
-      <workItem from="1669119038817" duration="9892000" />
-      <workItem from="1669191631412" duration="234000" />
-      <workItem from="1669191867737" duration="2817000" />
-      <workItem from="1669196931908" duration="2135000" />
-      <workItem from="1669200823268" duration="2289000" />
-      <workItem from="1669219121539" duration="345000" />
-      <workItem from="1669286630203" duration="36000" />
-      <workItem from="1669310701278" duration="502000" />
-      <workItem from="1669311222954" duration="10449000" />
+      <updated>1669322658473</updated>
+      <workItem from="1669322660211" duration="1074000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/style-check" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/kernel/Component.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="project" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>
