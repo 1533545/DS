@@ -115,6 +115,9 @@ public abstract class Component {
         tags.add(jsonArray.get(i).toString());
       }
     }
+    else {
+      logger.warn("null value or empty list received, careful!");
+    }
     return tags;
   }
 
@@ -154,6 +157,9 @@ public abstract class Component {
         String tag = (String) var2.next();
         jsonArray.put(tag);
       }
+    }
+    else {
+      logger.warn("null value or empty list received, careful!");
     }
     return jsonArray;
   }
