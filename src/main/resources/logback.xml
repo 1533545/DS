@@ -20,19 +20,27 @@
         <appender-ref ref="FILE" />
     </root>
 
-    <!-- log messages from classes of the first milestone>
-    <logger name="kernel" level="trace">
+     <!--log messages from classes of the first milestone>-->
+<!--    <logger name="kernel" level="trace">
           <appender-ref ref="STDOUT" />
           <appender-ref ref="FILE" />
-      </logger>
-    -->
+      </logger>-->
 
-    <!-- log messages from classes of the second milestone>
-        <logger name="visitor" level="trace">
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="FILE" />
-        </logger>
-    -->
+     <!--log messages from classes of the first milestone (No console)-->
+<!--    <logger name="kernel" level="trace">
+          <appender-ref ref="FILE" />
+    </logger>-->
+
+     <!--log messages from classes of the second milestone>-->
+<!--    <logger name="visitor" level="trace">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </logger>-->
+
+    <!--log messages from classes of the second milestone (No console)>-->
+<!--    <logger name="kernel" level="trace">
+          <appender-ref ref="FILE" />
+    </logger>-->
 
 </configuration>
 
