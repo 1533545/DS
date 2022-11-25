@@ -234,9 +234,7 @@ public abstract class Component {
           + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
       logger.info("End: "
           + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
-      logger.info("Duration: " + project.getDuration());
-      logger.trace("--------------------------------------"
-          + "---------------------------------------------");
+      logger.trace("Duration: " + project.getDuration());
     }
   }
 
