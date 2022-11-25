@@ -9,12 +9,15 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
 /**
  * Abstraction of Project and Task.
  **/
 public abstract class Component {
+  private static Logger logger = LoggerFactory.getLogger(Component.class);
 
   /**
    * Father node of the Component.
@@ -211,12 +214,12 @@ public abstract class Component {
    **/
   public void printComponentTimes() {
     for (Component project = this; project != null; project = project.fatherNode) {
-      System.out.println(project.name.toUpperCase() + ":");
-      System.out.println("Component-> Start: "
-          + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
-      System.out.println("            End: "
-          + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
-      System.out.println("            Duration: " + project.getDuration());
+      logger.info(project.name.toUpperCase() + ":");
+      logger.trace("Component-> Start: "
+              + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
+      logger.trace("            End: "
+              + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
+      logger.info("            Duration: " + project.getDuration());
     }
   }
 

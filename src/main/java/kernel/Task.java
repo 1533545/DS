@@ -117,7 +117,7 @@ public class Task extends Component {
    * Starts doing a task.
    **/
   public void startTask() {
-    System.out.println("- Starting " + this.name + "\n");
+    logger.trace("- Starting " + this.name + "\n");
     startObservingClock();
   }
 
@@ -141,7 +141,7 @@ public class Task extends Component {
    */
   public void finishTask() {
     invariant();
-    System.out.println("\n" +"- Finishing " + this.name + "\n");
+    logger.trace("\n" +"- Finishing " + this.name + "\n");
     stopObservingClock();
     invariant();
   }
@@ -176,14 +176,14 @@ public class Task extends Component {
    * Custom Task printer for task times.
    **/
   public void printTimes() {
-    System.out.println(this.name.toUpperCase() + ":");
-    System.out.println("Task     -> Start: "
+    logger.info(this.name.toUpperCase() + ":");
+    logger.trace("Task     -> Start: "
         + this.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
 
-    System.out.println("            End: "
+    logger.trace("            End: "
         + this.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
 
-    System.out.println("            Duration: " + this.getDuration());
+    logger.info("            Duration: " + this.getDuration());
   }
 
   /**

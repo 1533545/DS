@@ -3,12 +3,15 @@ package visitor;
 import kernel.Component;
 import kernel.Project;
 import kernel.Task;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *  Given the root node of a Component tree, search in all children nodes for the targetName
  *  and sets the found component in componentFound attribute.
-**/
+ **/
 public class NameExplorer implements Visitor {
+  private static Logger logger = LoggerFactory.getLogger(NameExplorer.class);
 
   /**
    * Tag to be found.

@@ -93,10 +93,8 @@ public class Interval implements Observer {
    * Custom console printer for time values of the Interval object.
    **/
   private void printIntervalTimes() {
-    System.out.println("-----------------------------------------------"
-        + "------------------------------------");
-    System.out.println("Interval -> Start: " + this.start.format(DateTimeFormatter.ISO_DATE_TIME));
-    System.out.println("            End: " + this.end.format(DateTimeFormatter.ISO_DATE_TIME));
-    System.out.println("            Duration: " + getDuration());
+    logger.trace("Interval -> Start: " + this.start.format(DateTimeFormatter.ISO_DATE_TIME));
+    logger.trace("            End: " + this.end.format(DateTimeFormatter.ISO_DATE_TIME));
+    logger.info("            Duration: " + getDuration());
   }
 }
