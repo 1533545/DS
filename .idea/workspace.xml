@@ -6,30 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3e91f72b-f731-44a4-a1e2-b75ff748799d" name="Changes" comment="Merge branch 'feature/visitor' of https://github.com/1533545/DS&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Kernel/Component.java&#10;#&#9;src/main/java/Kernel/Main.java&#10;#&#9;src/main/java/kernel/Project.java&#10;#&#9;src/main/java/kernel/Task.java&#10;#&#9;target/classes/Kernel/Clock$1.class&#10;#&#9;target/classes/Kernel/Clock.class&#10;#&#9;target/classes/Kernel/Component.class&#10;#&#9;target/classes/Kernel/Interval.class&#10;#&#9;target/classes/Kernel/Main.class&#10;#&#9;target/classes/Kernel/Project.class&#10;#&#9;target/classes/Kernel/Task.class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/json/Json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/Json.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/json/JsonPrettier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/JsonPrettier.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/json/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/json/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/json/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/json/JsonWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Clock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Interval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/TagExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/TagExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/Visitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Clock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Clock$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Clock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Clock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Component.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Component.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Interval.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Interval.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Project.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visitor/NameExplorer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visitor/NameExplorer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visitor/Printer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visitor/Printer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visitor/TagExplorer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visitor/TagExplorer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/ClassDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/UML/ClassDiagram.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +24,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2I14ZUIsPrtgoenFwml6F5dVOfE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -77,6 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669322658473</updated>
       <workItem from="1669322660211" duration="1074000" />
+      <workItem from="1669335818148" duration="431000" />
     </task>
     <servers />
   </component>
