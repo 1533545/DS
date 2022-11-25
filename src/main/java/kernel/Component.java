@@ -114,8 +114,7 @@ public abstract class Component {
       for (int i = 0; i < jsonArray.length(); ++i) {
         tags.add(jsonArray.get(i).toString());
       }
-    }
-    else {
+    } else {
       logger.warn("null value or empty list received, careful!");
     }
     return tags;
@@ -157,8 +156,7 @@ public abstract class Component {
         String tag = (String) var2.next();
         jsonArray.put(tag);
       }
-    }
-    else {
+    } else {
       logger.warn("null value or empty list received, careful!");
     }
     return jsonArray;
@@ -233,9 +231,9 @@ public abstract class Component {
     for (Component project = this; project != null; project = project.fatherNode) {
       logger.info(project.name.toUpperCase() + ":");
       logger.info("Component-> Start: "
-              + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
+          + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
       logger.info("End: "
-              + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
+          + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
       logger.info("Duration: " + project.getDuration());
       logger.trace("--------------------------------------"
           + "---------------------------------------------");

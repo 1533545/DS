@@ -80,8 +80,7 @@ public class TagExplorer implements Visitor {
         logger.debug("Project " + project.getTags() + " was found");
         this.componentsFound.add(project);
       }
-    }
-    else {
+    } else {
       logger.warn("null value or empty list received, careful!");
     }
     for (Component component : project.getChildren()) {
@@ -109,8 +108,7 @@ public class TagExplorer implements Visitor {
         logger.debug("Task " + task.getTags() + " was found");
         this.componentsFound.add(task);
       }
-    }
-    else {
+    } else {
       logger.warn("null value or empty list received, careful!");
     }
   }
