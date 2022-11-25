@@ -1,70 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="14090f47-56af-48a0-a94e-81618ac8dfc7" name="Changes" comment="">
-=======
-    <list default="true" id="20b172a8-dae7-4ea6-8d1a-1413120ca569" name="Changes" comment="">
->>>>>>> fddcc502ac9069d75d9ecdb172e4c3d46887fed5
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.html" beforeDir="false" afterPath="$PROJECT_DIR$/log.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/json/Json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/Json.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/json/JsonPrettier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/JsonPrettier.txt" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/main/java/json/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/json/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/json/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/json/JsonWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Kernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Kernel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/program/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/program/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/Explorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/Explorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" afterDir="false" />
->>>>>>> fddcc502ac9069d75d9ecdb172e4c3d46887fed5
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/TagExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/TagExplorer.java" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-<<<<<<< HEAD
-  <component name="ProjectId" id="2I1bnb7WXqtuI7DGBYxDtx3N1Pt" />
-=======
-  <component name="ProjectId" id="2I1Vzxop78g8t1JNjOSTQ23g4EB" />
->>>>>>> fddcc502ac9069d75d9ecdb172e4c3d46887fed5
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-<<<<<<< HEAD
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
-=======
-    "RunOnceActivity.ShowReadmeOnStart": "true"
->>>>>>> fddcc502ac9069d75d9ecdb172e4c3d46887fed5
-  }
-}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="program.Main" />
@@ -84,41 +19,5 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="14090f47-56af-48a0-a94e-81618ac8dfc7" name="Changes" comment="" />
-      <created>1669352212529</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1669352212529</updated>
-      <workItem from="1669352215019" duration="920000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-=======
-      <changelist id="20b172a8-dae7-4ea6-8d1a-1413120ca569" name="Changes" comment="" />
-      <created>1669349346997</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1669349346997</updated>
-    </task>
-    <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
->>>>>>> fddcc502ac9069d75d9ecdb172e4c3d46887fed5
   </component>
 </project>
