@@ -12,22 +12,41 @@ import kernel.Task;
  **/
 public class TagExplorer implements Visitor {
 
+  /**
+   * Tag to be found.
+   **/
   private String targetTag;
+
+  /**
+   * List of Components containing targetTag in their Tag list.
+   **/
   private List<Component> componentsFound;
 
+  /**
+   * Parameter contructor.
+   **/
   public TagExplorer(String targetTag) {
     this.targetTag = targetTag;
     this.componentsFound = new ArrayList<>();
   }
 
+  /**
+   * Sets targetTag attribute a new value.
+   **/
   public void setTargetTag(String tag) {
     this.targetTag = tag;
   }
 
+  /**
+   * Returns the value of targetTag attribute.
+   **/
   public String getTargetTag() {
     return this.targetTag;
   }
 
+  /**
+   * Returns the list of components matching targetTag.
+   **/
   public List<Component> getResult() {
     return this.componentsFound;
   }

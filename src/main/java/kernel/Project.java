@@ -15,12 +15,18 @@ import visitor.Visitor;
  * contains multiple Projects or/and Tasks. Represents a project node of the components tree.
  **/
 public class Project extends Component {
+  /**
+   * Logger for Task class.
+   **/
   private static Logger logger = LoggerFactory.getLogger(Project.class);
+  /**
+   * List of all child Components nodes.
+   **/
   private List<Component> children;
 
   /**
-   * comment.
-   */
+   * Parameter constructor for Project.
+   **/
   public Project(Component fatherNode, String name, String description, List<String> tagList) {
     super(fatherNode, name, description, tagList);
     if ((name.replaceAll("\\s", "")).matches("^[a-zA-Z0-9]*$") && name != null) {
@@ -32,8 +38,8 @@ public class Project extends Component {
   }
 
   /**
-   * comment.
-   */
+   * Initialize a Project object from a JSONObject.
+   **/
   public Project(JSONObject jsonObject) throws Exception {
     super(jsonObject);
     if (jsonObject != null) {
@@ -47,11 +53,17 @@ public class Project extends Component {
     invariant();
   }
 
+  /**
+   * Accepts Visitor.
+   **/
   @Override
   public void acceptVisitor(Visitor visitor) {
     visitor.visitProject(this);
   }
 
+  /**
+   * Initialize a Children attribute from a JSONArray .
+   **/
   private void generateChildrenFromJson(JSONArray jsonArray) throws Exception {
     for (int i = 0; i < jsonArray.length(); i++) {
       JSONObject childJson = jsonArray.getJSONObject(i);
@@ -67,18 +79,27 @@ public class Project extends Component {
     }
   }
 
+  /**
+   * Initialize a Task object from a JSONObject and adds it to Children attribute.
+   **/
   private void generateTaskFromJson(JSONObject childJson) throws Exception {
     Task task = new Task(childJson);
     task.fatherNode = this;
     this.children.add(task);
   }
 
+  /**
+   * Initialize a Project object from a JSONObject and adds it to Children attribute.
+   **/
   private void generateProjectFromJson(JSONObject childJson) throws Exception {
     Project task = new Project(childJson);
     task.fatherNode = this;
     this.children.add(task);
   }
 
+  /**
+   * Initialize a Project object from a JSONObject and adds it to Children attribute.
+   **/
   @Override
   public JSONObject toJson() {
     JSONObject jsonObject = toJsonComponent(new JSONObject());
@@ -88,6 +109,9 @@ public class Project extends Component {
     return jsonObject;
   }
 
+  /**
+   * Returns a JSONArray of all child's of children attribute.
+   **/
   private JSONArray childrenToJson() {
     JSONArray jsonArray = new JSONArray();
     for (Component child : children) {
@@ -97,7 +121,7 @@ public class Project extends Component {
   }
 
   /**
-   *comment.
+   * Add a component to children Attribute.
    */
   public void addComponent(Component projectComponent) {
     invariant();
@@ -108,10 +132,16 @@ public class Project extends Component {
     invariant();
   }
 
+  /**
+   * Returns a list of Components.
+   **/
   public List<Component> getChildren() {
     return this.children;
   }
 
+  /**
+   * Returns the Duration of the project.
+   **/
   @Override
   public Duration getDuration() {
     invariant();
@@ -124,6 +154,9 @@ public class Project extends Component {
     return duration;
   }
 
+  /**
+   * Checks if children attribute is null.
+   **/
   private boolean invariant() {
     assert (this.children != null);
     return true;

@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package kernel;
 
 import java.util.ArrayList;
@@ -16,15 +11,15 @@ import visitor.Printer;
 import visitor.TagExplorer;
 
 /**
- * comment.
- */
+ * Main entrypoint of execution of the Kernel.
+ **/
 public class Main {
   public Main() {
   }
 
   /**
-   * comment.
-   */
+   * Executes Appendix tests.
+   **/
   public static void main(String[] args) throws Exception {
     System.out.println("Appendix A");
     appendixA();
@@ -38,6 +33,9 @@ public class Main {
     printer.print(rootRead);
   }
 
+  /**
+   * Executes Appendix B tests.
+   **/
   private static void appendixB() throws Exception {
     Project root = new Project((Component) null, "root", "father", (List) null);
     Project softwareDesign = new Project(root, "software design",
@@ -90,6 +88,9 @@ public class Main {
     printer.print(root);
   }
 
+  /**
+   * Executes Appendix A tests.
+   **/
   private static void appendixA() throws Exception {
     Project root = new Project((Component) null, "root", "father", (List) null);
     Project softwareDesign = new Project(root, "software design",

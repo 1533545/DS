@@ -9,9 +9,15 @@ import kernel.Task;
  * Prints Component attributes values in the console with a custom style.
  **/
 public class Printer implements Visitor {
-  
+
+  /**
+   * Stores the indentation length.
+   **/
   private int indentation;
 
+  /**
+   * Parameter constructor.
+   **/
   public Printer(int indentation) {
     this.indentation = indentation;
   }
@@ -44,6 +50,9 @@ public class Printer implements Visitor {
     return customTagList;
   }
 
+  /**
+   * Prints in console all nodes of the Component.
+   **/
   public void print(Component component) {
     component.acceptVisitor(this);
   }

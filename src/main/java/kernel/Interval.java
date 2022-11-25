@@ -1,6 +1,5 @@
 package kernel;
 
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -11,22 +10,31 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-
 /**
  * Observer class. Contains start and finish times of a task time interval.
  * Generates intervals of time every time a task starts. Keeps them and can
  * return the duration of the interval.
  **/
-
 public class Interval implements Observer {
+  /**
+   * Interval Logger.
+   */
   private static Logger logger = LoggerFactory.getLogger(Interval.class);
+  /**
+   * Task that contains this Interval object.
+   */
   private Task fatherTask;
+  /**
+   * Start time of the Interval object.
+   */
   private LocalDateTime start;
+  /**
+   * Finish time of the Interval object..
+   */
   private LocalDateTime end;
 
   /**
-   * comment.
+   * Parameter constructor.
    */
   public Interval(Task task) {
     this.start = LocalDateTime.now();
@@ -35,7 +43,7 @@ public class Interval implements Observer {
   }
 
   /**
-   * comment.
+   * Initialize Interval object from a JSONObject.
    */
   public Interval(JSONObject jsonObject) {
     DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
@@ -44,7 +52,7 @@ public class Interval implements Observer {
   }
 
   /**
-   * comment.
+   * Returns a JSONObject of the Interval object.
    */
   public JSONObject toJson() {
     JSONObject jsonObject = new JSONObject();
@@ -53,10 +61,16 @@ public class Interval implements Observer {
     return jsonObject;
   }
 
+  /**
+   * Returns the Duration of the Interval object.
+   */
   public Duration getDuration() {
     return Duration.between(start, end);
   }
 
+  /**
+   * Updates interval every time it is notified by an Observable object.
+   **/
   @Override
   public void update(Observable obs, Object arg) {
     LocalDateTime time = (LocalDateTime) arg;
@@ -65,20 +79,23 @@ public class Interval implements Observer {
     printTimes();
   }
 
+  /**
+   * Custom console printer for time values for every node from this
+   * Interval object to root Component.
+   **/
   private void printTimes() {
     printIntervalTimes();
     this.fatherTask.printTimes();
     this.fatherTask.printComponentTimes();
   }
 
+  /**
+   * Custom console printer for time values of the Interval object.
+   **/
   private void printIntervalTimes() {
     System.out.println("-------------------------------------------------");
     System.out.println("Interval -> Start: " + this.start.format(DateTimeFormatter.ISO_DATE_TIME));
     System.out.println("            End: " + this.end.format(DateTimeFormatter.ISO_DATE_TIME));
     System.out.println("            Duration: " + getDuration());
-  }
-
-  protected String generateUuiD() {
-    return UUID.randomUUID().toString();
   }
 }

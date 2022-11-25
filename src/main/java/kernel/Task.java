@@ -16,13 +16,22 @@ import visitor.Visitor;
  * Contains the work time intervals for the assignment being working on.
  **/
 public class Task extends Component {
+  /**
+   * Logger for Task class.
+   **/
   private static Logger logger = LoggerFactory.getLogger(Task.class);
+  /**
+   * List of intervals.
+   **/
   private List<Interval> intervals;
+  /**
+   * Running Interval.
+   **/
   private Interval runningInterval;
 
   /**
-   * comment.
-   */
+   * Parameter constructor of Task.
+   **/
   public Task(Project fatherNode, String name, String description, List<String> tagList) {
     super(fatherNode, name, description, tagList);
     if ((name.replaceAll("\\s", "")).matches("^[a-zA-Z0-9]*$") && name != null) {
@@ -36,8 +45,8 @@ public class Task extends Component {
   }
 
   /**
-   * comment.
-   */
+   * Initialize Task object using a JSONObject.
+   **/
   public Task(JSONObject jsonObject) throws Exception {
     super(jsonObject);
     if (jsonObject != null) {
@@ -50,11 +59,17 @@ public class Task extends Component {
     invariant();
   }
 
+  /**
+   * Accepts a visitor.
+   **/
   @Override
   public void acceptVisitor(Visitor visitor) {
     visitor.visitTask(this);
   }
 
+  /**
+   * Returns a JSONObject of Task object.
+   **/
   @Override
   public JSONObject toJson() {
     JSONObject jsonObject = toJsonComponent(new JSONObject());
@@ -64,6 +79,9 @@ public class Task extends Component {
     return jsonObject;
   }
 
+  /**
+   * Returns a JSONArray of intervals attribute.
+   **/
   private JSONArray intervalsToJson() {
     JSONArray jsonArray = new JSONArray();
     for (Interval interval : intervals) {
@@ -72,6 +90,9 @@ public class Task extends Component {
     return jsonArray;
   }
 
+  /**
+   * Initialize intervals attribute List from a JSONArray.
+   **/
   private void loadIntervalsFromJson(JSONArray jsonArray) {
     for (int i = 0; i < jsonArray.length(); i++) {
       JSONObject intervalJson = jsonArray.getJSONObject(i);
@@ -80,7 +101,7 @@ public class Task extends Component {
   }
 
   /**
-   * comment.
+   * Adds a new interval object to intervals attribute.
    */
   public void addInterval(Interval interval) {
     invariant();
@@ -92,11 +113,17 @@ public class Task extends Component {
     invariant();
   }
 
+  /**
+   * Starts doing a task.
+   **/
   public void startTask() {
     System.out.println("Starting " + this.name + "\n");
     startObservingClock();
   }
 
+  /**
+   * Starts Counting time by observing the Clock instance.
+   **/
   private void startObservingClock() {
     invariant();
     this.runningInterval = new Interval(this);
@@ -110,7 +137,7 @@ public class Task extends Component {
   }
 
   /**
-   * comment.
+   * Starts Counting time by stop observing the Clock instance.
    */
   public void finishTask() {
     invariant();
@@ -119,15 +146,20 @@ public class Task extends Component {
     invariant();
   }
 
+  /**
+   * Ends doings Task.
+   */
   private void stopObservingClock() {
     Clock clock = Clock.getInstance();
     clock.deleteObserver(this.runningInterval);
     this.runningInterval = null;
     assert (clock != null);
-    assert (clock.countObservers() == 0);
     assert (this.runningInterval == null);
   }
 
+  /**
+   * Returns the Duration of a task.
+   **/
   @Override
   public Duration getDuration() {
     invariant();
@@ -141,8 +173,8 @@ public class Task extends Component {
   }
 
   /**
-   * comment.
-   */
+   * Custom Task printer for task times.
+   **/
   public void printTimes() {
     System.out.println(this.name.toUpperCase() + ":");
     System.out.println("Task     -> Start: "
@@ -154,6 +186,9 @@ public class Task extends Component {
     System.out.println("            Duration: " + this.getDuration());
   }
 
+  /**
+   * Checks if intervals attribute is null.
+   **/
   private boolean invariant() {
     assert (this.intervals != null);
     return true;
