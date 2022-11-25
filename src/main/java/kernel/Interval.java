@@ -95,6 +95,6 @@ public class Interval implements Observer {
   private void printIntervalTimes() {
     logger.info("Interval -> Start: " + this.start.format(DateTimeFormatter.ISO_DATE_TIME));
     logger.info("End: " + this.end.format(DateTimeFormatter.ISO_DATE_TIME));
-    logger.info("Duration: " + getDuration());
+    logger.trace("Duration: " + getDuration());
   }
 }
