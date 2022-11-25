@@ -33,7 +33,7 @@ public class TagExplorer implements Visitor {
    * Parameter contructor.
    **/
   public TagExplorer(String targetTag) {
-    this.targetTag = targetTag;
+    this.targetTag = targetTag.toLowerCase();
     this.componentsFound = new ArrayList<>();
   }
 
@@ -41,7 +41,7 @@ public class TagExplorer implements Visitor {
    * Sets targetTag attribute a new value.
    **/
   public void setTargetTag(String tag) {
-    this.targetTag = tag;
+    this.targetTag = tag.toLowerCase();
   }
 
   /**
@@ -71,17 +71,14 @@ public class TagExplorer implements Visitor {
    * If a coincidence is found, adds the Component to componentsFound attribute.
    **/
   public void search(Project project) {
-
     List<String> tagList = project.getTags();
-
     if (tagList != null && !tagList.isEmpty()) {
       if (tagList.contains(targetTag)) {
         this.componentsFound.add(project);
       }
-    } else {
-      for (Component component : project.getChildren()) {
-        component.acceptVisitor(this);
-      }
+    }
+    for (Component component : project.getChildren()) {
+      component.acceptVisitor(this);
     }
   }
 

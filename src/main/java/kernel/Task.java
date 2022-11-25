@@ -141,7 +141,7 @@ public class Task extends Component {
    */
   public void finishTask() {
     invariant();
-    System.out.println("\n" +"- Finishing " + this.name + "\n");
+    System.out.println("\n" + "- Finishing " + this.name + "\n");
     stopObservingClock();
     invariant();
   }

@@ -25,7 +25,7 @@ public class Project extends Component {
   private List<Component> children;
 
   /**
-   * Default Project Constructor
+   * Default Project Constructor.
    **/
   public Project() {
     super();

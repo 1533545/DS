@@ -1,14 +1,14 @@
 package kernel;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import json.JsonReader;
 import json.JsonWriter;
 import org.json.JSONObject;
 import visitor.NameExplorer;
 import visitor.Printer;
 import visitor.TagExplorer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Main entrypoint of execution of the Kernel.
@@ -24,7 +24,7 @@ public class Main {
     final TagExplorer tagExplorer = new TagExplorer();
     final Printer printer = new Printer();
 
-    // Appendix A test.
+/*    // Appendix A test.
     System.out.println("\n");
     System.out.println("Appendix A:");
     System.out.println("--------------------------------------"
@@ -43,7 +43,14 @@ public class Main {
     System.out.println("Appendix JSON:");
     System.out.println("--------------------------------------"
         + "---------------------------------------------");
-    AppendixJson(root, printer);
+    appendixJson(root, printer);*/
+
+    // Appendix Visitor test.
+    System.out.println("\n");
+    System.out.println("Appendix Visitor:");
+    System.out.println("--------------------------------------"
+        + "---------------------------------------------");
+    appendixVisitor(root, tagExplorer);
   }
 
   /**
@@ -92,9 +99,9 @@ public class Main {
 
     // Add children to timeTracker
     Task readHandout = new Task(timeTracker, "read handout",
-        "Nothing", Arrays.asList("Dart"));
+        "Dart", Arrays.asList("Dart"));
     Task firstMilestone = new Task(timeTracker, "first milestone",
-        "Nothing", Arrays.asList("Java", "IntelliJ"));
+        "Java,IntelliJ", Arrays.asList("Java", "IntelliJ"));
 
     // Add children to timeTracker
     timeTracker.addComponent(readHandout);
@@ -108,57 +115,6 @@ public class Main {
    **/
   private static void appendixA(Project root, Printer printer) {
     printer.print(root);
-
-    /*NameExplorer explorerName = new NameExplorer(firstList.getName());
-    System.out.println("---------------------------------------------------");
-    System.out.println("Search task Name");
-    explorerName.search(this.root);
-    Component taskName = explorerName.getResult();
-    if (taskName != null) {
-      System.out.println(taskName.name);
-    } else {
-      System.out.println("Not Found");
-    }
-
-    printer.print(taskName);
-    System.out.println("---------------------------------------------------");
-    System.out.println("Search C++");
-    TagExplorer tagExplorer = new TagExplorer((String) softwareTesting.getTags().get(0));
-    tagExplorer.search(this.root);
-    List<Component> cppTag = tagExplorer.getResult();
-    if (cppTag != null && !cppTag.isEmpty()) {
-      cppTag.stream().forEach((component) -> {
-        printer.print(component);
-      });
-    } else {
-      System.out.println("Not Found");
-    }
-
-    System.out.println("---------------------------------------------------");
-    System.out.println("Search Project Name");
-    explorerName.setTargetName("time tracker");
-    explorerName.search(this.root);
-    Component projectName = explorerName.getResult();
-    if (projectName != null) {
-      System.out.println(projectName.name);
-    } else {
-      System.out.println("Not Found");
-    }
-
-    printer.print(projectName);
-    System.out.println("---------------------------------------------------");
-    System.out.println("Search Python");
-    tagExplorer.setTargetTag((String) softwareTesting.getTags().get(2));
-    tagExplorer.cleanTargetTag();
-    tagExplorer.search(this.root);
-    List<Component> pythonTag = tagExplorer.getResult();
-    if (pythonTag != null && !pythonTag.isEmpty()) {
-      pythonTag.stream().forEach((component) -> {
-        printer.print(component);
-      });
-    } else {
-      System.out.println("Not Found");
-    }*/
   }
 
   /**
@@ -213,7 +169,7 @@ public class Main {
   /**
    * Test write and read json objects.
    **/
-  public static void AppendixJson(Project root, Printer printer) {
+  public static void appendixJson(Project root, Printer printer) {
     // Save object in file as json.
     JsonWriter.saveJsonPrettier(root.toJson());
     JsonWriter.saveJson(root.toJson());
@@ -221,14 +177,55 @@ public class Main {
     // Read json from file.
     JSONObject rootJson = JsonReader.readJson("json.txt");
 
+    Project projectLoadFromJson = new Project();
     try {
-      root = new Project(rootJson);
-    }
-    catch (Exception exception) {
+      projectLoadFromJson = new Project(rootJson);
+    } catch (Exception exception) {
       System.out.println(exception);
     }
 
-    // Print initialized object from json.
-    printer.print(root);
+    // Print initialized Project object from json.
+    printer.print(projectLoadFromJson);
+  }
+
+  /**
+   * Test search by tags.
+   **/
+  public static void appendixVisitor(Project root, TagExplorer tagExplorer) {
+    String[] tagsToSearch = new String[] {
+      "java", "Java", "IntelliJ", "c++", "python"
+    };
+
+    for (String tag : tagsToSearch) {
+      List<Component> foundComponents = searchByTagList(root, tagExplorer, tag);
+      if (foundComponents != null && !foundComponents.isEmpty()) {
+        System.out.println("-" + tag + " found in: "
+            + generateCustomComponentsNameLog(foundComponents));
+      } else {
+        System.out.println("-" + tag + " not found :(");
+      }
+    }
+  }
+
+  /**
+   * Given a Component tree search for a specific tag.
+   **/
+  private static List<Component> searchByTagList(Project root,
+                       TagExplorer tagExplorer, String tag) {
+    tagExplorer.cleanTargetTag();
+    tagExplorer.setTargetTag(tag);
+    tagExplorer.search(root);
+    return tagExplorer.getResult();
+  }
+
+  /**
+   * Given a Component list search generate a custom string of concatenated Components names.
+   **/
+  private static String generateCustomComponentsNameLog(List<Component> components) {
+    String customLog = "";
+    for (Component component : components) {
+      customLog += (component.getName() + ", ");
+    }
+    return customLog;
   }
 }

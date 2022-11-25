@@ -43,7 +43,7 @@ public class Printer implements Visitor {
   /**
    * Generates a custom String with all tags concatenated.
    **/
-  private String generateCustomTagListString(List<String> tagList) {
+  public String generateCustomTagListString(List<String> tagList) {
     String customTagList = "";
 
     if (tagList != null && !tagList.isEmpty()) {

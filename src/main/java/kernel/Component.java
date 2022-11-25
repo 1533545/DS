@@ -65,7 +65,11 @@ public abstract class Component {
     this.fatherNode = fatherNode;
     this.name = name;
     this.description = description;
-    this.tags = tagList;
+    if(tagList != null && !tagList.isEmpty()) {
+      this.tags = tagsToLowercase(tagList);
+    } else {
+      this.tags = null;
+    }
   }
 
   /**
@@ -88,6 +92,14 @@ public abstract class Component {
 
   }
 
+  private List<String> tagsToLowercase(List<String> tags) {
+    List<String> lowerCaseTagsList = new ArrayList<>();
+    for(String tag : tags) {
+      lowerCaseTagsList.add((tag.toLowerCase()));
+    }
+    return lowerCaseTagsList;
+  }
+
   /**
    * Returns a list of tags generated from a JSONArray.
    **/
@@ -98,7 +110,6 @@ public abstract class Component {
         tags.add(jsonArray.get(i).toString());
       }
     }
-
     return tags;
   }
 
@@ -110,6 +121,7 @@ public abstract class Component {
     jsonObject.put("Description", this.description);
     jsonObject.put("Duration", this.getDuration());
     jsonObject.put("Tags", this.tagsTojson());
+
     if (this.startTime == null) {
       jsonObject.put("Start", LocalDateTime.MIN);
     } else {
@@ -138,7 +150,6 @@ public abstract class Component {
         jsonArray.put(tag);
       }
     }
-
     return jsonArray;
   }
 
@@ -151,7 +162,6 @@ public abstract class Component {
         node.setStartTime(time);
       }
     }
-
   }
 
   /**
@@ -161,7 +171,6 @@ public abstract class Component {
     for (Component node = this; node != null; node = node.fatherNode) {
       node.setFinishTime(time);
     }
-
   }
 
   /**
