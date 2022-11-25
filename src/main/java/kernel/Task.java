@@ -117,7 +117,7 @@ public class Task extends Component {
    * Starts doing a task.
    **/
   public void startTask() {
-    System.out.println("Starting " + this.name + "\n");
+    System.out.println("- Starting " + this.name + "\n");
     startObservingClock();
   }
 
@@ -141,7 +141,7 @@ public class Task extends Component {
    */
   public void finishTask() {
     invariant();
-    System.out.println("Finishing " + this.name + "\n");
+    System.out.println("\n" +"- Finishing " + this.name + "\n");
     stopObservingClock();
     invariant();
   }

@@ -16,6 +16,13 @@ public class Printer implements Visitor {
   private int indentation;
 
   /**
+   * Default constructor.
+   **/
+  public Printer() {
+    this.indentation = 0;
+  }
+
+  /**
    * Parameter constructor.
    **/
   public Printer(int indentation) {

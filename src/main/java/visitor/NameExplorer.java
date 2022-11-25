@@ -20,6 +20,13 @@ public class NameExplorer implements Visitor {
   Component componentFound;
 
   /**
+   * Default constructor.
+   **/
+  public NameExplorer() {
+    /* Void */
+  }
+
+  /**
    * Parameter constructor.
    **/
   public NameExplorer(String targetName) {

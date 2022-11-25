@@ -23,6 +23,13 @@ public class TagExplorer implements Visitor {
   private List<Component> componentsFound;
 
   /**
+   * Default constructor.
+   **/
+  public TagExplorer() {
+    /* Void */
+  }
+
+  /**
    * Parameter contructor.
    **/
   public TagExplorer(String targetTag) {

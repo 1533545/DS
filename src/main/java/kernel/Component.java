@@ -52,6 +52,13 @@ public abstract class Component {
   public abstract Duration getDuration();
 
   /**
+   * Default constructor.
+   **/
+  protected Component() {
+    //void
+  }
+
+  /**
    * Parameter constructor.
    **/
   protected Component(Component fatherNode, String name, String description, List<String> tagList) {
@@ -211,8 +218,6 @@ public abstract class Component {
           + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
       System.out.println("            Duration: " + project.getDuration());
     }
-
-    System.out.println("-------------------------------------------------");
   }
 
   /**

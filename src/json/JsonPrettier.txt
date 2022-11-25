@@ -1,43 +1,49 @@
 {
   "Description": "father",
-  "Start": "-999999999-01-01T00:00",
-  "Duration": "PT0S",
+  "Start": "2022-11-25T02:47:13.970825",
+  "Duration": "PT25.9189786S",
   "Class": "Project",
   "Children": [
     {
       "Description": "java,flutter",
-      "Start": "-999999999-01-01T00:00",
-      "Duration": "PT0S",
+      "Start": "2022-11-25T02:47:21.986017500",
+      "Duration": "PT15.9602862S",
       "Class": "Project",
       "Children": [
         {
           "Description": "Nothing",
-          "Start": "-999999999-01-01T00:00",
-          "Duration": "PT0S",
+          "Start": "2022-11-25T02:47:21.986017500",
+          "Duration": "PT15.9602862S",
           "Class": "Project",
           "Children": [
             {
-              "Intervals": [],
+              "Intervals": [{
+                "Start": "2022-11-25T02:47:21.986017500",
+                "End": "2022-11-25T02:47:31.969371600"
+              }],
               "Description": "java",
-              "Start": "-999999999-01-01T00:00",
-              "Duration": "PT0S",
+              "Start": "2022-11-25T02:47:21.986017500",
+              "Duration": "PT9.9833541S",
               "Class": "Task",
-              "Finish": "-999999999-01-01T00:00",
+              "Finish": "2022-11-25T02:47:31.969371600",
               "Tags": ["java"],
               "Name": "first list"
             },
             {
-              "Intervals": [],
+              "Intervals": [{
+                "Start": "2022-11-25T02:47:27.992592800",
+                "End": "2022-11-25T02:47:33.969524900"
+              }],
               "Description": "Dart",
-              "Start": "-999999999-01-01T00:00",
-              "Duration": "PT0S",
+              "Start": "2022-11-25T02:47:27.992592800",
+              "Duration": "PT5.9769321S",
               "Class": "Task",
-              "Finish": "-999999999-01-01T00:00",
+              "Finish": "2022-11-25T02:47:33.969524900",
               "Tags": ["Dart"],
               "Name": "second list"
             }
           ],
-          "Finish": "-999999999-01-01T00:00",
+          "Finish": "2022-11-25T02:47:33.969524900",
           "Tags": [],
           "Name": "problems"
         },
@@ -76,7 +82,7 @@
           "Name": "time tracker"
         }
       ],
-      "Finish": "-999999999-01-01T00:00",
+      "Finish": "2022-11-25T02:47:33.969524900",
       "Tags": [
         "java",
         "flutter"
@@ -112,17 +118,26 @@
       "Name": "databases"
     },
     {
-      "Intervals": [],
+      "Intervals": [
+        {
+          "Start": "2022-11-25T02:47:13.970825",
+          "End": "2022-11-25T02:47:19.968880200"
+        },
+        {
+          "Start": "2022-11-25T02:47:36.008940900",
+          "End": "2022-11-25T02:47:39.969578100"
+        }
+      ],
       "Description": "Nothing",
-      "Start": "-999999999-01-01T00:00",
-      "Duration": "PT0S",
+      "Start": "2022-11-25T02:47:13.970825",
+      "Duration": "PT9.9586924S",
       "Class": "Task",
-      "Finish": "-999999999-01-01T00:00",
+      "Finish": "2022-11-25T02:47:39.969578100",
       "Tags": [],
       "Name": "transportation"
     }
   ],
-  "Finish": "-999999999-01-01T00:00",
+  "Finish": "2022-11-25T02:47:39.969578100",
   "Tags": [],
   "Name": "root"
 }

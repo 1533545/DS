@@ -25,6 +25,14 @@ public class Project extends Component {
   private List<Component> children;
 
   /**
+   * Default Project Constructor
+   **/
+  public Project() {
+    super();
+
+  }
+
+  /**
    * Parameter constructor for Project.
    **/
   public Project(Component fatherNode, String name, String description, List<String> tagList) {
