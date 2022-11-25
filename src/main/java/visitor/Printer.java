@@ -55,8 +55,8 @@ public class Printer implements Visitor {
       }
     } else {
       customTagList = "No tags";
+      logger.warn("null value or empty list received, careful!");
     }
-
     return customTagList;
   }
 
