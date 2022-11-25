@@ -67,18 +67,25 @@ package "kernel" #DDDDDD {
   -stopTimer() : void
   }
 
-  class JsonReader {
-    + {static} readJson(fileName : String) : JSONObject
-    - {static} readJsonFile(fileName : String) : String
-    - {static} readFile(file : File) : String
-  }
+}
 
-  class JsonWriter {
-    + {static} saveJson(json:JSONObject) : void
-    + {static} saveJsonPrettier(json:JSONObject) : void
-    - writeJson(text : String, fileName : String)
+package "java.util" #DDDDDD{
+  abstract Observable {
+    +AddObserver(o:Observer) : void
+    +DeleteObserver(o:Observer) : void
+    +DeleteObservers() : void
+    +HasChanged() : bool
+    #ClearChanged() : void
+    +NotifyObservers(arg:object) : void
   }
+  interface Observer
+  {
+       +void Update(observable : Observable, arg: object )
+  }
+  Observable "0..N" *--> "1" Observer:ObserverList
+}
 
+package "visitor" #DDDDDD {
   interface Visitor{
     visitProject(project:Project) : void
     visitTask(task: Task) :void
@@ -105,32 +112,26 @@ package "kernel" #DDDDDD {
     +getResult(): Component
     +search(project: Project): void
   }
+}
 
-  package "java.util"
-  {
-      abstract Observable {
-        +AddObserver(o:Observer) : void
-        +DeleteObserver(o:Observer) : void
-        +DeleteObservers() : void
-        +HasChanged() : bool
-        #ClearChanged() : void
-        +NotifyObservers(arg:object) : void
-      }
-      interface Observer
-      {
-           +void Update(observable : Observable, arg: object )
-      }
-      Observable "0..N" *--> "1" Observer:ObserverList
+package json #DDDDDD {
+  class JsonReader {
+    + {static} readJson(fileName : String) : JSONObject
+    - {static} readJsonFile(fileName : String) : String
+    - {static} readFile(file : File) : String
   }
 
+  class JsonWriter {
+    + {static} saveJson(json:JSONObject) : void
+    + {static} saveJsonPrettier(json:JSONObject) : void
+    - writeJson(text : String, fileName : String)
+  }
 }
 
 /' Relationship '/
   NameExplorer -up-|> Visitor
   Printer -left-|> Visitor
   TagExplorer -up-|> Visitor
-  Task -right-|> Component
-  Visitor -down-> Component
   Component <|-- Project
   Component "N" --o "1" Project : Children
   Task "1" o-- "0..N" Interval
