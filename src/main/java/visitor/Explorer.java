@@ -6,18 +6,11 @@ import java.util.List;
 import kernel.Component;
 import kernel.Project;
 import kernel.Task;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * Program.Main entrypoint of execution of the Visitor test.
+ * Entrypoint for the execution of the Visitor tests.
  **/
 public class Explorer {
-  /**
-   * Logger for Program.Main class.
-   **/
-  private static Logger logger = LoggerFactory.getLogger(Explorer.class);
-
   /**
    * Executes Appendix tests.
    **/
@@ -29,9 +22,9 @@ public class Explorer {
     final Printer printer = new Printer();
 
     // Appendix Visitor test.
-    logger.trace("\n");
-    logger.trace("Appendix Visitor:");
-    logger.trace("--------------------------------------"
+    System.out.println("\n");
+    System.out.println("Appendix Visitor:");
+    System.out.println("--------------------------------------"
         + "---------------------------------------------");
     appendixVisitor(root, tagExplorer);
   }
@@ -104,10 +97,10 @@ public class Explorer {
     for (String tag : tagsToSearch) {
       List<Component> foundComponents = searchByTagList(root, tagExplorer, tag);
       if (foundComponents != null && !foundComponents.isEmpty()) {
-        logger.trace("-" + tag + " found in: "
+        System.out.println("-" + tag + " found in: "
             + generateCustomComponentsNameLog(foundComponents));
       } else {
-        logger.trace("-" + tag + " not found :(");
+        System.out.println("-" + tag + " not found :(");
       }
     }
   }

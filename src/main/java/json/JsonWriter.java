@@ -3,6 +3,8 @@ package json;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Writes a new JsonString in a new file.
@@ -11,6 +13,11 @@ import org.json.JSONObject;
  *      - jsonPrettier: Readable .txt file with the json object passed.
  **/
 public class JsonWriter {
+  /**
+   * Logger object of the JsonWriter.
+   **/
+  private static Logger logger = LoggerFactory.getLogger(JsonWriter.class);
+
   /**
    * Save JSONObject as string in json.txt file.
    **/
@@ -30,7 +37,7 @@ public class JsonWriter {
     try {
       writeJson(json.toString(2), "JsonPrettier");
     } catch (IOException e) {
-      System.out.println(e);
+      logger.debug(e.toString());
     }
   }
 

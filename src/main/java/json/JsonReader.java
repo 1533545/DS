@@ -4,11 +4,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Given a file name, generates a json object of its content and returns it.
  **/
 public class JsonReader {
+  /**
+   * Logger object of the JsonWriter.
+   **/
+  private static Logger logger = LoggerFactory.getLogger(JsonWriter.class);
+
   /**
    * Given a fileName, reads its content and returns a JSONObject of it.
    **/
@@ -18,7 +25,7 @@ public class JsonReader {
       String json = readJsonFile(fileName);
       jsonObject = new JSONObject(json);
     } catch (FileNotFoundException e) {
-      System.out.println(e);
+      logger.debug(e.toString());
     }
     return jsonObject;
   }

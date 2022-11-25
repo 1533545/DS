@@ -13,14 +13,9 @@ import visitor.Printer;
 import visitor.TagExplorer;
 
 /**
- * Program.Main entrypoint of execution of the Kernel test.
+ * Entrypoint for the execution of Kernel tests.
  **/
 public class Kernel {
-  /**
-   * Logger for Program.Main class.
-   **/
-  private static Logger logger = LoggerFactory.getLogger(Kernel.class);
-
   /**
    * Executes Appendix tests.
    **/
@@ -32,23 +27,23 @@ public class Kernel {
     final Printer printer = new Printer();
 
     // Appendix A test.
-    logger.trace("\n");
-    logger.trace("Appendix A:");
-    logger.trace("--------------------------------------"
+    System.out.println("\n");
+    System.out.println("Appendix A:");
+    System.out.println("--------------------------------------"
         + "---------------------------------------------");
     appendixA(root, printer);
 
     // Appendix B test.
-    logger.trace("\n");
-    logger.trace("Appendix B:");
-    logger.trace("--------------------------------------"
+    System.out.println("\n");
+    System.out.println("Appendix B:");
+    System.out.println("--------------------------------------"
         + "---------------------------------------------");
     appendixB(root, nameExplorer);
 
     // Appendix JSON test.
-    logger.trace("\n");
-    logger.trace("Appendix JSON:");
-    logger.trace("--------------------------------------"
+    System.out.println("\n");
+    System.out.println("Appendix JSON:");
+    System.out.println("--------------------------------------"
         + "---------------------------------------------");
     appendixJson(root, printer);
   }
@@ -177,12 +172,8 @@ public class Kernel {
     // Read json from file.
     JSONObject rootJson = JsonReader.readJson("json.txt");
 
-    Project projectLoadFromJson = new Project();
-    try {
-      projectLoadFromJson = new Project(rootJson);
-    } catch (Exception exception) {
-      logger.debug(exception.toString());
-    }
+    // Initialize Project from JSONObject.
+    Project projectLoadFromJson = new Project(rootJson);
 
     // Print initialized Project object from json.
     printer.print(projectLoadFromJson);

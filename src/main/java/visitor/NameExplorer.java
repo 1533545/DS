@@ -65,7 +65,7 @@ public class NameExplorer implements Visitor {
   public void search(Project project) {
     String name = project.getName();
     if (name.equals(this.targetName)) {
-      logger.debug("Project "+ project.getName()+" was found");
+      logger.debug("Project " + project.getName() + " was found");
       this.componentFound = project;
     } else {
       for (Component component : project.getChildren()) {
@@ -90,7 +90,7 @@ public class NameExplorer implements Visitor {
   public void visitTask(Task task) {
     String name = task.getName();
     if (name.equals(this.targetName)) {
-      logger.debug("Task "+ task.getName()+" was found");
+      logger.debug("Task " + task.getName() + " was found");
       this.componentFound = task;
     }
   }

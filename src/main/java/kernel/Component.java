@@ -70,7 +70,7 @@ public abstract class Component {
     this.fatherNode = fatherNode;
     this.name = name;
     this.description = description;
-    if(tagList != null && !tagList.isEmpty()) {
+    if (tagList != null && !tagList.isEmpty()) {
       this.tags = tagsToLowercase(tagList);
     } else {
       this.tags = null;
@@ -99,7 +99,7 @@ public abstract class Component {
 
   private List<String> tagsToLowercase(List<String> tags) {
     List<String> lowerCaseTagsList = new ArrayList<>();
-    for(String tag : tags) {
+    for (String tag : tags) {
       lowerCaseTagsList.add((tag.toLowerCase()));
     }
     return lowerCaseTagsList;

@@ -49,16 +49,17 @@ public class Project extends Component {
   /**
    * Initialize a Project object from a JSONObject.
    **/
-  public Project(JSONObject jsonObject) throws Exception {
+  public Project(JSONObject jsonObject) {
     super(jsonObject);
     if (jsonObject != null) {
-      JSONArray jsonArray = jsonObject.getJSONArray("Children");
-      this.children = new ArrayList<>();
-      generateChildrenFromJson(jsonArray);
-    } else {
-      throw new Exception("No file to read");
+      try {
+        JSONArray jsonArray = jsonObject.getJSONArray("Children");
+        this.children = new ArrayList<>();
+        generateChildrenFromJson(jsonArray);
+      } catch (Exception e) {
+        logger.debug(e.toString());
+      }
     }
-
     invariant();
   }
 

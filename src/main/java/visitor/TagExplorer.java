@@ -77,7 +77,7 @@ public class TagExplorer implements Visitor {
     List<String> tagList = project.getTags();
     if (tagList != null && !tagList.isEmpty()) {
       if (tagList.contains(targetTag)) {
-        logger.debug("Project "+ project.getTags()+" was found");
+        logger.debug("Project " + project.getTags() + " was found");
         this.componentsFound.add(project);
       }
     }
@@ -103,7 +103,7 @@ public class TagExplorer implements Visitor {
     List<String> tagList = task.getTags();
     if (tagList != null && !tagList.isEmpty()) {
       if (tagList.contains(this.targetTag)) {
-        logger.debug("Task "+ task.getTags()+" was found");
+        logger.debug("Task " + task.getTags() + " was found");
         this.componentsFound.add(task);
       }
     }

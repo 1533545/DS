@@ -1,14 +1,14 @@
 package program;
 
-import kernel.*;
+import kernel.Kernel;
 import visitor.Explorer;
 
 /**
- * Program.Main entrypoint of execution for all test.
+ * Entrypoint for the execution of all tests.
  **/
 public class Main {
   /**
-   * Executes Appendix tests.
+   * Executes all test.
    **/
   public static void main(String[] args) throws Exception {
     Kernel.main(null);
