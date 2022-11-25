@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
 /**
@@ -13,6 +15,10 @@ import visitor.Visitor;
  * contains multiple Projects or/and Tasks. Represents a project node of the components tree.
  **/
 public class Project extends Component {
+  /**
+   * Logger for Project class.
+   **/
+  private static Logger logger = LoggerFactory.getLogger(Task.class);
   /**
    * List of all child Components nodes.
    **/
@@ -33,6 +39,7 @@ public class Project extends Component {
     super(fatherNode, name, description, tagList);
     if ((name.replaceAll("\\s", "")).matches("^[a-zA-Z0-9]*$") && name != null) {
       this.children = new ArrayList<>();
+      logger.debug("Project " + name + " has been created");
     } else {
       throw new IllegalArgumentException("Illegal project name:" + name);
     }
@@ -61,6 +68,7 @@ public class Project extends Component {
   @Override
   public void acceptVisitor(Visitor visitor) {
     visitor.visitProject(this);
+    logger.debug("Project " + this.name + " visited");
   }
 
   /**
@@ -130,6 +138,7 @@ public class Project extends Component {
     if (projectComponent != null) {
       this.children.add(projectComponent);
       projectComponent.fatherNode = this;
+      logger.info(projectComponent.name + " has been added to Project " + this.name);
     }
     invariant();
   }

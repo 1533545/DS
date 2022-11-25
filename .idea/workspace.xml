@@ -1,102 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="3e91f72b-f731-44a4-a1e2-b75ff748799d" name="Changes" comment="Merge branch 'feature/visitor' of https://github.com/1533545/DS&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Kernel/Component.java&#10;#&#9;src/main/java/Kernel/Main.java&#10;#&#9;src/main/java/kernel/Project.java&#10;#&#9;src/main/java/kernel/Task.java&#10;#&#9;target/classes/Kernel/Clock$1.class&#10;#&#9;target/classes/Kernel/Clock.class&#10;#&#9;target/classes/Kernel/Component.class&#10;#&#9;target/classes/Kernel/Interval.class&#10;#&#9;target/classes/Kernel/Main.class&#10;#&#9;target/classes/Kernel/Project.class&#10;#&#9;target/classes/Kernel/Task.class">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ch_qos_logback_classic.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ch_qos_logback_core.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_api.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_ext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/program/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_ext_2_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS.TimeTracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DS.TimeTracker.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML/ClassDigram.puml.rtf" beforeDir="false" afterPath="$PROJECT_DIR$/UML/ClassDigram.puml.rtf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/json/Json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/Json.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/json/JsonPrettier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/JsonPrettier.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Clock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Interval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Kernel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/json/JsonReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/json/JsonWriter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Clock$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Clock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Clock.class~parent of ecb1934 (Add Printer)" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Component.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Interval.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Main.class~parent of ecb1934 (Add Printer)" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Project.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Project.class~parent of ecb1934 (Add Printer)" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Task.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Task.class~parent of ecb1934 (Add Printer)" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visitor/NameExplorer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visitor/Printer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visitor/TagExplorer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visitor/Visitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/AppFlowTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/ClockTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/IntervalTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/ProjectCompositeTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/kernel/TaskTest.class" beforeDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\TimeTracker" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Explorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="visitor.Explorer" />
-      <module name="DS.TimeTracker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="visitor.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Kernel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kernel.Kernel" />
-      <module name="DS.TimeTracker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kernel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="program.Main" />
       <module name="DS.TimeTracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -104,12 +17,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainKernel" />
-        <item itemvalue="Application.Explorer" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="TaskManager">
-    <servers />
   </component>
 </project>

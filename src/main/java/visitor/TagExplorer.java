@@ -5,12 +5,15 @@ import java.util.List;
 import kernel.Component;
 import kernel.Project;
 import kernel.Task;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Given the root node of a Component tree, search in all children nodes for the targetTag
  * attribute and sets the found component in componentsFound attribute.
  **/
 public class TagExplorer implements Visitor {
+  private static Logger logger = LoggerFactory.getLogger(TagExplorer.class);
 
   /**
    * Tag to be found.
@@ -74,6 +77,7 @@ public class TagExplorer implements Visitor {
     List<String> tagList = project.getTags();
     if (tagList != null && !tagList.isEmpty()) {
       if (tagList.contains(targetTag)) {
+        logger.debug("Project "+ project.getTags()+" was found");
         this.componentsFound.add(project);
       }
     }
@@ -99,6 +103,7 @@ public class TagExplorer implements Visitor {
     List<String> tagList = task.getTags();
     if (tagList != null && !tagList.isEmpty()) {
       if (tagList.contains(this.targetTag)) {
+        logger.debug("Task "+ task.getTags()+" was found");
         this.componentsFound.add(task);
       }
     }

@@ -4,12 +4,18 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Timer;
 import java.util.TimerTask;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Observable class. Is in charge of returning the real time
  * every two seconds to all of his observers.
  **/
 public class Clock extends Observable {
+  /**
+   * Clock logger.
+   **/
+  private static Logger logger = LoggerFactory.getLogger(Clock.class);
   /**
    * Task Scheduler.
    **/
@@ -34,6 +40,7 @@ public class Clock extends Observable {
   public static synchronized Clock getInstance() {
     if (clock == null) {
       clock = new Clock();
+      logger.debug("Clock created");
     }
     return clock;
   }
@@ -48,6 +55,7 @@ public class Clock extends Observable {
         tick();
       }
     }, 2000, 2000);
+    logger.debug("Clock started");
   }
 
   /**
@@ -76,5 +84,6 @@ public class Clock extends Observable {
    **/
   public void stopClock() {
     this.cancelTimer = true;
+    logger.debug("Clock stopped");
   }
 }
