@@ -129,13 +129,14 @@ package json #DDDDDD {
 }
 
 /' Relationship '/
-  NameExplorer -up-|> Visitor
-  Printer -left-|> Visitor
-  TagExplorer -up-|> Visitor
-  Component <|-- Project
+  NameExplorer -left-|> Visitor
+  Printer -up-|> Visitor
+  TagExplorer -right-|> Visitor
+  Component <|-down- Project
+  Component <|-right- Task
   Component "N" --o "1" Project : Children
   Task "1" o-- "0..N" Interval
-  Interval ..|> Observer
-  Clock --|> Observable
+  Interval .left.|> Observer
+  Clock -down-|> Observable
 
 @enduml

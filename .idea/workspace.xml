@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="14090f47-56af-48a0-a94e-81618ac8dfc7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/ClassDiagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/UML/ClassDiagram.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UML/ClassDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/UML/ClassDiagram.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,10 +30,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Projects/TimeTracker/UML/ClassDiagram.png",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RunManager" selected="Application.Main">
@@ -91,7 +94,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669360762003</updated>
-      <workItem from="1669360764772" duration="283000" />
+      <workItem from="1669360764772" duration="549000" />
     </task>
     <servers />
   </component>
