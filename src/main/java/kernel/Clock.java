@@ -15,7 +15,7 @@ public class Clock extends Observable {
   /**
    * Clock logger.
    **/
-  private static Logger _logger = LoggerFactory.getLogger(Clock.class);
+  private static Logger logger = LoggerFactory.getLogger(Clock.class);
   /**
    * Task Scheduler.
    **/
@@ -40,6 +40,7 @@ public class Clock extends Observable {
   public static synchronized Clock getInstance() {
     if (clock == null) {
       clock = new Clock();
+      logger.debug("Clock created");
     }
     return clock;
   }
@@ -54,6 +55,7 @@ public class Clock extends Observable {
         tick();
       }
     }, 2000, 2000);
+    logger.debug("Clock started");
   }
 
   /**
@@ -82,5 +84,6 @@ public class Clock extends Observable {
    **/
   public void stopClock() {
     this.cancelTimer = true;
+    logger.debug("Clock stopped");
   }
 }

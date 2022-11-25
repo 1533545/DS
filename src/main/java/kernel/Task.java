@@ -36,6 +36,7 @@ public class Task extends Component {
     super(fatherNode, name, description, tagList);
     if ((name.replaceAll("\\s", "")).matches("^[a-zA-Z0-9]*$") && name != null) {
       this.intervals = new ArrayList<>();
+      logger.debug("Task " + name + " has been created");
     } else {
       throw new IllegalArgumentException("Illegal task name:" + name);
     }
@@ -65,6 +66,7 @@ public class Task extends Component {
   @Override
   public void acceptVisitor(Visitor visitor) {
     visitor.visitTask(this);
+    logger.debug("Task " + this.name + " visited");
   }
 
   /**
@@ -107,6 +109,7 @@ public class Task extends Component {
     invariant();
     if (interval != null) {
       this.intervals.add(interval);
+      logger.debug("New Interval added to task " + this.name);
     }
 
     assert (this.intervals.get(this.intervals.size() - 1) == interval);
@@ -117,7 +120,7 @@ public class Task extends Component {
    * Starts doing a task.
    **/
   public void startTask() {
-    logger.trace("- Starting " + this.name + "\n");
+    logger.info("- Starting " + this.name + "\n");
     startObservingClock();
   }
 
@@ -141,7 +144,7 @@ public class Task extends Component {
    */
   public void finishTask() {
     invariant();
-    logger.trace("\n" +"- Finishing " + this.name + "\n");
+    logger.info("\n" +"- Finishing " + this.name + "\n");
     stopObservingClock();
     invariant();
   }

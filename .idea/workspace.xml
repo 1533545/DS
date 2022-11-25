@@ -5,26 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e91f72b-f731-44a4-a1e2-b75ff748799d" name="Changes" comment="Merge branch 'feature/visitor' of https://github.com/1533545/DS&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Kernel/Component.java&#10;#&#9;src/main/java/Kernel/Main.java&#10;#&#9;src/main/java/kernel/Project.java&#10;#&#9;src/main/java/kernel/Task.java&#10;#&#9;target/classes/Kernel/Clock$1.class&#10;#&#9;target/classes/Kernel/Clock.class&#10;#&#9;target/classes/Kernel/Component.class&#10;#&#9;target/classes/Kernel/Interval.class&#10;#&#9;target/classes/Kernel/Main.class&#10;#&#9;target/classes/Kernel/Project.class&#10;#&#9;target/classes/Kernel/Task.class">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_ext_2_0_4.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS.TimeTracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DS.TimeTracker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/json/Json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/Json.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/json/JsonPrettier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/JsonPrettier.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Interval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Clock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kernel/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kernel/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/NameExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/Printer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Clock.class~parent of ecb1934 (Add Printer)" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Component.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Component.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Interval.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Interval.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Main.class~parent of ecb1934 (Add Printer)" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Project.class~parent of ecb1934 (Add Printer)" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/visitor/TagExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/visitor/TagExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Clock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Clock$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Clock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Clock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Project.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kernel/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kernel/Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kernel/Task.class~parent of ecb1934 (Add Printer)" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/visitor/NameExplorer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visitor/NameExplorer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/visitor/Printer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visitor/Printer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/visitor/TagExplorer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/visitor/TagExplorer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +62,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/huiyi/OneDrive/桌面/ds",
+    "last_opened_file_path": "E:/1r semestre/ds-lab",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -130,5 +125,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'feature/visitor' of https://github.com/1533545/DS&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Kernel/Component.java&#10;#&#9;src/main/java/Kernel/Main.java&#10;#&#9;src/main/java/kernel/Project.java&#10;#&#9;src/main/java/kernel/Task.java&#10;#&#9;target/classes/Kernel/Clock$1.class&#10;#&#9;target/classes/Kernel/Clock.class&#10;#&#9;target/classes/Kernel/Component.class&#10;#&#9;target/classes/Kernel/Interval.class&#10;#&#9;target/classes/Kernel/Main.class&#10;#&#9;target/classes/Kernel/Project.class&#10;#&#9;target/classes/Kernel/Task.class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'feature/visitor' of https://github.com/1533545/DS&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/Kernel/Component.java&#10;#&#9;src/main/java/Kernel/Main.java&#10;#&#9;src/main/java/kernel/Project.java&#10;#&#9;src/main/java/kernel/Task.java&#10;#&#9;target/classes/Kernel/Clock$1.class&#10;#&#9;target/classes/Kernel/Clock.class&#10;#&#9;target/classes/Kernel/Component.class&#10;#&#9;target/classes/Kernel/Interval.class&#10;#&#9;target/classes/Kernel/Main.class&#10;#&#9;target/classes/Kernel/Project.class&#10;#&#9;target/classes/Kernel/Task.class" />
   </component>
 </project>

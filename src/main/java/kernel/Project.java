@@ -39,6 +39,7 @@ public class Project extends Component {
     super(fatherNode, name, description, tagList);
     if ((name.replaceAll("\\s", "")).matches("^[a-zA-Z0-9]*$") && name != null) {
       this.children = new ArrayList<>();
+      logger.debug("Project " + name + " has been created");
     } else {
       throw new IllegalArgumentException("Illegal project name:" + name);
     }
@@ -67,6 +68,7 @@ public class Project extends Component {
   @Override
   public void acceptVisitor(Visitor visitor) {
     visitor.visitProject(this);
+    logger.debug("Project " + this.name + " visited");
   }
 
   /**
@@ -136,6 +138,7 @@ public class Project extends Component {
     if (projectComponent != null) {
       this.children.add(projectComponent);
       projectComponent.fatherNode = this;
+      logger.info(projectComponent.name + " has been added to Project " + this.name);
     }
     invariant();
   }
