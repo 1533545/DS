@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
 /**
@@ -15,10 +13,6 @@ import visitor.Visitor;
  * contains multiple Projects or/and Tasks. Represents a project node of the components tree.
  **/
 public class Project extends Component {
-  /**
-   * Logger for Task class.
-   **/
-  private static Logger logger = LoggerFactory.getLogger(Project.class);
   /**
    * List of all child Components nodes.
    **/

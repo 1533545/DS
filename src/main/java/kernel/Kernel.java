@@ -6,14 +6,21 @@ import java.util.List;
 import json.JsonReader;
 import json.JsonWriter;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import visitor.NameExplorer;
 import visitor.Printer;
 import visitor.TagExplorer;
 
 /**
- * Main entrypoint of execution of the Kernel.
+ * Program.Main entrypoint of execution of the Kernel test.
  **/
-public class Main {
+public class Kernel {
+  /**
+   * Logger for Program.Main class.
+   **/
+  private static Logger logger = LoggerFactory.getLogger(Kernel.class);
+
   /**
    * Executes Appendix tests.
    **/
@@ -24,33 +31,26 @@ public class Main {
     final TagExplorer tagExplorer = new TagExplorer();
     final Printer printer = new Printer();
 
-/*    // Appendix A test.
-    System.out.println("\n");
-    System.out.println("Appendix A:");
-    System.out.println("--------------------------------------"
+    // Appendix A test.
+    logger.trace("\n");
+    logger.trace("Appendix A:");
+    logger.trace("--------------------------------------"
         + "---------------------------------------------");
     appendixA(root, printer);
 
     // Appendix B test.
-    System.out.println("\n");
-    System.out.println("Appendix B:");
-    System.out.println("--------------------------------------"
+    logger.trace("\n");
+    logger.trace("Appendix B:");
+    logger.trace("--------------------------------------"
         + "---------------------------------------------");
     appendixB(root, nameExplorer);
 
     // Appendix JSON test.
-    System.out.println("\n");
-    System.out.println("Appendix JSON:");
-    System.out.println("--------------------------------------"
+    logger.trace("\n");
+    logger.trace("Appendix JSON:");
+    logger.trace("--------------------------------------"
         + "---------------------------------------------");
-    appendixJson(root, printer);*/
-
-    // Appendix Visitor test.
-    System.out.println("\n");
-    System.out.println("Appendix Visitor:");
-    System.out.println("--------------------------------------"
-        + "---------------------------------------------");
-    appendixVisitor(root, tagExplorer);
+    appendixJson(root, printer);
   }
 
   /**
@@ -181,51 +181,10 @@ public class Main {
     try {
       projectLoadFromJson = new Project(rootJson);
     } catch (Exception exception) {
-      System.out.println(exception);
+      logger.debug(exception.toString());
     }
 
     // Print initialized Project object from json.
     printer.print(projectLoadFromJson);
-  }
-
-  /**
-   * Test search by tags.
-   **/
-  public static void appendixVisitor(Project root, TagExplorer tagExplorer) {
-    String[] tagsToSearch = new String[] {
-      "java", "Java", "IntelliJ", "c++", "python"
-    };
-
-    for (String tag : tagsToSearch) {
-      List<Component> foundComponents = searchByTagList(root, tagExplorer, tag);
-      if (foundComponents != null && !foundComponents.isEmpty()) {
-        System.out.println("-" + tag + " found in: "
-            + generateCustomComponentsNameLog(foundComponents));
-      } else {
-        System.out.println("-" + tag + " not found :(");
-      }
-    }
-  }
-
-  /**
-   * Given a Component tree search for a specific tag.
-   **/
-  private static List<Component> searchByTagList(Project root,
-                       TagExplorer tagExplorer, String tag) {
-    tagExplorer.cleanTargetTag();
-    tagExplorer.setTargetTag(tag);
-    tagExplorer.search(root);
-    return tagExplorer.getResult();
-  }
-
-  /**
-   * Given a Component list search generate a custom string of concatenated Components names.
-   **/
-  private static String generateCustomComponentsNameLog(List<Component> components) {
-    String customLog = "";
-    for (Component component : components) {
-      customLog += (component.getName() + ", ");
-    }
-    return customLog;
   }
 }

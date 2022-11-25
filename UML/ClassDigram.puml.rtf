@@ -24,7 +24,7 @@ skinparam linetype ortho\
 \
 /' Back End '/\
 package "kernel" #DDDDDD \{\
-  class Main \{\
+  class program.Main \{\
     +\{static\}main()\
   \}\
 \
@@ -110,7 +110,7 @@ package "kernel" #DDDDDD \{\
   ProjectComponent "N" --o "1" ProjectComposite : Children\
   Task "1" o-- "0..N" Interval\
   Interval ..|> Observer\
-  Main -- ProjectComponent: "instantiates"\
+  program.Main -- ProjectComponent: "instantiates"\
   Clock --|> Observable\
 \
 @enduml}

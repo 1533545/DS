@@ -4,11 +4,14 @@ import java.util.List;
 import kernel.Component;
 import kernel.Project;
 import kernel.Task;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Prints Component attributes values in the console with a custom style.
  **/
 public class Printer implements Visitor {
+  private static Logger logger = LoggerFactory.getLogger(Printer.class);
 
   /**
    * Stores the indentation length.
@@ -71,7 +74,7 @@ public class Printer implements Visitor {
   public void visitProject(Project project) {
     String customIndentation = generateCustomIndentation();
     String customTagList = generateCustomTagListString(project.getTags());
-    System.out.println(customIndentation + ">" + "PROJECT: " + project.getName()
+    logger.info(customIndentation + ">" + "PROJECT: " + project.getName()
         + " - Start: " + project.getStartTime() + " - Finish: " + project.getFinishTime()
         + " - Duration: " + project.getDuration() + " - Tags: " + customTagList);
     int auxiliaryIndentation = this.indentation;
@@ -89,7 +92,7 @@ public class Printer implements Visitor {
   public void visitTask(Task task) {
     String customIndentation = generateCustomIndentation();
     String customTagList = generateCustomTagListString(task.getTags());
-    System.out.println(customIndentation + ">" + "TASK: " + task.getName()
+    logger.info(customIndentation + ">" + "TASK: " + task.getName()
         + " - Start: " + task.getStartTime() + " - Finish: " + task.getFinishTime()
         + " - Duration: " + task.getDuration() + " - Tags: " + customTagList);
   }

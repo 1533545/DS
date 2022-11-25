@@ -1,6 +1,5 @@
 package kernel;
 
-import java.io.PrintStream;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,12 +8,18 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import visitor.Visitor;
 
 /**
  * Abstraction of Project and Task.
  **/
 public abstract class Component {
+  /**
+   * Logger object of the Component.
+   **/
+  private static Logger logger = LoggerFactory.getLogger(Component.class);
 
   /**
    * Father node of the Component.
@@ -120,7 +125,7 @@ public abstract class Component {
     jsonObject.put("Name", this.name);
     jsonObject.put("Description", this.description);
     jsonObject.put("Duration", this.getDuration());
-    jsonObject.put("Tags", this.tagsTojson());
+    jsonObject.put("Tags", this.tagsToJson());
 
     if (this.startTime == null) {
       jsonObject.put("Start", LocalDateTime.MIN);
@@ -140,7 +145,7 @@ public abstract class Component {
   /**
    * Returns a JSONArray of the tags list of the Component.
    **/
-  private JSONArray tagsTojson() {
+  private JSONArray tagsToJson() {
     JSONArray jsonArray = new JSONArray();
     if (this.tags != null && !this.tags.isEmpty()) {
       Iterator var2 = this.tags.iterator();
@@ -220,12 +225,14 @@ public abstract class Component {
    **/
   public void printComponentTimes() {
     for (Component project = this; project != null; project = project.fatherNode) {
-      System.out.println(project.name.toUpperCase() + ":");
-      System.out.println("Component-> Start: "
-          + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
-      System.out.println("            End: "
-          + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
-      System.out.println("            Duration: " + project.getDuration());
+      logger.info(project.name.toUpperCase() + ":");
+      logger.info("Component-> Start: "
+              + project.getStartTime().format(DateTimeFormatter.ISO_DATE_TIME));
+      logger.info("End: "
+              + project.getFinishTime().format(DateTimeFormatter.ISO_DATE_TIME));
+      logger.info("Duration: " + project.getDuration());
+      logger.trace("--------------------------------------"
+          + "---------------------------------------------");
     }
   }
 
