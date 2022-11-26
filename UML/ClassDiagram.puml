@@ -6,6 +6,7 @@ skinparam linetype ortho
 package "kernel" #DDDDDD {
 
   Abstract Component {
+      - {static} logger: Logger
       #fatherNode : Component
       #tags : List<String>
       #name : String
@@ -17,14 +18,16 @@ package "kernel" #DDDDDD {
       -generateTagsFromJson((jsonArray :JSONArray) : List<String>
       #toJsonComponent(jsonObject: JSONObject) : JSONObject
       -tagsTojson() : JSONArray
-      #updateStartTime(time : LocalDateTime) : void
-      #updateFinishTime(time : LocalDateTime) : void
+      +updateStartTime(time : LocalDateTime) : void
+      +updateFinishTime(time : LocalDateTime) : void
       +acceptVisitor(visitor : Visitor) : void
+      -tagsToLowercase(tags : List<String>): List<String>
+      +printComponentTimes(): void
   }
 
   class Project {
-     -logger: Logger
-     -children: list<Component>
+     - {static} logger: Logger
+     -children: List<Component>
      +addComponent(Component : ProjectComponent) : void
      +toJson(): JSONObject
      +RemoveComponent(id : String) : boolean
@@ -32,11 +35,13 @@ package "kernel" #DDDDDD {
      -generateTaskFromJson(childJson : JSONObject) : void
      -generateProjectFromJson(childJson : JSONObject) : void
      -childrenToJson() : JSONArray
+     -invariant(): boolean
+     +acceptVisitor(visitor : Visitor): void
   }
 
   class Task {
-    -logger: Logger
-    -intervals: list<Interval>
+    - {static} logger: Logger
+    -intervals: List<Interval>
     -runningInterval : Interval
     +addInterval(interval : Interval) : void
     +startTask() : void
@@ -45,19 +50,26 @@ package "kernel" #DDDDDD {
     -loadIntervalsFromJson(jsonArray :JSONArray) : void
     -startObservingClock() : void
     -stopObservingClock() : void
+    -invariant(): boolean
+    +acceptVisitor(visitor : Visitor): void
+    +printTimes(): void
+    +toJson(): JSONObject
+    +addInterval(interval : Interval): void
   }
 
   class Interval {
-    -logger : Logger
+    - {static} logger: Logger
     -start : LocalDateTime
     -end : LocalDateTime
     -fatherTask : Task
     +toJson():JSONObject
     +update(obs : Observable, arg : Object)
+    -printTimes(): void
+    -printIntervalTimes(): void
   }
 
   class Clock{
-  -_logger: Logger
+  - {static} logger: Logger
   -timer: Timer
   -clock: Clock
   -cancelTimer: boolean
@@ -92,36 +104,45 @@ package "visitor" #DDDDDD {
   }
 
   class TagExplorer{
+    - {static} logger: Logger
     -targetTag: String
-    -resultTag: List<Component>
+    -componentsFound: List<Component>
     +cleanTargetTag(): void
-    +getResult(): List<Component>
     +search((project:Project): List<Component>
+    +visitProject(project:Project) : void
+    +visitTask(task: Task) :void
   }
 
   class Printer{
+    - {static} logger: Logger
     -indentation : int
     -generateCustomIndentation(): String
     -generateCustomTagListString(tagList: List<String>)
     +print(component: Component): void
+    +visitProject(project:Project) : void
+    +visitTask(task: Task) :void
   }
 
   class NameExplorer{
-    -targetName: String
-    -resultName: Component
-    +getResult(): Component
+    - {static} logger: Logger
+    ~targetName: String
+    ~componentFound: Component
     +search(project: Project): void
+    +visitProject(project:Project) : void
+    +visitTask(task: Task) :void
   }
 }
 
 package json #DDDDDD {
   class JsonReader {
+    - {static} logger: Logger
     + {static} readJson(fileName : String) : JSONObject
     - {static} readJsonFile(fileName : String) : String
     - {static} readFile(file : File) : String
   }
 
   class JsonWriter {
+    - {static} logger: Logger
     + {static} saveJson(json:JSONObject) : void
     + {static} saveJsonPrettier(json:JSONObject) : void
     - writeJson(text : String, fileName : String)
